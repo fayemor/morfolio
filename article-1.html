@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L’Intelligence Artificielle : Menace redoutée ou coéquipier d'exception ? | Mor Faye</title>
+
+    <!-- OPEN GRAPH : Prêt pour Vercel / GitHub -->
+    <meta name="description"
+        content="Et si l'IA était simplement le partenaire de travail le plus performant de notre époque ?">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="L’Intelligence Artificielle : Menace redoutée ou coéquipier d'exception ?">
+    <meta property="og:description"
+        content="Et si l'IA était simplement le partenaire de travail le plus performant de notre époque ?">
+    <!-- Remplacez 'https://votre-domaine.vercel.app' par votre vraie URL Vercel une fois en ligne -->
+    <meta property="og:image" content="https://morfolio.vercel.app/article-1.png">
+    <meta property="og:url" content="https://morfolio.vercel.app/article-1.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#0A0A0B">
+
+    <!-- Favicon (inline SVG monogram) -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230A0A0B'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' rx='6' fill='none' stroke='%233B82F6' stroke-width='2'/%3E%3Ctext x='32' y='41' font-family='monospace' font-weight='700' font-size='24' fill='%23F2F1EC' text-anchor='middle'%3EMF%3C/text%3E%3C/svg%3E">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['"IBM Plex Sans"', 'sans-serif'], display: ['"Plus Jakarta Sans"', 'sans-serif'], mono: ['"IBM Plex Mono"', 'monospace'], } } }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg: #0A0A0B;
+            --text: #F2F1EC;
+            --text-mute: #9C9BA3;
+            --accent: #3B82F6;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'IBM Plex Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        #bgGrid {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .article-content h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .article-content strong {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="relative min-h-screen selection:bg-[#3B82F6] selection:text-white">
+    <div id="bgGrid"></div>
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#0A0A0B]/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html#articles"
+                class="flex items-center gap-3 text-mute hover:text-accent transition-colors font-mono text-sm">
+                <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <span class="hidden sm:inline">Retour</span>
+            </a>
+
+            <button onclick="partagerArticle()" id="btnShare"
+                class="px-5 py-2 rounded-full bg-[#131316] border border-white/20 text-white text-xs font-mono flex items-center gap-2 hover:bg-accent hover:border-accent transition-all shadow-lg">
+                <i class="fa-solid fa-share-nodes text-sm"></i> <span id="shareText">Partager</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-3xl w-full mx-auto pb-20 pt-28 px-4 relative z-10">
+        <!-- Tags -->
+        <div class="flex items-center gap-3 text-mute font-mono text-xs mb-6">
+            <div class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center">
+                <i class="fa-solid fa-feather-pointed"></i>
+            </div>
+            <span class="uppercase font-bold tracking-widest text-accent">Réflexion</span>
+            <span class="text-white/30">•</span>
+            <span>Lecture : 3 min</span>
+        </div>
+
+        <!-- Titre & Image -->
+        <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-white mb-8 leading-[1.15]">L’Intelligence
+            Artificielle : Menace redoutée ou coéquipier d'exception ?</h1>
+
+        <div
+            class="relative w-full aspect-[21/9] sm:aspect-video rounded-[20px] sm:rounded-[32px] overflow-hidden mb-12 border border-white/10 shadow-2xl">
+            <img src="article-1.png" alt="Couverture de l'article" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Contenu -->
+        <article class="text-mute font-sans article-content">
+            <p>Il suffit de mentionner l’intelligence artificielle dans une conversation pour voir les réactions se
+                scinder instantanément. D’un côté, la crainte d’un grand remplacement technologique, la peur de la
+                déshumanisation ou la suspicion de fainéantise. De l’autre, une gêne presque coupable : aujourd’hui
+                encore, beaucoup de professionnels, d'étudiants ou de créateurs n'osent pas avouer qu’ils utilisent
+                l’IA, comme s’il s'agissait d’une forme de triche ou d’une aveu d’incompétence.</p>
+
+            <p>Pourtant, cette vision est le fruit d’un quiproquo fondamental sur la nature même de la technologie. L’IA
+                n’est ni un ennemi à combattre, ni un substitut à la pensée humaine. Elle est, pour quiconque apprend à
+                la maîtriser, l’un des plus puissants coéquipiers de l’histoire moderne.</p>
+
+            <h3>De la peur du changement au complexe de la triche</h3>
+            <p>Chaque grande révolution technologique a suscité des résistances similaires. À l'apparition de la
+                calculatrice, on prédisait la mort de l'arithmétique et du raisonnement. À l'arrivée d'Internet et de
+                Wikipédia, on criait à la fin des bibliothèques et de la recherche rigoureuse. L'histoire ne fait que se
+                répéter.</p>
+
+            <p>La honte d'utiliser l'IA découle de cette idée reçue selon laquelle le travail n'a de valeur que s'il est
+                accompli dans la souffrance et la répétition. Pourquoi passer des heures à effectuer des tâches
+                chronophages, de la saisie de données, de la mise en page ou de la recherche documentaire de base, quand
+                une machine peut en traiter la première mouture en quelques secondes ? Déléguer la mécanique répétitive
+                à un assistant virtuel n'enlève rien au mérite du résultat ; cela libère au contraire ce que l'humain a
+                de plus précieux : sa créativité, son jugement et sa vision stratégique.</p>
+
+            <p>Considérer l’IA comme un <strong>partenaire</strong> modifie radicalement notre façon de travailler, quel
+                que soit le
+                secteur :</p>
+
+            <p><strong>En médecine et en santé :</strong> L'IA ne remplace pas le médecin, mais elle passe en revue des
+                milliers d'images médicales ou d'études scientifiques pour repérer des signaux faibles. Elle devient un
+                second regard d'une précision remarquable pour affiner un diagnostic.</p>
+
+            <p><strong>En informatique et ingénierie :</strong> Elle agit comme un binôme de programmation (« pair
+                programmer »). Elle suggère du code, repère des bugs et génère des tests, permettant au développeur de
+                se concentrer sur l'architecture globale et la résolution de problèmes complexes.</p>
+
+            <p><strong>En éducation et recherche :</strong> Elle se transforme en tuteur personnalisé disponible 24h/24,
+                capable d'expliquer un concept sous dix angles différents, de générer des exercices sur mesure ou de
+                synthétiser une littérature scientifique dense.</p>
+
+            <p><strong>Dans la création et l'écriture :</strong> Elle s'apparente au partenaire de brainstorming idéal.
+                Face à la page blanche, elle propose des angles, recadre une structure ou challenge une idée. La touche
+                finale, la sensibilité et l'authenticité restent toujours l'apanage de l'auteur.</p>
+
+            <p>L'IA n'a ni conscience, ni intention, ni esprit critique. Livrée à elle-même, elle peut produire des
+                banalités ou des erreurs avec une assurance déconcertante. C’est précisément là que réside toute la
+                valeur de l’intervenant humain.</p>
+
+            <p>La qualité d'un résultat obtenu par l'IA dépend directement de la clarté, de la finesse et de la logique
+                de celui qui la pilote. Formuler le bon contexte, poser les bonnes questions, vérifier les sources,
+                corriger les hallucinations et insuffler une direction éthique sont des compétences éminemment humaines.
+                Un mauvais utilisateur obtiendra des résultats médiocres ; un utilisateur averti accomplira le travail
+                de toute une équipe en une fraction du temps.</p>
+
+            <p>Il est temps de dépasser la méfiance stérile et la honte injustifiée. L'intelligence artificielle ne doit
+                pas être subie comme un péril, mais apprivoisée comme un levier d'émancipation.</p>
+
+            <p>Le véritable danger ne vient pas de la machine elle-même, mais du risque de rester à la traîne en
+                refusant d'adopter des outils qui redéfinissent l'efficacité. En cessant de voir l'IA comme une menace
+                et en apprenant à collaborer avec elle, nous ne devenons pas moins humains : nous devenons simplement
+                plus capables, plus accomplis et tournés vers ce qui compte vraiment.</p>
+
+            <strong>Mor FAYE</strong>
+        </article>
+    </main>
+
+    <script>
+        function partagerArticle() {
+            const url = window.location.href;
+            if (navigator.share) {
+                navigator.share({ title: document.title, url: url }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(url).then(() => {
+                    const shareText = document.getElementById('shareText');
+                    shareText.innerText = "Lien copié !";
+                    document.getElementById('btnShare').classList.add('text-green-400', 'border-green-400');
+                    setTimeout(() => {
+                        shareText.innerText = "Partager";
+                        document.getElementById('btnShare').classList.remove('text-green-400', 'border-green-400');
+                    }, 2500);
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
