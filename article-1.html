@@ -89,6 +89,16 @@
         .article-content strong {
             color: #fff;
         }
+        
+        /* Animation pour le coeur rouge */
+        @keyframes heartBurst {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        .liked-anim {
+            animation: heartBurst 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
     </style>
 </head>
 
@@ -114,14 +124,29 @@
     </header>
 
     <main class="max-w-3xl w-full mx-auto pb-20 pt-28 px-4 relative z-10">
-        <!-- Tags -->
-        <div class="flex items-center gap-3 text-mute font-mono text-xs mb-6">
+        
+        <!-- Tags & Compteurs (Vues + Likes) -->
+        <div class="flex flex-wrap items-center gap-3 text-mute font-mono text-xs mb-6">
             <div class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center">
                 <i class="fa-solid fa-feather-pointed"></i>
             </div>
             <span class="uppercase font-bold tracking-widest text-accent">Réflexion</span>
-            <span class="text-white/30">•</span>
-            <span>Mor FAYE &bull; Lecture : 3 min</span>
+            <span class="text-white/30 hidden sm:inline">•</span>
+            <span class="hidden sm:inline">Mor FAYE &bull; Lecture : 3 min</span>
+            
+            <span class="text-white/30 hidden sm:inline">•</span>
+            
+            <!-- Compteur de vues -->
+            <div class="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-full border border-white/10 text-white">
+                <i class="fa-regular fa-eye text-accent"></i>
+                <span id="viewCount">1 245</span> <span class="text-mute hidden sm:inline">vues</span>
+            </div>
+
+            <!-- Bouton Like (Haut) -->
+            <button onclick="toggleLike()" id="likeBtnTop" class="flex items-center gap-1.5 ml-auto sm:ml-0 bg-white/5 px-2.5 py-1 rounded-full border border-white/10 text-white hover:border-red-500 hover:text-red-500 transition-all cursor-pointer">
+                <i class="fa-regular fa-heart" id="likeIconTop"></i>
+                <span id="likeCountTop">342</span>
+            </button>
         </div>
 
         <!-- Titre & Image -->
@@ -196,11 +221,110 @@
                 et en apprenant à collaborer avec elle, nous ne devenons pas moins humains : nous devenons simplement
                 plus capables, plus accomplis et tournés vers ce qui compte vraiment.</p>
 
-            <strong>Mor FAYE</strong><p>Septembre 2026</p>
+            <div class="mt-8 mb-4">
+                <strong>Mor FAYE</strong><p class="text-sm">Septembre 2026</p>
+            </div>
+
+            <!-- Footer d'article : Bouton Like géant pour la fin de lecture -->
+            <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="text-sm font-mono">
+                    <span class="text-white">Cet article vous a plu ?</span>
+                </div>
+                
+                <button onclick="toggleLike()" id="likeBtnBottom" class="flex items-center gap-3 px-6 py-3 rounded-full bg-[#131316] border border-white/20 text-white text-sm font-display hover:border-red-500 hover:text-red-500 hover:bg-red-500/10 transition-all shadow-lg group">
+                    <i class="fa-regular fa-heart text-lg group-hover:scale-110 transition-transform" id="likeIconBottom"></i>
+                    <span class="font-bold text-base" id="likeCountBottom">342</span>
+                </button>
+            </div>
+
         </article>
     </main>
 
     <script>
+        // --- SYSTÈME DE VUES ET DE LIKES (Simulation avec LocalStorage) ---
+        
+        const articleId = "article_ia_morfaye"; 
+        let baseLikes = 342;
+        let baseViews = 1245;
+
+        // Initialisation au chargement
+        window.addEventListener('DOMContentLoaded', () => {
+            // Vues
+            let views = localStorage.getItem(articleId + '_views');
+            if (!views) {
+                views = baseViews + Math.floor(Math.random() * 10); // Simule de nouvelles vues
+                localStorage.setItem(articleId + '_views', views);
+            } else {
+                views = parseInt(views) + 1; // Incrémente à chaque nouvelle visite locale
+                localStorage.setItem(articleId + '_views', views);
+            }
+            document.getElementById('viewCount').innerText = views.toLocaleString('fr-FR');
+
+            // Likes
+            updateLikeUI();
+        });
+
+        // Fonction pour liker / unliker
+        function toggleLike() {
+            let hasLiked = localStorage.getItem(articleId + '_liked') === 'true';
+            
+            if (hasLiked) {
+                // S'il enlève son like
+                localStorage.setItem(articleId + '_liked', 'false');
+                baseLikes--;
+            } else {
+                // S'il ajoute un like
+                localStorage.setItem(articleId + '_liked', 'true');
+                baseLikes++;
+                
+                // Petite animation sympa sur les icônes
+                document.getElementById('likeIconTop').classList.add('liked-anim');
+                document.getElementById('likeIconBottom').classList.add('liked-anim');
+                setTimeout(() => {
+                    document.getElementById('likeIconTop').classList.remove('liked-anim');
+                    document.getElementById('likeIconBottom').classList.remove('liked-anim');
+                }, 300);
+            }
+            
+            updateLikeUI();
+        }
+
+        // Met à jour les couleurs et les chiffres des boutons
+        function updateLikeUI() {
+            let hasLiked = localStorage.getItem(articleId + '_liked') === 'true';
+            
+            // Mise à jour des compteurs
+            document.getElementById('likeCountTop').innerText = baseLikes;
+            document.getElementById('likeCountBottom').innerText = baseLikes;
+
+            // Mise à jour de l'apparence (Haut)
+            const iconTop = document.getElementById('likeIconTop');
+            const btnTop = document.getElementById('likeBtnTop');
+            if (hasLiked) {
+                iconTop.classList.replace('fa-regular', 'fa-solid');
+                btnTop.classList.add('text-red-500', 'border-red-500');
+                btnTop.classList.remove('text-white', 'border-white/10');
+            } else {
+                iconTop.classList.replace('fa-solid', 'fa-regular');
+                btnTop.classList.remove('text-red-500', 'border-red-500');
+                btnTop.classList.add('text-white', 'border-white/10');
+            }
+
+            // Mise à jour de l'apparence (Bas)
+            const iconBottom = document.getElementById('likeIconBottom');
+            const btnBottom = document.getElementById('likeBtnBottom');
+            if (hasLiked) {
+                iconBottom.classList.replace('fa-regular', 'fa-solid');
+                btnBottom.classList.add('text-red-500', 'border-red-500', 'bg-red-500/10');
+                btnBottom.classList.remove('text-white', 'border-white/20');
+            } else {
+                iconBottom.classList.replace('fa-solid', 'fa-regular');
+                btnBottom.classList.remove('text-red-500', 'border-red-500', 'bg-red-500/10');
+                btnBottom.classList.add('text-white', 'border-white/20');
+            }
+        }
+
+        // --- FONCTION DE PARTAGE ---
         function partagerArticle() {
             const url = window.location.href;
             if (navigator.share) {
