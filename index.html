@@ -47,8 +47,16 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <!-- Script de préchargement du thème pour éviter le clignotement -->
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light');
+        }
+    </script>
+
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -63,19 +71,50 @@
 
     <style>
         :root {
+            /* Variables Thème Sombre (Défaut) */
             --bg: #0A0A0B;
+            --bg-rgb: 10, 10, 11;
             --panel: #131316;
+            --panel-rgb: 19, 19, 22;
             --panel-2: #1B1B1F;
+            --panel-2-rgb: 27, 27, 31;
+            
             --border: rgba(255, 255, 255, 0.10);
             --border-strong: rgba(255, 255, 255, 0.22);
+            --grid-line: rgba(255, 255, 255, 0.03);
+            --surface: rgba(255, 255, 255, 0.05);
+            
             --text: #F2F1EC;
             --text-mute: #9C9BA3;
             --text-faint: #55545B;
 
-            /* BLEU THÈME ACCENT */
+            /* Bleu Thème Accent */
             --accent: #3B82F6;
             --accent-2: #60A5FA;
             --accent-dim: rgba(59, 130, 246, 0.12);
+        }
+
+        html.light {
+            /* Variables Thème Clair */
+            --bg: #F9FAFB;
+            --bg-rgb: 249, 250, 251;
+            --panel: #FFFFFF;
+            --panel-rgb: 255, 255, 255;
+            --panel-2: #F3F4F6;
+            --panel-2-rgb: 243, 244, 246;
+            
+            --border: rgba(0, 0, 0, 0.08);
+            --border-strong: rgba(0, 0, 0, 0.18);
+            --grid-line: rgba(0, 0, 0, 0.04);
+            --surface: rgba(0, 0, 0, 0.04);
+            
+            --text: #111827;
+            --text-mute: #6B7280;
+            --text-faint: #9CA3AF;
+            
+            --accent: #2563EB;
+            --accent-2: #1D4ED8;
+            --accent-dim: rgba(37, 99, 235, 0.12);
         }
 
         body {
@@ -87,13 +126,8 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        .font-mono {
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        .font-display {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+        .font-mono { font-family: 'IBM Plex Mono', monospace; }
+        .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
 
         /* Grid Background */
         #bgGrid {
@@ -102,8 +136,8 @@
             z-index: 0;
             pointer-events: none;
             background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
             background-size: 48px 48px;
             -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
@@ -124,36 +158,18 @@
             border: 1px solid var(--border);
             border-radius: 12px;
         }
-
         .panel-2 {
             background: var(--panel-2);
             border: 1px solid var(--border);
             border-radius: 8px;
         }
+        .hairline-t { border-top: 1px solid var(--border); }
+        .hairline-b { border-bottom: 1px solid var(--border); }
 
-        .hairline-t {
-            border-top: 1px solid var(--border);
-        }
-
-        .hairline-b {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .text-accent {
-            color: var(--accent);
-        }
-
-        .text-mute {
-            color: var(--text-mute);
-        }
-
-        .text-faint {
-            color: var(--text-faint);
-        }
-
-        .bg-accent {
-            background-color: var(--accent);
-        }
+        .text-accent { color: var(--accent); }
+        .text-mute { color: var(--text-mute); }
+        .text-faint { color: var(--text-faint); }
+        .bg-accent { background-color: var(--accent); }
 
         .btn-primary {
             background: var(--accent);
@@ -162,12 +178,10 @@
             border-radius: 8px;
             transition: all .2s ease;
         }
-
         .btn-primary:hover {
             background: var(--accent-2);
             transform: translateY(-1px);
         }
-
         .btn-ghost {
             background: transparent;
             border: 1px solid var(--border-strong);
@@ -175,12 +189,10 @@
             border-radius: 8px;
             transition: all .2s ease;
         }
-
         .btn-ghost:hover {
             border-color: var(--accent);
             background: var(--accent-dim);
         }
-
         .tag {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px;
@@ -188,36 +200,35 @@
             border: 1px solid var(--border-strong);
             border-radius: 9999px;
             color: var(--text-mute);
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--surface);
         }
 
         /* CUSTOM UI CARDS */
         .mango-card-container {
-            background: #131316;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: var(--panel);
+            border: 1px solid var(--border);
             border-radius: 28px;
             padding: 14px;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
-
         .mango-card-container:hover {
             border-color: rgba(59, 130, 246, 0.4);
             transform: translateY(-3px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.15);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.15);
         }
 
         .mango-card-immersive {
+            background: var(--panel);
             border-radius: 28px;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
-
         .mango-card-immersive:hover {
             border-color: rgba(59, 130, 246, 0.5);
             transform: translateY(-3px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.4);
         }
 
         /* Reveal animations */
@@ -226,113 +237,42 @@
             transform: translateY(12px);
             transition: opacity .5s ease, transform .5s ease;
         }
-
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .boot {
-            opacity: 0;
-            transform: translateY(10px);
-            animation: bootIn .6s cubic-bezier(.16, 1, .3, 1) forwards;
-        }
-
-        .boot-1 {
-            animation-delay: .05s;
-        }
-
-        .boot-2 {
-            animation-delay: .15s;
-        }
-
-        .boot-3 {
-            animation-delay: .25s;
-        }
-
-        .boot-4 {
-            animation-delay: .35s;
-        }
-
-        .boot-5 {
-            animation-delay: .45s;
-        }
-
-        @keyframes bootIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        .boot { opacity: 0; transform: translateY(10px); animation: bootIn .6s cubic-bezier(.16, 1, .3, 1) forwards; }
+        .boot-1 { animation-delay: .05s; }
+        .boot-2 { animation-delay: .15s; }
+        .boot-3 { animation-delay: .25s; }
+        .boot-4 { animation-delay: .35s; }
+        .boot-5 { animation-delay: .45s; }
+        @keyframes bootIn { to { opacity: 1; transform: translateY(0); } }
 
         /* Article Modal Content */
-        #articleModalContent p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
+        #articleModalContent p { margin-bottom: 1.5rem; line-height: 1.8; }
+        #articleModalContent ul, #articleModalContent ol { margin-bottom: 1.5rem; margin-left: 1.5rem; list-style-type: disc; line-height: 1.8; }
+        #articleModalContent li { margin-bottom: 0.5rem; }
+        #articleModalContent strong { color: var(--text); font-weight: 600; }
+        #articleModalContent h3 { color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; }
+        #articleModalContent em { color: var(--text); font-style: italic; }
 
-        #articleModalContent ul,
-        #articleModalContent ol {
-            margin-bottom: 1.5rem;
-            margin-left: 1.5rem;
-            list-style-type: disc;
-            line-height: 1.8;
-        }
-
-        #articleModalContent li {
-            margin-bottom: 0.5rem;
-        }
-
-        #articleModalContent strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        #articleModalContent h3 {
-            color: var(--text);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        #articleModalContent em {
-            color: var(--text);
-            font-style: italic;
-        }
-
-        section[id],
-        footer[id] {
-            scroll-margin-top: 5.5rem;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
-        }
+        section[id], footer[id] { scroll-margin-top: 5.5rem; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
     </style>
 </head>
 
-<body class="relative min-h-screen selection:bg-[#3B82F6] selection:text-white">
+<body class="relative min-h-screen selection:bg-[#3B82F6] selection:text-white transition-colors duration-300">
 
     <div id="bgGrid"></div>
     <div id="bgGlow"></div>
 
     <!-- HEADER -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-[#0A0A0B]/90 backdrop-blur-md hairline-b" id="navbar">
+    <header class="fixed top-0 left-0 w-full z-50 bg-[rgba(var(--bg-rgb),0.9)] backdrop-blur-md hairline-b transition-colors duration-300" id="navbar">
         <div class="max-w-6xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
 
             <a href="#" class="flex items-center gap-3 group">
@@ -355,6 +295,12 @@
             </nav>
 
             <div class="flex items-center gap-2">
+                <!-- Toggle Theme -->
+                <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="Thème" class="px-2.5 py-1.5 rounded-lg border border-[var(--border)] text-mute hover:text-accent hover:bg-[var(--accent-dim)] transition-colors">
+                    <i class="fa-solid fa-sun" id="themeIcon"></i>
+                </button>
+
+                <!-- Language Switcher -->
                 <div class="flex items-center rounded-lg border border-[var(--border)] overflow-hidden font-mono text-[11px]"
                     role="group" aria-label="Language">
                     <button onclick="setLang('en')" id="langBtnEn"
@@ -373,14 +319,14 @@
                 </a>
 
                 <button onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false"
-                    class="lg:hidden p-2 rounded-lg border border-[var(--border)]">
+                    class="lg:hidden p-2 rounded-lg border border-[var(--border)] text-[var(--text)]">
                     <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
 
         <div id="mobileMenu"
-            class="hidden lg:hidden max-w-6xl mx-auto px-4 pb-5 flex-col space-y-1 font-mono text-[13px] bg-[#0A0A0B]">
+            class="hidden lg:hidden max-w-6xl mx-auto px-4 pb-5 flex-col space-y-1 font-mono text-[13px] bg-[var(--bg)]">
             <a href="#work" onclick="toggleMobileMenu()"
                 class="py-3 hairline-t flex items-center justify-between text-mute"><span
                     data-i18n="nav_work">~/projets</span><i class="fa-solid fa-arrow-right text-accent text-xs"></i></a>
@@ -406,7 +352,7 @@
     <!-- HERO -->
     <section class="relative pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-8 max-w-6xl mx-auto z-10">
         <div class="flex flex-wrap items-center gap-3 mb-8 boot boot-1">
-            <span class="tag flex items-center gap-1.5 !text-[var(--text)] border-accent/40 bg-blue-500/10">
+            <span class="tag flex items-center gap-1.5 !text-[var(--text)] !bg-blue-500/10 !border-accent/40">
                 <span class="w-2 h-2 rounded-full bg-accent animate-ping"></span>
                 <span data-i18n="status">statut : disponible pour opportunités</span>
             </span>
@@ -432,7 +378,7 @@
                         <span data-i18n="btn_explore">Explorer les Projets</span> <i
                             class="fa-solid fa-arrow-down text-xs"></i>
                     </a>
-                    <a href="#"
+                    <a href="https://drive.google.com/file/d/1VtnyLRW7BDRr3lAejDap0twMp3KELhja/view?usp=drive_link"
                         target="_blank" rel="noopener noreferrer"
                         class="btn-ghost px-6 py-3 text-sm inline-flex items-center gap-2 font-display">
                         <i class="fa-solid fa-download text-xs"></i> <span data-i18n="btn_cv">Télécharger CV</span>
@@ -447,20 +393,20 @@
 
             <div class="lg:col-span-4 boot boot-5">
                 <div class="mango-card-container p-3 max-w-sm mx-auto">
-                    <div class="relative w-full aspect-square rounded-[20px] overflow-hidden mb-3 bg-[#1B1B1F]">
-                        <img src="morfaye.png" alt="Mor Faye"
+                    <div class="relative w-full aspect-square rounded-[20px] overflow-hidden mb-3 bg-[var(--panel-2)]">
+                        <img src="https://placehold.co/800x800/1B1B1F/3B82F6?text=Mor+Faye" alt="Mor Faye"
                             class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
-                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/10"
+                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20"
                             data-i18n="badge_founder">
                             Fondateur of Raffet'Art
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-2 font-mono text-center">
-                        <div class="p-3 bg-[#1B1B1F] rounded-xl border border-white/5">
+                        <div class="p-3 bg-[var(--panel-2)] rounded-xl border border-[var(--border)]">
                             <div class="text-lg font-bold text-accent">50+</div>
                             <div class="text-[10px] text-mute uppercase" data-i18n="stat_design">Œuvres Design</div>
                         </div>
-                        <div class="p-3 bg-[#1B1B1F] rounded-xl border border-white/5">
+                        <div class="p-3 bg-[var(--panel-2)] rounded-xl border border-[var(--border)]">
                             <div class="text-lg font-bold text-accent">100%</div>
                             <div class="text-[10px] text-mute uppercase" data-i18n="stat_code">Code Sur-Mesure</div>
                         </div>
@@ -481,13 +427,13 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-3">
-                <div class="flex bg-[#131316] p-1 rounded-xl border border-white/10 text-xs font-mono"
+                <div class="flex bg-[var(--panel)] p-1 rounded-xl border border-[var(--border)] text-xs font-mono transition-colors"
                     id="cardStyleToggle">
                     <button onclick="setCardLayout('container')" id="layoutBtnContainer"
                         class="px-3 py-1.5 rounded-lg bg-accent text-white font-semibold transition-all"
                         data-i18n="style_container">Style Conteneur</button>
                     <button onclick="setCardLayout('immersive')" id="layoutBtnImmersive"
-                        class="px-3 py-1.5 rounded-lg text-mute hover:text-white transition-all"
+                        class="px-3 py-1.5 rounded-lg text-mute hover:text-[var(--text)] transition-all"
                         data-i18n="style_immersive">Style Immersif</button>
                 </div>
 
@@ -509,18 +455,18 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
 
             <!-- PROJECT CARD 1 : Raffet'Art -->
-            <div data-category="branding" class="project-card mango-card-container group cursor-pointer reveal"
+            <div data-category="branding" class="project-card mango-card-container group cursor-pointer reveal transition-colors duration-300"
                 onclick="openProjectModal(0)">
-                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[#1B1B1F]">
-                    <img src="raffetart.png" alt="Raffet'Art Studio"
+                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <img src="https://placehold.co/800x600/1B1B1F/3B82F6?text=Raffet+Art" alt="Raffet'Art Studio"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div
-                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/10 flex items-center gap-1.5">
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 flex items-center gap-1.5">
                         <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
                         <span class="badge-tag">Identité</span>
                     </div>
                     <div
-                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
                         <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
@@ -529,10 +475,10 @@
 
                 <div class="px-1">
                     <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-display text-xl font-bold text-white group-hover:text-accent transition-colors">
+                        <h3 class="font-display text-xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
                             Raffet'Art Studio</h3>
                         <span
-                            class="bg-[#242429] text-white font-mono text-xs px-3 py-1 rounded-full border border-white/10 font-bold">PRJ-01</span>
+                            class="bg-[var(--panel-2)] text-[var(--text)] font-mono text-xs px-3 py-1 rounded-full border border-[var(--border)] font-bold">PRJ-01</span>
                     </div>
                     <p class="card-desc text-mute text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2">
                         Conception de l'identité de marque globale, charte graphique et univers visuel du studio
@@ -540,13 +486,13 @@
                     </p>
                     <div class="card-pills flex flex-wrap gap-2 mb-5">
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-white/5 border border-white/10 text-neutral-300">Identité</span>
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute">Identité</span>
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-white/5 border border-white/10 text-neutral-300">Design
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute">Design
                             System</span>
                     </div>
                     <button
-                        class="w-full py-3.5 px-4 rounded-2xl bg-[#2A2A2E] text-white font-display font-semibold text-sm hover:bg-accent transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg">
+                        class="w-full py-3.5 px-4 rounded-2xl bg-[var(--panel-2)] text-[var(--text)] font-display font-semibold text-sm hover:bg-accent hover:text-white transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg">
                         <span class="btn-inspect-text" data-i18n="inspect">Voir réalisation</span> <i
                             class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
@@ -554,18 +500,18 @@
             </div>
 
             <!-- PROJECT CARD 2 : Jang Biochimie -->
-            <div data-category="dev" class="project-card mango-card-container group cursor-pointer reveal"
+            <div data-category="dev" class="project-card mango-card-container group cursor-pointer reveal transition-colors duration-300"
                 onclick="openProjectModal(1)">
-                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[#1B1B1F]">
-                    <img src="jangbiochimie.png" alt="Jang Biochimie"
+                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <img src="https://placehold.co/800x600/1B1B1F/10B981?text=Jang+Biochimie" alt="Jang Biochimie"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div
-                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/10 flex items-center gap-1.5">
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 flex items-center gap-1.5">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                         <span class="badge-tag">E-Learning</span>
                     </div>
                     <div
-                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
                         <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
@@ -574,24 +520,24 @@
 
                 <div class="px-1">
                     <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-display text-xl font-bold text-white group-hover:text-accent transition-colors">
+                        <h3 class="font-display text-xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
                             Jang Biochimie</h3>
                         <span
-                            class="bg-[#242429] text-white font-mono text-xs px-3 py-1 rounded-full border border-white/10 font-bold">PRJ-02</span>
+                            class="bg-[var(--panel-2)] text-[var(--text)] font-mono text-xs px-3 py-1 rounded-full border border-[var(--border)] font-bold">PRJ-02</span>
                     </div>
                     <p class="card-desc text-mute text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2">
                         Plateforme web interactive conçue pour l'apprentissage de la biochimie, intégrant des QCM.
                     </p>
                     <div class="card-pills flex flex-wrap gap-2 mb-5">
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-white/5 border border-white/10 text-neutral-300">Web
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute">Web
                             App</span>
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-white/5 border border-white/10 text-neutral-300">UI/UX
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute">UI/UX
                             Design</span>
                     </div>
                     <button
-                        class="w-full py-3.5 px-4 rounded-2xl bg-[#2A2A2E] text-white font-display font-semibold text-sm hover:bg-accent transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg">
+                        class="w-full py-3.5 px-4 rounded-2xl bg-[var(--panel-2)] text-[var(--text)] font-display font-semibold text-sm hover:bg-accent hover:text-white transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg">
                         <span class="btn-inspect-text" data-i18n="inspect">Voir réalisation</span> <i
                             class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
@@ -599,18 +545,18 @@
             </div>
 
             <!-- PROJECT CARD 3 : XassidaCloud -->
-            <div data-category="dev" class="project-card mango-card-container group cursor-pointer reveal"
+            <div data-category="dev" class="project-card mango-card-container group cursor-pointer reveal transition-colors duration-300"
                 onclick="openProjectModal(2)">
-                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[#1B1B1F]">
-                    <img src="apercu_xc.jpeg" alt="XassidaCloud"
+                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <img src="https://placehold.co/800x600/1B1B1F/8B5CF6?text=Xassida+Cloud" alt="XassidaCloud"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div
-                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/10 flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
                         <span class="badge-tag">Web App</span>
                     </div>
                     <div
-                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
                         <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
@@ -619,10 +565,10 @@
 
                 <div class="px-1">
                     <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-display text-xl font-bold text-white group-hover:text-accent transition-colors">
+                        <h3 class="font-display text-xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
                             XassidaCloud</h3>
                         <span
-                            class="bg-[#242429] text-white font-mono text-xs px-3 py-1 rounded-full border border-white/10 font-bold">PRJ-03</span>
+                            class="bg-[var(--panel-2)] text-[var(--text)] font-mono text-xs px-3 py-1 rounded-full border border-[var(--border)] font-bold">PRJ-03</span>
                     </div>
                     <p class="card-desc text-mute text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2">
                         Conception et développement complet de Xassidacloud.com. Une plateforme web moderne et
@@ -630,13 +576,13 @@
                     </p>
                     <div class="card-pills flex flex-wrap gap-2 mb-5">
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-white/5 border border-white/10 text-neutral-300">UI/UX
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute">UI/UX
                             Design</span>
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-white/5 border border-white/10 text-neutral-300">Développement</span>
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute">Développement</span>
                     </div>
                     <button
-                        class="w-full py-3.5 px-4 rounded-2xl bg-[#2A2A2E] text-white font-display font-semibold text-sm hover:bg-accent transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg">
+                        class="w-full py-3.5 px-4 rounded-2xl bg-[var(--panel-2)] text-[var(--text)] font-display font-semibold text-sm hover:bg-accent hover:text-white transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg">
                         <span class="btn-inspect-text" data-i18n="inspect">Voir réalisation</span> <i
                             class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
@@ -660,7 +606,7 @@
                     typographie forte pour propulser l'image des marques et des entreprises.
                 </p>
                 <div class="space-y-3">
-                    <div class="p-4 panel flex items-start gap-4 border-l-2 border-l-accent">
+                    <div class="p-4 panel flex items-start gap-4 border-l-2 border-l-accent transition-colors duration-300">
                         <div
                             class="w-9 h-9 rounded-lg border border-accent flex items-center justify-center text-accent flex-shrink-0">
                             <i class="fa-solid fa-wand-magic-sparkles"></i>
@@ -671,7 +617,7 @@
                                 graphiques, direction artistique, affiches et identités visuelles sur mesure.</p>
                         </div>
                     </div>
-                    <div class="p-4 panel flex items-start gap-4">
+                    <div class="p-4 panel flex items-start gap-4 transition-colors duration-300">
                         <div
                             class="w-9 h-9 rounded-lg border border-accent flex items-center justify-center text-accent flex-shrink-0">
                             <i class="fa-solid fa-code"></i>
@@ -694,37 +640,37 @@
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         <div
-                            class="p-4 bg-[#1B1B1F] rounded-2xl hover:border-accent border border-white/5 transition-colors">
+                            class="p-4 bg-[var(--panel-2)] rounded-2xl hover:border-accent border border-[var(--border)] transition-colors">
                             <i class="fa-brands fa-figma text-xl text-accent mb-2"></i>
                             <div class="font-semibold text-sm">Figma</div>
                             <div class="text-[10px] font-mono text-mute">UI/UX Systems</div>
                         </div>
                         <div
-                            class="p-4 bg-[#1B1B1F] rounded-2xl hover:border-accent border border-white/5 transition-colors">
+                            class="p-4 bg-[var(--panel-2)] rounded-2xl hover:border-accent border border-[var(--border)] transition-colors">
                             <i class="fa-brands fa-python text-xl text-accent mb-2"></i>
                             <div class="font-semibold text-sm">Python</div>
                             <div class="text-[10px] font-mono text-mute">FastAPI & Scripting</div>
                         </div>
                         <div
-                            class="p-4 bg-[#1B1B1F] rounded-2xl hover:border-accent border border-white/5 transition-colors">
+                            class="p-4 bg-[var(--panel-2)] rounded-2xl hover:border-accent border border-[var(--border)] transition-colors">
                             <i class="fa-brands fa-js text-xl text-accent mb-2"></i>
                             <div class="font-semibold text-sm">JavaScript</div>
                             <div class="text-[10px] font-mono text-mute">Modern ES6+</div>
                         </div>
                         <div
-                            class="p-4 bg-[#1B1B1F] rounded-2xl hover:border-accent border border-white/5 transition-colors">
+                            class="p-4 bg-[var(--panel-2)] rounded-2xl hover:border-accent border border-[var(--border)] transition-colors">
                             <i class="fa-solid fa-paintbrush text-xl text-accent mb-2"></i>
                             <div class="font-semibold text-sm">Adobe Suite</div>
                             <div class="text-[10px] font-mono text-mute">Ps, Ai, Id</div>
                         </div>
                         <div
-                            class="p-4 bg-[#1B1B1F] rounded-2xl hover:border-accent border border-white/5 transition-colors">
+                            class="p-4 bg-[var(--panel-2)] rounded-2xl hover:border-accent border border-[var(--border)] transition-colors">
                             <i class="fa-brands fa-css3-alt text-xl text-accent mb-2"></i>
                             <div class="font-semibold text-sm">Tailwind CSS</div>
                             <div class="text-[10px] font-mono text-mute">Fluid Layouts</div>
                         </div>
                         <div
-                            class="p-4 bg-[#1B1B1F] rounded-2xl hover:border-accent border border-white/5 transition-colors">
+                            class="p-4 bg-[var(--panel-2)] rounded-2xl hover:border-accent border border-[var(--border)] transition-colors">
                             <i class="fa-solid fa-database text-xl text-accent mb-2"></i>
                             <div class="font-semibold text-sm">PostgreSQL</div>
                             <div class="text-[10px] font-mono text-mute">Database Design</div>
@@ -745,16 +691,16 @@
         </div>
 
         <div class="reveal">
-            <div class="group cursor-pointer relative overflow-hidden rounded-[28px] bg-[#131316] border border-white/10 shadow-lg hover:border-accent/50 transition-all duration-300 p-8 sm:p-12 text-center flex flex-col items-center justify-center"
+            <div class="group cursor-pointer relative overflow-hidden rounded-[28px] bg-[var(--panel)] border border-[var(--border)] shadow-lg hover:border-accent/50 transition-all duration-300 p-8 sm:p-12 text-center flex flex-col items-center justify-center"
                 onclick="openDesignGridModal()">
                 <div
                     class="absolute inset-0 bg-gradient-to-r from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 </div>
                 <div
-                    class="w-16 h-16 rounded-2xl bg-[#1B1B1F] border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                    class="w-16 h-16 rounded-2xl bg-[var(--panel-2)] border border-[var(--border)] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                     <i class="fa-solid fa-images text-2xl text-accent"></i>
                 </div>
-                <h3 class="text-2xl sm:text-3xl font-display font-bold text-white mb-3" data-i18n="open_gallery">Ouvrir
+                <h3 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text)] mb-3" data-i18n="open_gallery">Ouvrir
                     la Galerie Design</h3>
                 <p class="text-mute text-sm max-w-md mx-auto mb-8 leading-relaxed" data-i18n="open_gallery_desc">
                     Explorez ma collection complète de créations graphiques : affiches, concepts et identités visuelles.
@@ -779,42 +725,35 @@
 
         <div class="grid md:grid-cols-2 gap-6">
             <!-- Article 1 (Lien vers la nouvelle page) -->
-            <a href="article-1.html"
+            <a href="javascript:void(0)" onclick="openArticleModal(0)"
                 class="mango-card-container group p-4 sm:p-5 reveal block cursor-pointer transition-all hover:border-accent">
-                <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-5 bg-[#1B1B1F]">
-                    <img src="article-1.png" alt="Article Preview"
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-5 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <img src="https://placehold.co/800x450/1B1B1F/3B82F6?text=Article+1" alt="Article Preview"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute top-3 left-3">
-                        <span class="tag bg-black/60 backdrop-blur-md text-white border-white/10 shadow-lg">Lecture : 3
+                        <span class="tag bg-black/60 backdrop-blur-md text-white border-white/20 shadow-lg">Lecture : 3
                             min</span>
                     </div>
                     <div
-                        class="absolute top-3 right-3 w-10 h-10 rounded-full border border-white/10 bg-black/50 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent transition-all duration-300 shadow-lg">
+                        class="absolute top-3 right-3 w-10 h-10 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent transition-all duration-300 shadow-lg">
                         <i class="fa-solid fa-arrow-right text-sm -rotate-45"></i>
                     </div>
                 </div>
                 <div class="px-2">
-                    <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors line-clamp-2"
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-[var(--text)] mb-3 group-hover:text-accent transition-colors line-clamp-2"
                         data-i18n="article_1_title">L’Intelligence Artificielle : Menace redoutée ou coéquipier
                         d'exception ?</h3>
                     <p class="text-mute text-sm leading-relaxed line-clamp-3 mb-2" data-i18n="article_1_desc">Et si l'IA
                         était simplement le partenaire de travail le plus performant de notre époque ?</p>
                 </div>
             </a>
-
-            <!-- Article-2 (Lien vers la nouvelle page) -->
-
-
-
-
-
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="py-20 px-4 sm:px-8 max-w-6xl mx-auto z-10 relative reveal">
         <div
-            class="mango-card-container p-8 sm:p-12 text-center max-w-3xl mx-auto relative overflow-hidden bg-gradient-to-b from-[#131316] to-[#0A0A0B]">
+            class="mango-card-container p-8 sm:p-12 text-center max-w-3xl mx-auto relative overflow-hidden bg-gradient-to-b from-[var(--panel)] to-[var(--bg)] transition-colors duration-300">
             <div class="font-mono text-accent text-xs mb-3 uppercase tracking-wider" data-i18n="contact_tag">05 // Me
                 Contacter / Raffet'Art</div>
             <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight mb-6" data-i18n="contact_title">
@@ -839,7 +778,7 @@
 
     <!-- FOOTER -->
     <footer
-        class="py-8 px-4 sm:px-8 max-w-6xl mx-auto hairline-t flex flex-col md:flex-row items-center justify-between text-[11px] font-mono text-mute z-10 relative mt-10">
+        class="py-8 px-4 sm:px-8 max-w-6xl mx-auto hairline-t flex flex-col md:flex-row items-center justify-between text-[11px] font-mono text-mute z-10 relative mt-10 transition-colors duration-300">
         <div data-i18n="footer_rights">&copy; 2026 Mor Faye — Raffet'Art. Tous droits réservés.</div>
         <div class="flex flex-wrap justify-center gap-5 mt-4 md:mt-0">
             <a href="https://wa.me/221781492438" target="_blank" rel="noopener noreferrer"
@@ -855,15 +794,15 @@
 
     <!-- MODAL GRILLE DESIGN -->
     <div id="designGridModal"
-        class="fixed inset-0 z-[100] flex flex-col p-4 sm:p-8 bg-[#0A0A0B]/95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 select-none overflow-y-auto">
+        class="fixed inset-0 z-[100] flex flex-col p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.95)] backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 select-none overflow-y-auto">
         <div
-            class="w-full max-w-6xl mx-auto flex items-center justify-between mb-8 mt-4 sticky top-0 bg-[#0A0A0B]/90 backdrop-blur-xl z-20 py-4 border-b border-white/10 rounded-b-xl px-4 sm:px-0">
+            class="w-full max-w-6xl mx-auto flex items-center justify-between mb-8 mt-4 sticky top-0 bg-[rgba(var(--bg-rgb),0.90)] backdrop-blur-xl z-20 py-4 border-b border-[var(--border)] rounded-b-xl px-4 sm:px-0 transition-colors duration-300">
             <div>
-                <h3 class="font-display text-2xl font-bold text-white" data-i18n="gallery_title">Galerie d'Affiches</h3>
+                <h3 class="font-display text-2xl font-bold text-[var(--text)]" data-i18n="gallery_title">Galerie d'Affiches</h3>
                 <p class="text-mute text-xs font-mono mt-1">Toutes les réalisations graphiques</p>
             </div>
             <button onclick="closeDesignGridModal()" aria-label="Fermer la grille"
-                class="w-11 h-11 rounded-full border border-white/20 bg-[#131316] text-white flex items-center justify-center hover:bg-accent hover:border-accent transition-all shadow-lg">
+                class="w-11 h-11 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all shadow-lg">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
         </div>
@@ -875,41 +814,41 @@
 
     <!-- UNIQUE MODAL FOR GALLERY & PROJECTS -->
     <div id="galleryModal"
-        class="fixed inset-0 z-[110] flex flex-col items-center justify-center p-4 sm:p-8 bg-[#0A0A0B]/95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 select-none">
+        class="fixed inset-0 z-[110] flex flex-col items-center justify-center p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.95)] backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 select-none">
         <button onclick="closeGalleryLightbox()" aria-label="Fermer la galerie"
-            class="absolute top-5 right-5 w-11 h-11 rounded-full border border-white/20 bg-[#131316] text-white flex items-center justify-center hover:border-accent hover:text-accent hover:scale-105 transition-all z-20">
+            class="absolute top-5 right-5 w-11 h-11 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] flex items-center justify-center hover:border-accent hover:text-white hover:bg-accent hover:scale-105 transition-all z-20">
             <i class="fa-solid fa-xmark text-lg"></i>
         </button>
         <div class="relative w-full max-w-4xl h-[70vh] sm:h-[75vh] flex items-center justify-center">
             <button onclick="prevGalleryImage()" aria-label="Image précédente"
-                class="absolute left-2 sm:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-[#131316]/80 text-white flex items-center justify-center hover:bg-accent hover:border-accent transition-all z-20 shadow-lg">
+                class="absolute left-2 sm:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-[var(--border)] bg-[rgba(var(--panel-rgb),0.8)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all z-20 shadow-lg">
                 <i class="fa-solid fa-chevron-left text-lg"></i>
             </button>
             <div id="lightboxContentContainer" class="w-full h-full flex items-center justify-center p-2 relative">
                 <img id="lightboxImg" src="" alt="Affiche"
-                    class="max-w-full max-h-full object-contain rounded-xl border border-white/10 shadow-2xl transition-all duration-300">
+                    class="max-w-full max-h-full object-contain rounded-xl border border-[var(--border)] shadow-2xl transition-all duration-300">
             </div>
             <button onclick="nextGalleryImage()" aria-label="Image suivante"
-                class="absolute right-2 sm:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-[#131316]/80 text-white flex items-center justify-center hover:bg-accent hover:border-accent transition-all z-20 shadow-lg">
+                class="absolute right-2 sm:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-[var(--border)] bg-[rgba(var(--panel-rgb),0.8)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all z-20 shadow-lg">
                 <i class="fa-solid fa-chevron-right text-lg"></i>
             </button>
         </div>
         <div class="mt-4 text-center font-mono space-y-1 max-w-xl px-4">
             <div class="flex items-center justify-center gap-3">
                 <span id="lightboxTag"
-                    class="text-xs px-2.5 py-0.5 rounded-full border border-white/10 bg-white/5 text-accent"></span>
+                    class="text-xs px-2.5 py-0.5 rounded-full border border-[var(--border)] bg-[var(--surface)] text-accent"></span>
                 <span id="lightboxCounter" class="text-xs text-mute">1 / 6</span>
             </div>
-            <h3 id="lightboxTitle" class="font-display text-lg font-bold text-white tracking-wide"></h3>
+            <h3 id="lightboxTitle" class="font-display text-lg font-bold text-[var(--text)] tracking-wide"></h3>
             <p id="lightboxDesc" class="text-xs text-mute font-sans leading-relaxed mt-1"></p>
         </div>
     </div>
 
     <!-- LECTEUR D'ARTICLE MODAL -->
     <div id="articleModal"
-        class="fixed inset-0 z-[120] flex flex-col p-4 sm:p-8 bg-[#0A0A0B]/95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 overflow-y-auto">
+        class="fixed inset-0 z-[120] flex flex-col p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.95)] backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto">
         <div
-            class="max-w-3xl w-full mx-auto flex items-center justify-between mt-4 sticky top-0 bg-[#0A0A0B]/90 backdrop-blur-xl z-20 py-4 border-b border-white/10 rounded-b-xl px-4 sm:px-0">
+            class="max-w-3xl w-full mx-auto flex items-center justify-between mt-4 sticky top-0 bg-[rgba(var(--bg-rgb),0.9)] backdrop-blur-xl z-20 py-4 border-b border-[var(--border)] rounded-b-xl px-4 sm:px-0 transition-colors duration-300">
             <div class="flex items-center gap-3 text-mute font-mono text-xs">
                 <div class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center">
                     <i class="fa-solid fa-feather-pointed"></i>
@@ -918,21 +857,21 @@
             </div>
             <div class="flex items-center gap-2">
                 <button onclick="shareArticle()" aria-label="Partager l'article"
-                    class="px-4 h-11 rounded-full border border-white/20 bg-[#131316] text-white flex items-center justify-center hover:bg-accent hover:border-accent transition-all shadow-lg text-sm font-mono gap-2">
+                    class="px-4 h-11 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all shadow-lg text-sm font-mono gap-2">
                     <i class="fa-solid fa-share-nodes"></i> <span id="shareText" class="hidden sm:inline"
                         data-i18n="share_btn">Partager</span>
                 </button>
                 <button onclick="closeArticleModal()" aria-label="Fermer l'article"
-                    class="w-11 h-11 rounded-full border border-white/20 bg-[#131316] text-white flex items-center justify-center hover:bg-accent hover:border-accent transition-all shadow-lg">
+                    class="w-11 h-11 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all shadow-lg">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
         </div>
         <div class="max-w-3xl w-full mx-auto pb-20 pt-8 px-4 sm:px-0">
             <h1 id="articleModalTitle"
-                class="font-display text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Titre</h1>
+                class="font-display text-3xl sm:text-5xl font-extrabold text-[var(--text)] mb-6 leading-tight">Titre</h1>
             <div
-                class="relative w-full aspect-[21/9] sm:aspect-video rounded-[20px] sm:rounded-[32px] overflow-hidden mb-10 border border-white/10 shadow-2xl">
+                class="relative w-full aspect-[21/9] sm:aspect-video rounded-[20px] sm:rounded-[32px] overflow-hidden mb-10 border border-[var(--border)] shadow-2xl">
                 <img id="articleModalImg" src="" alt="Couverture de l'article" class="w-full h-full object-cover">
             </div>
             <div id="articleModalContent" class="text-mute text-[15px] sm:text-[17px] font-sans">
@@ -942,6 +881,34 @@
     </div>
 
     <script>
+        // Gestion de l'icône de bascule de thème au chargement
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const icon = document.getElementById('themeIcon');
+            if (savedTheme === 'light' && icon) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        // Fonction pour basculer le thème
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            
+            if (html.classList.contains('light')) {
+                html.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                html.classList.add('light');
+                localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
         const i18n = {
             fr: {
                 role_tag: "Graphic Designer - Fondateur @ Raffet'Art",
@@ -1061,7 +1028,7 @@
                 year: "2025",
                 tag_fr: "Identité Visuelle",
                 tag_en: "Visual Identity",
-                img: "raffetart.png",
+                img: "https://placehold.co/800x600/1B1B1F/3B82F6?text=Raffet+Art",
                 desc_fr: "Conception de l'identité de marque globale, charte graphique et univers visuel du studio Raffet'Art.",
                 desc_en: "Complete brand identity, visual guidelines, and design system for Raffet'Art studio."
             },
@@ -1070,7 +1037,7 @@
                 year: "2026",
                 tag_fr: "Plateforme E-Learning",
                 tag_en: "E-Learning Platform",
-                img: "jangbiochimie.png",
+                img: "https://placehold.co/800x600/1B1B1F/10B981?text=Jang+Biochimie",
                 isWebSite: true,
                 siteUrl: "https://jangbiochimie.vercel.app",
                 desc_fr: "Plateforme web interactive conçue pour l'apprentissage de la biochimie, intégrant des QCM pour les étudiants en 1ère et 2ème année de médecine.",
@@ -1081,7 +1048,7 @@
                 year: "2026",
                 tag_fr: "Plateforme Web",
                 tag_en: "Web Platform",
-                img: "apercu_xc.jpeg",
+                img: "https://placehold.co/800x600/1B1B1F/8B5CF6?text=Xassida+Cloud",
                 isWebSite: true,
                 siteUrl: "https://www.xassidacloud.com",
                 desc_fr: "Conception et développement complet de Xassidacloud.com. Une plateforme web moderne et performante offrant une interface utilisateur intuitive.",
@@ -1090,43 +1057,12 @@
         ];
 
         const galleryData = [
-            { title: "Raffet'Art Studio Branding", year: "2025", tag_fr: "Affiche Culturelle", tag_en: "Cultural Poster", img: "dsg1.jpg", desc_fr: "Direction artistique et conception.", desc_en: "Art direction and design." },
-            { title: "Logo Raffet'Art", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg2.jpg" },
-            { title: "Affiche publicitaire", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg3.jpg" },
-            { title: "Mockup Raffet'Art", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg4.png" },
-            { title: "Mockup DiarignTech", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg5.jpg" },
-            { title: "Mockup T-Shirt DiarignTech", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg6.jpg" },
-            { title: "Mockup DiarignTech 2", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg7.jpg" },
-            { title: "Mockup DiarignTech 3", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg8.jpg" },
-            { title: "Mockup DiarignTech 4", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg9.jpg" },
-            { title: "Mockup DiarignTech 5", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg10.jpg" },
-            { title: "Mockup DiarignTech 6", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg11.jpg" },
-            { title: "Mockup DiarignTech 7", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg12.jpg" },
-            { title: "Mockup DiarignTech 8", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg13.jpg" },
-            { title: "Logo AMINA", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg14.jpg" },
-            { title: "Logo AMINA Alt", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg15.jpg" },
-            { title: "AMINA", year: "2025", tag_fr: "Branding", tag_en: "Branding", img: "dsg16.jpg" },
-            { title: "Carte visite AYRA", year: "2025", tag_fr: "Print", tag_en: "Print", img: "dsg17.jpg" },
-            { title: "Stand AYRA", year: "2025", tag_fr: "3D Print", tag_en: "3D Print", img: "dsg18.jpg" },
-            { title: "Recto Carte Visite AYRA", year: "2025", tag_fr: "Print", tag_en: "Print", img: "dsg19.jpg" },
-            { title: "Fond D'ecran AYRA", year: "2025", tag_fr: "Digital", tag_en: "Digital", img: "dsg20.jpg" },
-            { title: "Verso carte viste AMINA", year: "2025", tag_fr: "Print", tag_en: "Print", img: "dsg21.jpg" },
-            { title: "Logo Dahira Touba Medecine", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg23.png" },
-            { title: "Logo UFR 2S v1", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg26.jpg" },
-            { title: "Logo UFR 2S v2", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg27.jpg" },
-            { title: "Couverture Medicale Niari Rakka", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg28.jpg" },
-            { title: "Journee Khassida Touba", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg29.jpg" },
-            { title: "Carte Barkeelou 2", year: "2025", tag_fr: "Print", tag_en: "Print", img: "dsg30.png" },
-            { title: "Chronogramme JK TAM", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg31.jpg" },
-            { title: "Journee Khassida TAM", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg32.jpg" },
-            { title: "Badge JK TAM", year: "2025", tag_fr: "Print", tag_en: "Print", img: "dsg33.jpg" },
-            { title: "Affiche Gamou 2026", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg34.jpg" },
-            { title: "Bache JK TAM", year: "2025", tag_fr: "Print grand format", tag_en: "Large Print", img: "dsg35.jpg" },
-            { title: "Logo Delices de Ndasse", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg37.jpg" },
-            { title: "Affiche Delices de Ndasse", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg38.jpg" },
-            { title: "Logo Mor Faye", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg39.jpg" },
-            { title: "Affiche DT", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg40.png" },
-            { title: "Diapalema", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg41.jpg" }
+            { title: "Raffet'Art Studio Branding", year: "2025", tag_fr: "Affiche Culturelle", tag_en: "Cultural Poster", img: "https://placehold.co/800x1000/1B1B1F/3B82F6?text=Affiche+1", desc_fr: "Direction artistique et conception.", desc_en: "Art direction and design." },
+            { title: "Logo Raffet'Art", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "https://placehold.co/800x1000/1B1B1F/10B981?text=Affiche+2" },
+            { title: "Affiche publicitaire", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "https://placehold.co/800x1000/1B1B1F/8B5CF6?text=Affiche+3" },
+            { title: "Mockup Raffet'Art", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "https://placehold.co/800x1000/1B1B1F/F59E0B?text=Affiche+4" },
+            { title: "Mockup DiarignTech", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "https://placehold.co/800x1000/1B1B1F/EC4899?text=Affiche+5" },
+            { title: "Mockup T-Shirt DiarignTech", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "https://placehold.co/800x1000/1B1B1F/3B82F6?text=Affiche+6" }
         ];
 
         const articlesData = [
@@ -1190,16 +1126,16 @@
             const container = document.getElementById('lightboxContentContainer');
             if (item.isWebSite) {
                 container.innerHTML = `
-                    <div class="w-full h-full bg-[#0A0A0B] rounded-xl flex flex-col overflow-hidden shadow-2xl border border-white/10 relative">
-                        <div class="h-10 bg-[#131316] border-b border-white/10 flex items-center px-4 gap-4 shrink-0 z-10">
+                    <div class="w-full h-full bg-[var(--bg)] rounded-xl flex flex-col overflow-hidden shadow-2xl border border-[var(--border)] relative">
+                        <div class="h-10 bg-[var(--panel)] border-b border-[var(--border)] flex items-center px-4 gap-4 shrink-0 z-10">
                             <div class="flex gap-1.5"><div class="w-3 h-3 rounded-full bg-red-500/80"></div><div class="w-3 h-3 rounded-full bg-yellow-500/80"></div><div class="w-3 h-3 rounded-full bg-green-500/80"></div></div>
                             <div class="flex-1 flex justify-center">
-                                <div class="bg-white/5 rounded-md px-3 py-1 text-[10px] font-mono text-mute flex items-center gap-2 w-3/4 sm:w-1/2 justify-center border border-white/5">
+                                <div class="bg-[var(--surface)] rounded-md px-3 py-1 text-[10px] font-mono text-mute flex items-center gap-2 w-3/4 sm:w-1/2 justify-center border border-[var(--border)]">
                                     <i class="fa-solid fa-lock text-emerald-400"></i> ${item.siteUrl ? item.siteUrl.replace('https://', '').replace('http://', '') : 'localhost'}
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-1 overflow-auto bg-[#131316] relative flex justify-center">
+                        <div class="flex-1 overflow-auto bg-[var(--panel-2)] relative flex justify-center">
                             <img src="${item.img}" alt="${item.title}" class="w-full h-auto object-cover object-top">
                         </div>
                         ${item.siteUrl ? `
@@ -1210,7 +1146,7 @@
                         </div>` : ''}
                     </div>`;
             } else {
-                container.innerHTML = `<img id="lightboxImg" src="${item.img}" alt="${item.title}" class="max-w-full max-h-full object-contain rounded-xl border border-white/10 shadow-2xl transition-all duration-300">`;
+                container.innerHTML = `<img id="lightboxImg" src="${item.img}" alt="${item.title}" class="max-w-full max-h-full object-contain rounded-xl border border-[var(--border)] shadow-2xl transition-all duration-300">`;
             }
 
             document.getElementById('lightboxTitle').textContent = `${item.title} (${item.year})`;
@@ -1242,7 +1178,7 @@
         function renderDesignGrid() {
             const container = document.getElementById('designGridContainer');
             container.innerHTML = galleryData.map((item, index) => `
-                <div class="group cursor-pointer relative overflow-hidden rounded-[16px] aspect-[4/5] bg-[#1B1B1F] border border-white/5 shadow-md" onclick="openGalleryLightbox(${index})">
+                <div class="group cursor-pointer relative overflow-hidden rounded-[16px] aspect-[4/5] bg-[var(--panel-2)] border border-[var(--border)] shadow-md transition-colors duration-300" onclick="openGalleryLightbox(${index})">
                     <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center backdrop-blur-[2px]">
                         <div class="w-12 h-12 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"><i class="fa-solid fa-expand text-lg"></i></div>
@@ -1391,12 +1327,12 @@
             const btnC = document.getElementById('layoutBtnContainer'), btnI = document.getElementById('layoutBtnImmersive');
             if (layout === 'container') {
                 btnC.className = "px-3 py-1.5 rounded-lg bg-accent text-white font-semibold transition-all";
-                btnI.className = "px-3 py-1.5 rounded-lg text-mute hover:text-white transition-all";
-                document.querySelectorAll('.project-card').forEach(c => c.className = "project-card mango-card-container group cursor-pointer reveal active");
+                btnI.className = "px-3 py-1.5 rounded-lg text-mute hover:text-[var(--text)] transition-all";
+                document.querySelectorAll('.project-card').forEach(c => c.className = "project-card mango-card-container group cursor-pointer reveal active transition-colors duration-300");
             } else {
                 btnI.className = "px-3 py-1.5 rounded-lg bg-accent text-white font-semibold transition-all";
-                btnC.className = "px-3 py-1.5 rounded-lg text-mute hover:text-white transition-all";
-                document.querySelectorAll('.project-card').forEach(c => c.className = "project-card mango-card-immersive group cursor-pointer reveal active bg-[#131316] p-4");
+                btnC.className = "px-3 py-1.5 rounded-lg text-mute hover:text-[var(--text)] transition-all";
+                document.querySelectorAll('.project-card').forEach(c => c.className = "project-card mango-card-immersive group cursor-pointer reveal active bg-[var(--panel)] p-4 transition-colors duration-300");
             }
         }
 
