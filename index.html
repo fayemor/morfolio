@@ -7,7 +7,7 @@
     <title>Mor Faye</title>
     <meta name="description"
         content="Mor Faye — Design Engineer based in Dakar. Brand identity, posters, UI/UX and full-stack Python development. Founder of Raffet'Art.">
-    <meta name="theme-color" content="#0A0A0B"> 
+    <meta name="theme-color" content="#0A0A0B">
 
     <!-- Open Graph / Social sharing -->
     <meta property="og:type" content="website">
@@ -78,12 +78,12 @@
             --panel-rgb: 19, 19, 22;
             --panel-2: #1B1B1F;
             --panel-2-rgb: 27, 27, 31;
-            
+
             --border: rgba(255, 255, 255, 0.10);
             --border-strong: rgba(255, 255, 255, 0.22);
             --grid-line: rgba(255, 255, 255, 0.03);
             --surface: rgba(255, 255, 255, 0.05);
-            
+
             --text: #F2F1EC;
             --text-mute: #9C9BA3;
             --text-faint: #55545B;
@@ -102,16 +102,16 @@
             --panel-rgb: 255, 255, 255;
             --panel-2: #F3F4F6;
             --panel-2-rgb: 243, 244, 246;
-            
+
             --border: rgba(0, 0, 0, 0.08);
             --border-strong: rgba(0, 0, 0, 0.18);
             --grid-line: rgba(0, 0, 0, 0.04);
             --surface: rgba(0, 0, 0, 0.04);
-            
+
             --text: #111827;
             --text-mute: #6B7280;
             --text-faint: #9CA3AF;
-            
+
             --accent: #2563EB;
             --accent-2: #1D4ED8;
             --accent-dim: rgba(37, 99, 235, 0.12);
@@ -126,8 +126,13 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        .font-mono { font-family: 'IBM Plex Mono', monospace; }
-        .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
         /* Grid Background */
         #bgGrid {
@@ -158,18 +163,36 @@
             border: 1px solid var(--border);
             border-radius: 12px;
         }
+
         .panel-2 {
             background: var(--panel-2);
             border: 1px solid var(--border);
             border-radius: 8px;
         }
-        .hairline-t { border-top: 1px solid var(--border); }
-        .hairline-b { border-bottom: 1px solid var(--border); }
 
-        .text-accent { color: var(--accent); }
-        .text-mute { color: var(--text-mute); }
-        .text-faint { color: var(--text-faint); }
-        .bg-accent { background-color: var(--accent); }
+        .hairline-t {
+            border-top: 1px solid var(--border);
+        }
+
+        .hairline-b {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .text-accent {
+            color: var(--accent);
+        }
+
+        .text-mute {
+            color: var(--text-mute);
+        }
+
+        .text-faint {
+            color: var(--text-faint);
+        }
+
+        .bg-accent {
+            background-color: var(--accent);
+        }
 
         .btn-primary {
             background: var(--accent);
@@ -178,10 +201,12 @@
             border-radius: 8px;
             transition: all .2s ease;
         }
+
         .btn-primary:hover {
             background: var(--accent-2);
             transform: translateY(-1px);
         }
+
         .btn-ghost {
             background: transparent;
             border: 1px solid var(--border-strong);
@@ -189,10 +214,12 @@
             border-radius: 8px;
             transition: all .2s ease;
         }
+
         .btn-ghost:hover {
             border-color: var(--accent);
             background: var(--accent-dim);
         }
+
         .tag {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px;
@@ -211,6 +238,7 @@
             padding: 14px;
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
+
         .mango-card-container:hover {
             border-color: rgba(59, 130, 246, 0.4);
             transform: translateY(-3px);
@@ -225,6 +253,7 @@
             border: 1px solid var(--border);
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
+
         .mango-card-immersive:hover {
             border-color: rgba(59, 130, 246, 0.5);
             transform: translateY(-3px);
@@ -237,32 +266,103 @@
             transform: translateY(12px);
             transition: opacity .5s ease, transform .5s ease;
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .boot { opacity: 0; transform: translateY(10px); animation: bootIn .6s cubic-bezier(.16, 1, .3, 1) forwards; }
-        .boot-1 { animation-delay: .05s; }
-        .boot-2 { animation-delay: .15s; }
-        .boot-3 { animation-delay: .25s; }
-        .boot-4 { animation-delay: .35s; }
-        .boot-5 { animation-delay: .45s; }
-        @keyframes bootIn { to { opacity: 1; transform: translateY(0); } }
+        .boot {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: bootIn .6s cubic-bezier(.16, 1, .3, 1) forwards;
+        }
+
+        .boot-1 {
+            animation-delay: .05s;
+        }
+
+        .boot-2 {
+            animation-delay: .15s;
+        }
+
+        .boot-3 {
+            animation-delay: .25s;
+        }
+
+        .boot-4 {
+            animation-delay: .35s;
+        }
+
+        .boot-5 {
+            animation-delay: .45s;
+        }
+
+        @keyframes bootIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         /* Article Modal Content */
-        #articleModalContent p { margin-bottom: 1.5rem; line-height: 1.8; }
-        #articleModalContent ul, #articleModalContent ol { margin-bottom: 1.5rem; margin-left: 1.5rem; list-style-type: disc; line-height: 1.8; }
-        #articleModalContent li { margin-bottom: 0.5rem; }
-        #articleModalContent strong { color: var(--text); font-weight: 600; }
-        #articleModalContent h3 { color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; }
-        #articleModalContent em { color: var(--text); font-style: italic; }
+        #articleModalContent p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
 
-        section[id], footer[id] { scroll-margin-top: 5.5rem; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        #articleModalContent ul,
+        #articleModalContent ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+            list-style-type: disc;
+            line-height: 1.8;
+        }
+
+        #articleModalContent li {
+            margin-bottom: 0.5rem;
+        }
+
+        #articleModalContent strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        #articleModalContent h3 {
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #articleModalContent em {
+            color: var(--text);
+            font-style: italic;
+        }
+
+        section[id],
+        footer[id] {
+            scroll-margin-top: 5.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-strong);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
     </style>
 </head>
 
@@ -272,7 +372,9 @@
     <div id="bgGlow"></div>
 
     <!-- HEADER -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-[rgba(var(--bg-rgb),0.9)] backdrop-blur-md hairline-b transition-colors duration-300" id="navbar">
+    <header
+        class="fixed top-0 left-0 w-full z-50 bg-[rgba(var(--bg-rgb),0.9)] backdrop-blur-md hairline-b transition-colors duration-300"
+        id="navbar">
         <div class="max-w-6xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
 
             <a href="#" class="flex items-center gap-3 group">
@@ -291,12 +393,13 @@
                 <a href="#about" class="hover:text-accent transition-colors" data-i18n="nav_about">~/a-propos</a>
                 <a href="#gallery" class="hover:text-accent transition-colors" data-i18n="nav_posters">~/affiches</a>
                 <a href="#articles" class="hover:text-accent transition-colors" data-i18n="nav_articles">~/articles</a>
-                <a href="#contact" class="hover:text-accent transition-colors" data-i18n="nav_contact"></a>
+                <a href="#contact" class="hover:text-accent transition-colors" data-i18n="nav_contact">~/contact</a>
             </nav>
 
             <div class="flex items-center gap-2">
                 <!-- Toggle Theme -->
-                <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="Thème" class="px-2.5 py-1.5 rounded-lg border border-[var(--border)] text-mute hover:text-accent hover:bg-[var(--accent-dim)] transition-colors">
+                <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="Thème"
+                    class="px-2.5 py-1.5 rounded-lg border border-[var(--border)] text-mute hover:text-accent hover:bg-[var(--accent-dim)] transition-colors">
                     <i class="fa-solid fa-sun" id="themeIcon"></i>
                 </button>
 
@@ -344,7 +447,7 @@
                     class="fa-solid fa-arrow-right text-accent text-xs"></i></a>
             <a href="#contact" onclick="toggleMobileMenu()"
                 class="py-3 hairline-t hairline-b flex items-center justify-between text-mute"><span
-                    
+                    data-i18n="nav_contact">~/contact</span><i
                     class="fa-solid fa-arrow-right text-accent text-xs"></i></a>
         </div>
     </header>
@@ -393,10 +496,14 @@
 
             <div class="lg:col-span-4 boot boot-5">
                 <div class="mango-card-container p-3 max-w-sm mx-auto">
-                    <div class="relative w-full aspect-square rounded-[20px] overflow-hidden mb-3 bg-[var(--panel-2)]">
+                    <div
+                        class="relative w-full aspect-square rounded-[20px] overflow-hidden mb-3 bg-[var(--panel-2)] border border-[var(--border)]">
+                        <!-- Skeleton Loader Hero -->
+                        <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-hero"></div>
                         <img src="morfaye.jpg" alt="Mor Faye"
-                            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
-                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20"
+                            onload="document.getElementById('skel-hero').style.display='none'; this.classList.remove('opacity-0');"
+                            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-0 relative z-10">
+                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 z-20"
                             data-i18n="badge_founder">
                             Fondateur of Raffet'Art
                         </div>
@@ -455,18 +562,23 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
 
             <!-- PROJECT CARD 1 : Raffet'Art -->
-            <div data-category="branding" class="project-card mango-card-container group cursor-pointer reveal transition-colors duration-300"
+            <div data-category="branding"
+                class="project-card mango-card-container group cursor-pointer reveal transition-colors duration-300"
                 onclick="openProjectModal(0)">
-                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] border border-[var(--border)]">
-                    <img src="raffetart.png" alt="Raffet'Art Studio"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div
+                    class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <!-- Skeleton Loader Project 1 -->
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-proj-1"></div>
+                    <img src="raffetart.png" alt="Raffet'Art Studio" loading="lazy"
+                        onload="document.getElementById('skel-proj-1').style.display='none'; this.classList.remove('opacity-0');"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-0 relative z-10">
                     <div
-                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 flex items-center gap-1.5">
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 flex items-center gap-1.5 z-20">
                         <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
                         <span class="badge-tag" data-i18n="proj_1_badge">Identité</span>
                     </div>
                     <div
-                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 z-20">
                         <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
@@ -475,20 +587,24 @@
 
                 <div class="px-1">
                     <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-display text-xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
+                        <h3
+                            class="font-display text-xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
                             Raffet'Art Studio</h3>
                         <span
                             class="bg-[var(--panel-2)] text-[var(--text)] font-mono text-xs px-3 py-1 rounded-full border border-[var(--border)] font-bold">PRJ-01</span>
                     </div>
-                    <p class="card-desc text-mute text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2" data-i18n="proj_1_desc">
+                    <p class="card-desc text-mute text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2"
+                        data-i18n="proj_1_desc">
                         Conception de l'identité de marque globale, charte graphique et univers visuel du studio
                         Raffet'Art.
                     </p>
                     <div class="card-pills flex flex-wrap gap-2 mb-5">
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute" data-i18n="proj_1_tag1">Identité</span>
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute"
+                            data-i18n="proj_1_tag1">Identité</span>
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute" data-i18n="proj_1_tag2">Design
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute"
+                            data-i18n="proj_1_tag2">Design
                             System</span>
                     </div>
                     <button
@@ -500,18 +616,23 @@
             </div>
 
             <!-- PROJECT CARD 2 : Jang Biochimie -->
-            <div data-category="dev" class="project-card mango-card-container group cursor-pointer reveal transition-colors duration-300"
+            <div data-category="dev"
+                class="project-card mango-card-container group cursor-pointer reveal transition-colors duration-300"
                 onclick="openProjectModal(1)">
-                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] border border-[var(--border)]">
-                    <img src="jangbiochimie.png" alt="Jang Biochimie"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div
+                    class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <!-- Skeleton Loader Project 2 -->
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-proj-2"></div>
+                    <img src="jangbiochimie.png" alt="Jang Biochimie" loading="lazy"
+                        onload="document.getElementById('skel-proj-2').style.display='none'; this.classList.remove('opacity-0');"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-0 relative z-10">
                     <div
-                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 flex items-center gap-1.5">
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 flex items-center gap-1.5 z-20">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                         <span class="badge-tag" data-i18n="proj_2_badge">E-Learning</span>
                     </div>
                     <div
-                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 z-20">
                         <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
@@ -520,20 +641,24 @@
 
                 <div class="px-1">
                     <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-display text-xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
+                        <h3
+                            class="font-display text-xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
                             Jang Biochimie</h3>
                         <span
                             class="bg-[var(--panel-2)] text-[var(--text)] font-mono text-xs px-3 py-1 rounded-full border border-[var(--border)] font-bold">PRJ-02</span>
                     </div>
-                    <p class="card-desc text-mute text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2" data-i18n="proj_2_desc">
+                    <p class="card-desc text-mute text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2"
+                        data-i18n="proj_2_desc">
                         Plateforme web interactive conçue pour l'apprentissage de la biochimie, intégrant des QCM.
                     </p>
                     <div class="card-pills flex flex-wrap gap-2 mb-5">
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute" data-i18n="proj_2_tag1">Web
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute"
+                            data-i18n="proj_2_tag1">Web
                             App</span>
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute" data-i18n="proj_2_tag2">UI/UX
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute"
+                            data-i18n="proj_2_tag2">UI/UX
                             Design</span>
                     </div>
                     <button
@@ -545,18 +670,23 @@
             </div>
 
             <!-- PROJECT CARD 3 : XassidaCloud -->
-            <div data-category="dev" class="project-card mango-card-container group cursor-pointer reveal transition-colors duration-300"
+            <div data-category="dev"
+                class="project-card mango-card-container group cursor-pointer reveal transition-colors duration-300"
                 onclick="openProjectModal(2)">
-                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] border border-[var(--border)]">
-                    <img src="apercu_xc.jpeg" alt="XassidaCloud"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div
+                    class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <!-- Skeleton Loader Project 3 -->
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-proj-3"></div>
+                    <img src="apercu_xc.jpeg" alt="XassidaCloud" loading="lazy"
+                        onload="document.getElementById('skel-proj-3').style.display='none'; this.classList.remove('opacity-0');"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-0 relative z-10">
                     <div
-                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 flex items-center gap-1.5">
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono text-white border border-white/20 flex items-center gap-1.5 z-20">
                         <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
                         <span class="badge-tag" data-i18n="proj_3_badge">Web App</span>
                     </div>
                     <div
-                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+                        class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 z-20">
                         <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
@@ -565,21 +695,25 @@
 
                 <div class="px-1">
                     <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-display text-xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
+                        <h3
+                            class="font-display text-xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
                             XassidaCloud</h3>
                         <span
                             class="bg-[var(--panel-2)] text-[var(--text)] font-mono text-xs px-3 py-1 rounded-full border border-[var(--border)] font-bold">PRJ-03</span>
                     </div>
-                    <p class="card-desc text-mute text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2" data-i18n="proj_3_desc">
+                    <p class="card-desc text-mute text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2"
+                        data-i18n="proj_3_desc">
                         Conception et développement complet de Xassidacloud.com. Une plateforme web moderne et
                         intuitive.
                     </p>
                     <div class="card-pills flex flex-wrap gap-2 mb-5">
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute" data-i18n="proj_3_tag1">UI/UX
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute"
+                            data-i18n="proj_3_tag1">UI/UX
                             Design</span>
                         <span
-                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute" data-i18n="proj_3_tag2">Développement</span>
+                            class="px-3 py-1 text-[11px] font-mono rounded-full bg-[var(--surface)] border border-[var(--border)] text-mute"
+                            data-i18n="proj_3_tag2">Développement</span>
                     </div>
                     <button
                         class="w-full py-3.5 px-4 rounded-2xl bg-[var(--panel-2)] text-[var(--text)] font-display font-semibold text-sm hover:bg-accent hover:text-white transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg">
@@ -606,7 +740,8 @@
                     typographie forte pour propulser l'image des marques et des entreprises.
                 </p>
                 <div class="space-y-3">
-                    <div class="p-4 panel flex items-start gap-4 border-l-2 border-l-accent transition-colors duration-300">
+                    <div
+                        class="p-4 panel flex items-start gap-4 border-l-2 border-l-accent transition-colors duration-300">
                         <div
                             class="w-9 h-9 rounded-lg border border-accent flex items-center justify-center text-accent flex-shrink-0">
                             <i class="fa-solid fa-wand-magic-sparkles"></i>
@@ -649,7 +784,8 @@
                             class="p-4 bg-[var(--panel-2)] rounded-2xl hover:border-accent border border-[var(--border)] transition-colors">
                             <i class="fa-brands fa-python text-xl text-accent mb-2"></i>
                             <div class="font-semibold text-sm">Python</div>
-                            <div class="text-[10px] font-mono text-mute" data-i18n="tech_python">FastAPI & Scripting</div>
+                            <div class="text-[10px] font-mono text-mute" data-i18n="tech_python">FastAPI & Scripting
+                            </div>
                         </div>
                         <div
                             class="p-4 bg-[var(--panel-2)] rounded-2xl hover:border-accent border border-[var(--border)] transition-colors">
@@ -700,7 +836,8 @@
                     class="w-16 h-16 rounded-2xl bg-[var(--panel-2)] border border-[var(--border)] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                     <i class="fa-solid fa-images text-2xl text-accent"></i>
                 </div>
-                <h3 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text)] mb-3" data-i18n="open_gallery">Ouvrir
+                <h3 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text)] mb-3"
+                    data-i18n="open_gallery">Ouvrir
                     la Galerie Design</h3>
                 <p class="text-mute text-sm max-w-md mx-auto mb-8 leading-relaxed" data-i18n="open_gallery_desc">
                     Explorez ma collection complète de créations graphiques : affiches, concepts et identités visuelles.
@@ -724,18 +861,23 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
-            <!-- Article 1 (Lien vers la nouvelle page) -->
+            <!-- Article 1 -->
             <a href="javascript:void(0)" onclick="openArticleModal(0)"
                 class="mango-card-container group p-4 sm:p-5 reveal block cursor-pointer transition-all hover:border-accent">
-                <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-5 bg-[var(--panel-2)] border border-[var(--border)]">
-                    <img src="article-1.png" alt="Article Preview"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-3 left-3">
-                        <span class="tag bg-black/60 backdrop-blur-md text-white border-white/20 shadow-lg" data-i18n="read_time">Lecture : 3
+                <div
+                    class="relative w-full aspect-video rounded-2xl overflow-hidden mb-5 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <!-- Skeleton Loader Article -->
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-art-1"></div>
+                    <img src="article-1.png" alt="Article Preview" loading="lazy"
+                        onload="document.getElementById('skel-art-1').style.display='none'; this.classList.remove('opacity-0');"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-0 relative z-10">
+                    <div class="absolute top-3 left-3 z-20">
+                        <span class="tag bg-black/60 backdrop-blur-md text-white border-white/20 shadow-lg"
+                            data-i18n="read_time">Lecture : 3
                             min</span>
                     </div>
                     <div
-                        class="absolute top-3 right-3 w-10 h-10 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent transition-all duration-300 shadow-lg">
+                        class="absolute top-3 right-3 w-10 h-10 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent transition-all duration-300 shadow-lg z-20">
                         <i class="fa-solid fa-arrow-right text-sm -rotate-45"></i>
                     </div>
                 </div>
@@ -798,8 +940,10 @@
         <div
             class="w-full max-w-6xl mx-auto flex items-center justify-between mb-8 mt-4 sticky top-0 bg-[rgba(var(--bg-rgb),0.90)] backdrop-blur-xl z-20 py-4 border-b border-[var(--border)] rounded-b-xl px-4 sm:px-0 transition-colors duration-300">
             <div>
-                <h3 class="font-display text-2xl font-bold text-[var(--text)]" data-i18n="gallery_title">Galerie d'Affiches</h3>
-                <p class="text-mute text-xs font-mono mt-1" data-i18n="gallery_subtitle">Toutes les réalisations graphiques</p>
+                <h3 class="font-display text-2xl font-bold text-[var(--text)]" data-i18n="gallery_title">Galerie
+                    d'Affiches</h3>
+                <p class="text-mute text-xs font-mono mt-1" data-i18n="gallery_subtitle">Toutes les réalisations
+                    graphiques</p>
             </div>
             <button onclick="closeDesignGridModal()" aria-label="Fermer la grille"
                 class="w-11 h-11 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all shadow-lg">
@@ -825,8 +969,7 @@
                 <i class="fa-solid fa-chevron-left text-lg"></i>
             </button>
             <div id="lightboxContentContainer" class="w-full h-full flex items-center justify-center p-2 relative">
-                <img id="lightboxImg" src="" alt="Affiche"
-                    class="max-w-full max-h-full object-contain rounded-xl border border-[var(--border)] shadow-2xl transition-all duration-300">
+                <!-- Injected via JS -->
             </div>
             <button onclick="nextGalleryImage()" aria-label="Image suivante"
                 class="absolute right-2 sm:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-[var(--border)] bg-[rgba(var(--panel-rgb),0.8)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all z-20 shadow-lg">
@@ -869,10 +1012,15 @@
         </div>
         <div class="max-w-3xl w-full mx-auto pb-20 pt-8 px-4 sm:px-0">
             <h1 id="articleModalTitle"
-                class="font-display text-3xl sm:text-5xl font-extrabold text-[var(--text)] mb-6 leading-tight">Titre</h1>
+                class="font-display text-3xl sm:text-5xl font-extrabold text-[var(--text)] mb-6 leading-tight">Titre
+            </h1>
             <div
                 class="relative w-full aspect-[21/9] sm:aspect-video rounded-[20px] sm:rounded-[32px] overflow-hidden mb-10 border border-[var(--border)] shadow-2xl">
-                <img id="articleModalImg" src="" alt="Couverture de l'article" class="w-full h-full object-cover">
+                <!-- Skeleton Loader Article Image -->
+                <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="articleModalSkel"></div>
+                <img id="articleModalImg" src="" alt="Couverture de l'article"
+                    onload="document.getElementById('articleModalSkel').style.display='none'; this.classList.remove('opacity-0');"
+                    class="w-full h-full object-cover transition-opacity duration-700 opacity-0 relative z-10">
             </div>
             <div id="articleModalContent" class="text-mute text-[15px] sm:text-[17px] font-sans">
                 <!-- Contenu injecté -->
@@ -895,7 +1043,7 @@
         function toggleTheme() {
             const html = document.documentElement;
             const icon = document.getElementById('themeIcon');
-            
+
             if (html.classList.contains('light')) {
                 html.classList.remove('light');
                 localStorage.setItem('theme', 'dark');
@@ -912,11 +1060,11 @@
         const i18n = {
             fr: {
                 role_tag: "Graphic Designer - Fondateur @ Raffet'Art",
-                nav_work: "Projets",
-                nav_about: "A-propos",
-                nav_posters: "Affiches",
-                nav_articles: "Articles",
-                nav_contact: "Contact",
+                nav_work: "~/projets",
+                nav_about: "~/a-propos",
+                nav_posters: "~/affiches",
+                nav_articles: "~/articles",
+                nav_contact: "~/contact",
                 chat: "Chat",
                 contact: "Contact",
                 status: "statut : disponible pour opportunités",
@@ -986,15 +1134,15 @@
             },
             en: {
                 role_tag: "Founder @ Raffet'Art — Dakar",
-                nav_work: "Work",
-                nav_about: "About",
-                nav_posters: "Posters",
-                nav_articles: "Articles",
-                nav_contact: "Contact",
+                nav_work: "~/work",
+                nav_about: "~/about",
+                nav_posters: "~/posters",
+                nav_articles: "~/articles",
+                nav_contact: "~/contact",
                 chat: "Chat",
                 contact: "Contact",
                 status: "status: open to opportunities",
-                location: "Dakar, sn",
+                location: "dakar, sn",
                 hero_title: 'Crafting <span class="text-accent">digital products</span> & brand identities.',
                 hero_desc: "Founder of <strong>Raffet'Art</strong> creative studio. Four years blending engineering precision with visual aesthetics — brand identities, custom software, and responsive web apps.",
                 btn_explore: "Explore Projects",
@@ -1142,7 +1290,7 @@
                 title_en: "The Impact of Engineering in Graphic Design",
                 tag_fr: "Réflexion - Opinion - Design System - Pensée Modulaire",
                 tag_en: "Design System & Thoughts",
-                img: "https://placehold.co/800x450/1B1B1F/3B82F6?text=Image+Article+1",
+                img: "article-1.png",
                 content_fr: `
                     <p>La conception graphique a longtemps été considérée comme une discipline purement artistique, régie par l'intuition, le sens de l'esthétique et l'émotion. Cependant, à l'ère du numérique, la frontière entre le design et l'ingénierie s'affine considérablement.</p>
                     <h3>La pensée modulaire</h3>
@@ -1154,31 +1302,6 @@
                     <h3>Modular Thinking</h3>
                     <p>A software engineer designs complex systems based on reusable components. This same approach, applied to design, gives rise to what we call <strong>Design Systems</strong>.</p>
                     <p>At <em>Raffet'Art</em>, this method allows us to guarantee absolute visual consistency across all media.</p>
-                `
-            },
-            {
-                title_fr: "Développer des plateformes éducatives (Ex: Jang Biochimie)",
-                title_en: "Building Educational Platforms (Ex: Jang Biochimie)",
-                tag_fr: "Développement & EdTech",
-                tag_en: "Development & EdTech",
-                img: "https://placehold.co/800x450/1B1B1F/3B82F6?text=Image+Article+2",
-                content_fr: `
-                    <p>La création de la plateforme <strong>Jang Biochimie</strong> a été un défi passionnant. L'objectif était de fournir aux étudiants un outil interactif, fiable et facile d'accès pour réviser via des QCM.</p>
-                    <h3>Priorité à l'expérience utilisateur (UX)</h3>
-                    <ul>
-                        <li>Mise en place d'un mode sombre esthétique réduisant la fatigue oculaire.</li>
-                        <li>Des retours visuels immédiats avec des couleurs sémantiques.</li>
-                        <li>Une navigation entièrement pensée pour les téléphones portables (Mobile-First).</li>
-                    </ul>
-                `,
-                content_en: `
-                    <p>Creating the <strong>Jang Biochimie</strong> platform was an exciting challenge. The goal was to provide students with an interactive, reliable, and easy-to-access tool to study via MCQs.</p>
-                    <h3>Prioritizing User Experience (UX)</h3>
-                    <ul>
-                        <li>Implementation of an aesthetic dark mode reducing eye strain.</li>
-                        <li>Immediate visual feedback with semantic colors.</li>
-                        <li>Navigation entirely designed for mobile phones (Mobile-First).</li>
-                    </ul>
                 `
             }
         ];
@@ -1207,7 +1330,11 @@
                             </div>
                         </div>
                         <div class="flex-1 overflow-auto bg-[var(--panel-2)] relative flex justify-center">
-                            <img src="${item.img}" alt="${item.title}" class="w-full h-auto object-cover object-top">
+                            <!-- Skeleton Loader Lightbox Web -->
+                            <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-lb-web"></div>
+                            <img src="${item.img}" alt="${item.title}" loading="lazy"
+                                 onload="document.getElementById('skel-lb-web').style.display='none'; this.classList.remove('opacity-0');"
+                                 class="w-full h-auto object-cover object-top transition-opacity duration-700 opacity-0 relative z-10">
                         </div>
                         ${item.siteUrl ? `
                         <div class="absolute bottom-6 right-6 z-20">
@@ -1217,7 +1344,13 @@
                         </div>` : ''}
                     </div>`;
             } else {
-                container.innerHTML = `<img id="lightboxImg" src="${item.img}" alt="${item.title}" class="max-w-full max-h-full object-contain rounded-xl border border-[var(--border)] shadow-2xl transition-all duration-300">`;
+                container.innerHTML = `
+                    <!-- Skeleton Loader Lightbox Image -->
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse rounded-xl" id="skel-lb-img"></div>
+                    <img id="lightboxImg" src="${item.img}" alt="${item.title}" loading="lazy"
+                         onload="document.getElementById('skel-lb-img').style.display='none'; this.classList.remove('opacity-0');"
+                         class="max-w-full max-h-full object-contain rounded-xl border border-[var(--border)] shadow-2xl transition-all duration-700 opacity-0 relative z-10">
+                `;
             }
 
             document.getElementById('lightboxTitle').textContent = `${item.title} (${item.year})`;
@@ -1248,10 +1381,15 @@
 
         function renderDesignGrid() {
             const container = document.getElementById('designGridContainer');
+            // Ajout du skeleton loading dans chaque tuile de la galerie
             container.innerHTML = galleryData.map((item, index) => `
                 <div class="group cursor-pointer relative overflow-hidden rounded-[16px] aspect-[4/5] bg-[var(--panel-2)] border border-[var(--border)] shadow-md transition-colors duration-300" onclick="openGalleryLightbox(${index})">
-                    <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center backdrop-blur-[2px]">
+                    <!-- Skeleton Loader Grid -->
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-grid-${index}"></div>
+                    <img src="${item.img}" alt="${item.title}" loading="lazy" 
+                         onload="document.getElementById('skel-grid-${index}').style.display='none'; this.classList.remove('opacity-0');" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-0 relative z-10">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center backdrop-blur-[2px] z-20 pointer-events-none">
                         <div class="w-12 h-12 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"><i class="fa-solid fa-expand text-lg"></i></div>
                         <span class="text-white font-display font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">${item.title}</span>
                     </div>
@@ -1301,7 +1439,13 @@
             const isFr = currentLang === 'fr';
             document.getElementById('articleModalTitle').innerHTML = isFr ? article.title_fr : article.title_en;
             document.getElementById('articleModalTag').textContent = isFr ? article.tag_fr : article.tag_en;
-            document.getElementById('articleModalImg').src = article.img;
+
+            // Réinitialisation du Skeleton pour l'article
+            const imgEl = document.getElementById('articleModalImg');
+            imgEl.classList.add('opacity-0');
+            document.getElementById('articleModalSkel').style.display = 'block';
+            imgEl.src = article.img;
+
             document.getElementById('articleModalContent').innerHTML = isFr ? article.content_fr : article.content_en;
             document.getElementById('shareText').innerText = isFr ? i18n.fr.share_btn : i18n.en.share_btn;
         }
