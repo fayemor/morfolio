@@ -481,11 +481,10 @@
                         <span data-i18n="btn_explore">Explorer les Projets</span> <i
                             class="fa-solid fa-arrow-down text-xs"></i>
                     </a>
-                    <a href="https://drive.google.com/file/d/1VtnyLRW7BDRr3lAejDap0twMp3KELhja/view?usp=drive_link"
-                        target="_blank" rel="noopener noreferrer"
+                    <button onclick="openCvModal()"
                         class="btn-ghost px-6 py-3 text-sm inline-flex items-center gap-2 font-display">
-                        <i class="fa-solid fa-download text-xs"></i> <span data-i18n="btn_cv">Télécharger CV</span>
-                    </a>
+                        <i class="fa-regular fa-file-pdf text-xs"></i> <span data-i18n="btn_cv">Télécharger CV</span>
+                    </button>
                     <a href="https://wa.me/221781492438" target="_blank" rel="noopener noreferrer"
                         class="px-6 py-3 text-sm inline-flex items-center gap-2 rounded-lg bg-[#25D366]/10 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366]/20 transition-all font-mono">
                         <i class="fa-brands fa-whatsapp text-base"></i> <span data-i18n="btn_whatsapp">WhatsApp
@@ -1028,6 +1027,55 @@
         </div>
     </div>
 
+    <!-- MODAL CV -->
+    <div id="cvModal"
+        class="fixed inset-0 z-[130] flex flex-col items-center justify-center p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.95)] backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 select-none">
+        <div
+            class="relative w-full max-w-5xl h-[85vh] bg-[var(--panel)] border border-[var(--border)] rounded-2xl sm:rounded-[32px] overflow-hidden flex flex-col shadow-2xl">
+            <!-- Header Modal CV -->
+            <div
+                class="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-[var(--border)] bg-[rgba(var(--bg-rgb),0.9)] z-20 transition-colors duration-300">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center">
+                        <i class="fa-regular fa-file-pdf"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-[var(--text)] text-sm" data-i18n="cv_title">Curriculum
+                            Vitae</h3>
+                        <p class="text-[10px] font-mono text-mute">Mor Faye</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="https://drive.google.com/file/d/1VtnyLRW7BDRr3lAejDap0twMp3KELhja/view?usp=drive_link"
+                        target="_blank" rel="noopener noreferrer" aria-label="Télécharger"
+                        class="w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--panel-2)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all shadow-lg text-sm">
+                        <i class="fa-solid fa-download"></i>
+                    </a>
+                    <button onclick="closeCvModal()" aria-label="Fermer le CV"
+                        class="w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--panel-2)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all shadow-lg text-sm">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Iframe Container -->
+            <div class="relative flex-1 w-full bg-[var(--panel-2)]">
+                <!-- Skeleton Loader CV -->
+                <div class="absolute inset-0 bg-[var(--surface)] animate-pulse flex items-center justify-center flex-col gap-4"
+                    id="cvModalSkel">
+                    <i class="fa-solid fa-circle-notch fa-spin text-3xl text-accent"></i>
+                    <span class="font-mono text-xs text-mute" data-i18n="cv_loading">Chargement du document...</span>
+                </div>
+                <!-- Lien Google Drive avec /preview au lieu de /view -->
+                <iframe src="https://drive.google.com/file/d/1VtnyLRW7BDRr3lAejDap0twMp3KELhja/preview"
+                    class="absolute inset-0 w-full h-full border-none opacity-0 transition-opacity duration-700 z-10"
+                    onload="document.getElementById('cvModalSkel').style.display='none'; this.classList.remove('opacity-0');"
+                    allow="autoplay">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Gestion de l'icône de bascule de thème au chargement
         window.addEventListener('DOMContentLoaded', () => {
@@ -1130,7 +1178,9 @@
                 tech_js: "ES6+ Moderne",
                 tech_adobe: "Ps, Ai, Id",
                 tech_tailwind: "Layouts Fluides",
-                tech_db: "Design de Base de données"
+                tech_db: "Design de Base de données",
+                cv_title: "Curriculum Vitae",
+                cv_loading: "Chargement du document..."
             },
             en: {
                 role_tag: "Founder @ Raffet'Art — Dakar",
@@ -1206,7 +1256,9 @@
                 tech_js: "Modern ES6+",
                 tech_adobe: "Ps, Ai, Id",
                 tech_tailwind: "Fluid Layouts",
-                tech_db: "Database Design"
+                tech_db: "Database Design",
+                cv_title: "Curriculum Vitae",
+                cv_loading: "Loading document..."
             }
         };
 
@@ -1311,6 +1363,7 @@
         let currentGalleryIndex = 0;
         let isGalleryOpen = false;
         let currentArticleIndex = 0;
+        let isCvOpen = false;
 
         // -- LIGHTBOX / MODALS LOGIC --
         function updateGalleryLightbox() {
@@ -1434,6 +1487,21 @@
             window.history.pushState(null, null, window.location.pathname + window.location.search);
         }
 
+        // -- CV MODAL LOGIC --
+        function openCvModal() {
+            isCvOpen = true;
+            document.getElementById('cvModal').classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCvModal() {
+            isCvOpen = false;
+            document.getElementById('cvModal').classList.add('opacity-0', 'pointer-events-none');
+            if (!isGalleryOpen && document.getElementById('designGridModal').classList.contains('opacity-0') && document.getElementById('articleModal').classList.contains('opacity-0')) {
+                document.body.style.overflow = '';
+            }
+        }
+
         function updateArticleModal() {
             const article = articlesData[currentArticleIndex];
             const isFr = currentLang === 'fr';
@@ -1475,6 +1543,7 @@
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (isGalleryOpen) closeGalleryLightbox();
+                else if (isCvOpen) closeCvModal();
                 else {
                     if (!document.getElementById('designGridModal').classList.contains('opacity-0')) closeDesignGridModal();
                     else if (!document.getElementById('articleModal').classList.contains('opacity-0')) closeArticleModal();
