@@ -4,54 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Mor Faye</title>
+    <title>Mor Faye — Design Engineer</title>
     <meta name="description"
         content="Mor Faye — Design Engineer based in Dakar. Brand identity, posters, UI/UX and full-stack Python development. Founder of Raffet'Art.">
     <meta name="theme-color" content="#0A0A0B">
 
-    <!-- 🚀 PERFORMANCES PRO MAX : DNS Prefetch, Preconnect & Prerender -->
+    <!-- 🚀 PERFORMANCES 1-4 : Preconnect, DNS Prefetch pour accélérer le chargement des ressources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
     <!-- Open Graph / Social sharing -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Mor Faye — Design Engineer">
     <meta property="og:description"
-        content="Brand identity, posters, UI/UX and full-stack Python development. Based in Dakar, working internationally.">
+        content="Brand identity, posters, UI/UX and full-stack Python development. Based in Dakar.">
     <meta property="og:image" content="images/hero-profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Favicon (inline SVG monogram) -->
+    <!-- Favicon -->
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230A0A0B'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' rx='6' fill='none' stroke='%233B82F6' stroke-width='2'/%3E%3Ctext x='32' y='41' font-family='monospace' font-weight='700' font-size='24' fill='%23F2F1EC' text-anchor='middle'%3EMF%3C/text%3E%3C/svg%3E">
 
     <!-- Structured data -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Mor Faye",
-        "jobTitle": "Design Engineer",
-        "worksFor": { "@type": "Organization", "name": "Raffet'Art" },
-        "address": { "@type": "PostalAddress", "addressLocality": "Dakar", "addressCountry": "SN" },
-        "email": "mailto:morfaye506@gmail.com"
-    }
+    {"@context":"https://schema.org","@type":"Person","name":"Mor Faye","jobTitle":"Design Engineer","worksFor":{"@type":"Organization","name":"Raffet'Art"},"address":{"@type":"PostalAddress","addressLocality":"Dakar","addressCountry":"SN"},"email":"mailto:morfaye506@gmail.com"}
     </script>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- FontAwesome Icons (Chargement asynchrone pour la vitesse) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <!-- FontAwesome Icons (Asynchrone pour la vitesse) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
 
-    <!-- 💎 TYPOGRAPHIES PREMIUM : Outfit (Display), Plus Jakarta Sans (Body), JetBrains Mono (Code) -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 💎 DESIGN PREMIUM : Police Playfair Display (Style Velenor pour les grands titres) et IBM Plex -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
-    <!-- Script de préchargement du thème pour éviter le clignotement -->
+    <!-- 🚀 PERFORMANCE 5 : Prévention du FOUC (Flash of Unstyled Content) -->
     <script>
         if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
             document.documentElement.classList.add('light');
@@ -64,25 +57,16 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        display: ['"Outfit"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['"IBM Plex Sans"', 'sans-serif'],
+                        velenor: ['"Playfair Display"', 'serif'], /* Remplacement élégant Velenor */
+                        mono: ['"IBM Plex Mono"', 'monospace'],
                     },
                     colors: {
                         brand: {
                             wa: '#25D366',
                             li: '#0A66C2',
-                            x: '#1DA1F2',
-                            gh: '#333333'
-                        }
-                    },
-                    animation: {
-                        'gradient-x': 'gradient-x 5s ease infinite',
-                    },
-                    keyframes: {
-                        'gradient-x': {
-                            '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
-                            '50%': { 'background-size': '200% 200%', 'background-position': 'right center' }
+                            x: '#000000',
+                            x_dark: '#FFFFFF'
                         }
                     }
                 }
@@ -92,41 +76,40 @@
 
     <style>
         :root {
-            /* Variables Thème Sombre (Défaut) */
-            --bg: #0A0A0B; --bg-rgb: 10, 10, 11;
-            --panel: #131316; --panel-rgb: 19, 19, 22;
-            --panel-2: #1B1B1F; --panel-2-rgb: 27, 27, 31;
-
+            /* Thème Sombre */
+            --bg: #0A0A0B;
+            --bg-rgb: 10, 10, 11;
+            --panel: #131316;
+            --panel-rgb: 19, 19, 22;
+            --panel-2: #1B1B1F;
+            --panel-2-rgb: 27, 27, 31;
             --border: rgba(255, 255, 255, 0.10);
             --border-strong: rgba(255, 255, 255, 0.22);
             --grid-line: rgba(255, 255, 255, 0.03);
             --surface: rgba(255, 255, 255, 0.05);
-
             --text: #F2F1EC;
             --text-mute: #9C9BA3;
             --text-faint: #55545B;
-
-            /* Bleu Thème Accent */
             --accent: #3B82F6;
             --accent-2: #60A5FA;
             --accent-dim: rgba(59, 130, 246, 0.12);
         }
 
         html.light {
-            /* Variables Thème Clair */
-            --bg: #F9FAFB; --bg-rgb: 249, 250, 251;
-            --panel: #FFFFFF; --panel-rgb: 255, 255, 255;
-            --panel-2: #F3F4F6; --panel-2-rgb: 243, 244, 246;
-
+            /* Thème Clair */
+            --bg: #F9FAFB;
+            --bg-rgb: 249, 250, 251;
+            --panel: #FFFFFF;
+            --panel-rgb: 255, 255, 255;
+            --panel-2: #F3F4F6;
+            --panel-2-rgb: 243, 244, 246;
             --border: rgba(0, 0, 0, 0.08);
             --border-strong: rgba(0, 0, 0, 0.18);
             --grid-line: rgba(0, 0, 0, 0.04);
             --surface: rgba(0, 0, 0, 0.04);
-
             --text: #111827;
             --text-mute: #6B7280;
             --text-faint: #9CA3AF;
-
             --accent: #2563EB;
             --accent-2: #1D4ED8;
             --accent-dim: rgba(37, 99, 235, 0.12);
@@ -135,298 +118,370 @@
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
             -webkit-tap-highlight-color: transparent;
-            cursor: none; /* Remplacé par curseur custom */
         }
 
-        /* 🚀 RENDU ULTRA-RAPIDE : content-visibility permet au navigateur d'ignorer le rendu des sections non visibles */
-        section { content-visibility: auto; contain-intrinsic-size: 800px; }
-
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .font-display { font-family: 'Outfit', sans-serif; }
-
-        /* 💎 CURSEUR CUSTOM PREMIUM */
-        #cursor-dot {
-            position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-            background: var(--accent); border-radius: 50%;
-            transform: translate(-50%, -50%); pointer-events: none; z-index: 9999;
-            transition: width 0.2s, height 0.2s, background 0.2s;
-        }
-        #cursor-outline {
-            position: fixed; top: 0; left: 0; width: 36px; height: 36px;
-            border: 1px solid var(--accent); border-radius: 50%;
-            transform: translate(-50%, -50%); pointer-events: none; z-index: 9998;
-            transition: transform 0.15s ease-out, width 0.2s, height 0.2s, border-color 0.2s, background 0.2s;
-        }
-        @media (max-width: 768px) {
-            #cursor-dot, #cursor-outline { display: none !important; }
-            body { cursor: auto; }
+        /* 🚀 PERFORMANCE 6 : Rendu différé pour les sections hors écran */
+        section {
+            content-visibility: auto;
+            contain-intrinsic-size: 800px;
         }
 
-        /* Grid Background dynamique */
+        .font-velenor {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Grid Background Optimisé */
         #bgGrid {
-            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
             background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
             background-size: 48px 48px;
-            -webkit-mask-image: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), black 0%, transparent 80%);
-            mask-image: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), black 0%, transparent 80%);
-            will-change: mask-image;
+            -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
         }
 
         #bgGlow {
-            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
             background: radial-gradient(600px circle at var(--gx, 50%) var(--gy, 20%), var(--accent-dim), transparent 70%);
-            transition: background 0.3s ease;
             will-change: background;
+            /* 🚀 GPU Acceleration */
         }
 
-        /* Texte Dégradé Premium */
-        .text-gradient-premium {
-            background: linear-gradient(to right, var(--accent-2), var(--accent), #8B5CF6, var(--accent-2));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* Standard Panels Premium */
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
         }
 
-        /* Couleurs de marque dynamiques au survol */
-        .social-link-wa:hover { color: #25D366 !important; text-shadow: 0 0 12px rgba(37,211,102,0.4); }
-        .social-link-li:hover { color: #0A66C2 !important; text-shadow: 0 0 12px rgba(10,102,194,0.4); }
-        .social-link-tw:hover { color: #1DA1F2 !important; text-shadow: 0 0 12px rgba(29,161,242,0.4); }
-        .social-link-gh:hover { color: var(--text) !important; text-shadow: 0 0 12px rgba(255,255,255,0.4); }
+        .panel-2 {
+            background: var(--panel-2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
 
-        /* Standard Panels */
-        .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; }
-        .panel-2 { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; }
-        .hairline-t { border-top: 1px solid var(--border); }
-        .hairline-b { border-bottom: 1px solid var(--border); }
-        .text-accent { color: var(--accent); }
-        .text-mute { color: var(--text-mute); }
-        .text-faint { color: var(--text-faint); }
-        .bg-accent { background-color: var(--accent); }
+        .hairline-b {
+            border-bottom: 1px solid var(--border);
+        }
 
-        /* Boutons Premium & Magnétiques */
+        .text-accent {
+            color: var(--accent);
+        }
+
+        .text-mute {
+            color: var(--text-mute);
+        }
+
+        /* Boutons Premium */
         .btn-primary {
-            background: var(--accent); color: #ffffff;
-            font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14px;
-            border-radius: 12px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative; overflow: hidden;
-            box-shadow: 0 4px 15px -3px rgba(59, 130, 246, 0.4);
+            background: var(--accent);
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
         }
+
         .btn-primary:hover {
             background: var(--accent-2);
-            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.6);
-        }
-        .btn-ghost {
-            background: transparent; border: 1px solid var(--border-strong);
-            color: var(--text); border-radius: 12px; font-family: 'Outfit', sans-serif; font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .btn-ghost:hover { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
-        
-        .tag {
-            font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
-            padding: 4px 12px; border: 1px solid var(--border-strong); border-radius: 9999px;
-            color: var(--text-mute); background: var(--surface); backdrop-filter: blur(8px);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.23);
         }
 
-        /* CUSTOM UI CARDS AVEC 3D TILT */
-        .mango-card-container {
-            background: var(--panel); border: 1px solid var(--border);
-            border-radius: 28px; padding: 14px;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            transform-style: preserve-3d;
-            will-change: transform, box-shadow;
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--border-strong);
+            color: var(--text);
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            padding: 4px 10px;
+            border: 1px solid var(--border-strong);
+            border-radius: 9999px;
+            color: var(--text-mute);
+            background: var(--surface);
+        }
+
+        /* Cartes Premium */
+        .mango-card-container {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 14px;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            will-change: transform;
+        }
+
         .mango-card-container:hover {
-            border-color: rgba(59, 130, 246, 0.5);
-            box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.5), 0 0 25px rgba(59, 130, 246, 0.2);
-            transform: translateY(-8px) scale(1.01) perspective(1000px) rotateX(2deg) rotateY(-1deg);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
         }
 
         .mango-card-immersive {
-            background: var(--panel); border-radius: 28px; position: relative;
-            overflow: hidden; border: 1px solid var(--border);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            transform-style: preserve-3d;
-            will-change: transform, box-shadow;
-        }
-        .mango-card-immersive:hover {
-            border-color: rgba(59, 130, 246, 0.5);
-            box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.5);
-            transform: translateY(-8px) scale(1.01) perspective(1000px) rotateX(2deg) rotateY(-1deg);
+            background: var(--panel);
+            border-radius: 28px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
 
-        /* 🚀 SHIMMER SKELETON (Rendu perçu plus rapide) */
-        .shimmer-bg {
-            background: linear-gradient(90deg, var(--surface) 0%, var(--border) 50%, var(--surface) 100%);
-            background-size: 200% 100%;
-            animation: shimmerEffect 1.5s infinite linear;
+        /* Reveal animations rapides */
+        .reveal {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
         }
-        @keyframes shimmerEffect { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
-        /* Reveal animations avec accélération GPU */
-        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); will-change: opacity, transform; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .boot { opacity: 0; transform: translateY(15px); animation: bootIn 0.7s cubic-bezier(.16, 1, .3, 1) forwards; will-change: opacity, transform; }
-        .boot-1 { animation-delay: .05s; } .boot-2 { animation-delay: .15s; }
-        .boot-3 { animation-delay: .25s; } .boot-4 { animation-delay: .35s; } .boot-5 { animation-delay: .45s; }
-        @keyframes bootIn { to { opacity: 1; transform: translateY(0); } }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* Article Modal Content */
-        #articleModalContent p { margin-bottom: 1.5rem; line-height: 1.8; }
-        #articleModalContent ul, #articleModalContent ol { margin-bottom: 1.5rem; margin-left: 1.5rem; list-style-type: disc; line-height: 1.8; }
-        #articleModalContent li { margin-bottom: 0.5rem; }
-        #articleModalContent strong { color: var(--text); font-weight: 600; }
-        #articleModalContent h3 { color: var(--text); font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; }
-        #articleModalContent em { color: var(--text); font-style: italic; }
-        section[id], footer[id] { scroll-margin-top: 5.5rem; }
+        .boot {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: bootIn 0.5s cubic-bezier(.16, 1, .3, 1) forwards;
+        }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        .boot-1 {
+            animation-delay: .05s;
+        }
+
+        .boot-2 {
+            animation-delay: .1s;
+        }
+
+        .boot-3 {
+            animation-delay: .15s;
+        }
+
+        .boot-4 {
+            animation-delay: .2s;
+        }
+
+        @keyframes bootIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Couleurs de marque dynamiques */
+        .hover-wa:hover {
+            color: var(--brand-wa) !important;
+            text-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .hover-li:hover {
+            color: var(--brand-li) !important;
+            text-shadow: 0 0 10px rgba(10, 102, 194, 0.3);
+        }
+
+        html.light .hover-x:hover {
+            color: var(--brand-x) !important;
+        }
+
+        html:not(.light) .hover-x:hover {
+            color: var(--brand-x_dark) !important;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-strong);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
     </style>
 </head>
 
-<body class="relative min-h-screen selection:bg-[var(--accent)] selection:text-white transition-colors duration-500">
-
-    <!-- Curseur Custom -->
-    <div id="cursor-dot"></div>
-    <div id="cursor-outline"></div>
+<body class="relative min-h-screen selection:bg-[#3B82F6] selection:text-white transition-colors duration-300">
 
     <div id="bgGrid"></div>
     <div id="bgGlow"></div>
 
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-[rgba(var(--bg-rgb),0.75)] backdrop-blur-2xl saturate-[150%] hairline-b transition-colors duration-500" id="navbar">
+    <!-- HEADER (Design Allégé et Premium) -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 bg-[rgba(var(--bg-rgb),0.85)] backdrop-blur-xl hairline-b transition-colors duration-300"
+        id="navbar">
         <div class="max-w-6xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
-
-            <a href="#" class="flex items-center gap-3 group magnetic cursor-hover">
-                <div class="w-10 h-10 rounded-xl border border-[var(--border-strong)] bg-gradient-to-br from-[var(--surface)] to-transparent flex items-center justify-center font-display font-black text-accent text-sm group-hover:border-accent group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-300">
-                    MF
+            <a href="#" class="flex items-center gap-3">
+                <div
+                    class="w-9 h-9 rounded-lg border border-accent flex items-center justify-center font-velenor font-bold text-accent text-lg hover:bg-accent hover:text-white transition-all shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                    M
                 </div>
                 <div class="flex flex-col leading-none">
-                    <span class="font-black text-sm tracking-wide font-display text-[var(--text)] uppercase">MOR FAYE</span>
-                    <span class="text-[10px] font-mono text-mute mt-1" data-i18n="role_tag">Fondateur @ Raffet'Art — Dakar</span>
+                    <span class="font-bold text-[15px] tracking-tight font-sans text-[var(--text)]">MOR FAYE</span>
+                    <span class="text-[10px] font-mono text-mute mt-0.5" data-i18n="role_tag">Fondateur @ Raffet'Art —
+                        Dakar</span>
                 </div>
             </a>
 
-            <nav class="hidden lg:flex items-center gap-8 text-[12px] font-mono font-medium text-mute">
-                <a href="#work" class="cursor-hover hover:text-[var(--text)] transition-colors" data-i18n="nav_work">~/projets</a>
-                <a href="#about" class="cursor-hover hover:text-[var(--text)] transition-colors" data-i18n="nav_about">~/a-propos</a>
-                <a href="#gallery" class="cursor-hover hover:text-[var(--text)] transition-colors" data-i18n="nav_posters">~/affiches</a>
-                <a href="#articles" class="cursor-hover hover:text-[var(--text)] transition-colors" data-i18n="nav_articles">~/articles</a>
-                <a href="#contact" class="cursor-hover hover:text-[var(--text)] transition-colors" data-i18n="nav_contact">~/contact</a>
+            <!-- 💎 DESIGN PREMIUM : Liens épurés (sans ~/) -->
+            <nav class="hidden lg:flex items-center gap-8 text-[13px] font-sans font-medium text-mute">
+                <a href="#work" class="hover:text-[var(--text)] transition-colors" data-i18n="nav_work">Projets</a>
+                <a href="#about" class="hover:text-[var(--text)] transition-colors" data-i18n="nav_about">À propos</a>
+                <a href="#gallery" class="hover:text-[var(--text)] transition-colors"
+                    data-i18n="nav_posters">Affiches</a>
+                <a href="#articles" class="hover:text-[var(--text)] transition-colors"
+                    data-i18n="nav_articles">Articles</a>
+                <a href="#contact" class="hover:text-[var(--text)] transition-colors"
+                    data-i18n="nav_contact">Contact</a>
             </nav>
 
             <div class="flex items-center gap-3">
-                <!-- Toggle Theme -->
                 <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="Thème"
-                    class="cursor-hover magnetic w-9 h-9 rounded-full border border-[var(--border)] bg-[var(--surface)] text-mute hover:text-accent hover:border-accent flex items-center justify-center transition-all">
+                    class="w-8 h-8 flex items-center justify-center rounded-full border border-[var(--border)] text-mute hover:text-accent hover:border-accent hover:bg-[var(--accent-dim)] transition-all">
                     <i class="fa-solid fa-sun text-xs" id="themeIcon"></i>
                 </button>
 
-                <!-- Language Switcher -->
-                <div class="flex items-center rounded-full border border-[var(--border)] overflow-hidden font-mono text-[10px] bg-[var(--surface)]" role="group" aria-label="Language">
-                    <button onclick="setLang('en')" id="langBtnEn" class="cursor-hover w-8 h-8 flex items-center justify-center transition-colors border-r border-[var(--border)] hover:bg-[var(--accent-dim)] hover:text-accent">EN</button>
-                    <button onclick="setLang('fr')" id="langBtnFr" class="cursor-hover w-8 h-8 flex items-center justify-center transition-colors bg-accent text-white font-bold">FR</button>
+                <div class="flex items-center rounded-lg border border-[var(--border)] overflow-hidden font-mono text-[11px]"
+                    role="group" aria-label="Language">
+                    <button onclick="setLang('en')" id="langBtnEn"
+                        class="px-2.5 py-1.5 transition-colors border-r border-[var(--border)] hover:bg-[var(--accent-dim)] hover:text-accent">EN</button>
+                    <button onclick="setLang('fr')" id="langBtnFr"
+                        class="px-2.5 py-1.5 transition-colors bg-[var(--accent-dim)] text-accent font-bold">FR</button>
                 </div>
 
                 <a href="https://wa.me/221781492438" target="_blank" rel="noopener noreferrer"
-                    class="cursor-hover magnetic hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#25D366]/40 text-[#25D366] text-[12px] font-mono hover:bg-[#25D366] hover:text-white transition-colors">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> <span data-i18n="chat">Chat</span>
+                    class="hidden sm:inline-flex btn-primary items-center gap-2 px-5 py-2 text-[13px]">
+                    <span data-i18n="contact">Me Contacter</span>
                 </a>
 
-                <a href="#contact" class="cursor-hover magnetic hidden sm:inline-flex btn-primary items-center gap-2 px-5 py-2 text-[13px] rounded-full">
-                    <span data-i18n="contact">Contact</span>
-                </a>
-
-                <button onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false"
-                    class="lg:hidden p-2 rounded-full border border-[var(--border)] text-[var(--text)] bg-[var(--surface)]">
+                <button onclick="toggleMobileMenu()" aria-label="Menu" class="lg:hidden p-2 text-[var(--text)]">
                     <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
 
         <div id="mobileMenu"
-            class="hidden lg:hidden max-w-6xl mx-auto px-4 pb-5 flex-col space-y-1 font-mono text-[13px] bg-[var(--bg)] border-t border-[var(--border)]">
-            <a href="#work" onclick="toggleMobileMenu()" class="py-4 hairline-b flex items-center justify-between text-mute hover:text-accent"><span data-i18n="nav_work">~/projets</span><i class="fa-solid fa-arrow-right text-xs"></i></a>
-            <a href="#about" onclick="toggleMobileMenu()" class="py-4 hairline-b flex items-center justify-between text-mute hover:text-accent"><span data-i18n="nav_about">~/a-propos</span><i class="fa-solid fa-arrow-right text-xs"></i></a>
-            <a href="#gallery" onclick="toggleMobileMenu()" class="py-4 hairline-b flex items-center justify-between text-mute hover:text-accent"><span data-i18n="nav_posters">~/affiches</span><i class="fa-solid fa-arrow-right text-xs"></i></a>
-            <a href="#articles" onclick="toggleMobileMenu()" class="py-4 hairline-b flex items-center justify-between text-mute hover:text-accent"><span data-i18n="nav_articles">~/articles</span><i class="fa-solid fa-arrow-right text-xs"></i></a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="py-4 hairline-b flex items-center justify-between text-mute hover:text-accent"><span data-i18n="nav_contact">~/contact</span><i class="fa-solid fa-arrow-right text-xs"></i></a>
+            class="hidden lg:hidden max-w-6xl mx-auto px-4 pb-5 flex-col space-y-1 font-sans font-medium text-[14px] bg-[var(--bg)] border-t border-[var(--border)]">
+            <a href="#work" onclick="toggleMobileMenu()" class="py-4 border-b border-[var(--border)] text-mute"><span
+                    data-i18n="nav_work">Projets</span></a>
+            <a href="#about" onclick="toggleMobileMenu()" class="py-4 border-b border-[var(--border)] text-mute"><span
+                    data-i18n="nav_about">À propos</span></a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="py-4 border-b border-[var(--border)] text-mute"><span
+                    data-i18n="nav_posters">Affiches</span></a>
+            <a href="#articles" onclick="toggleMobileMenu()"
+                class="py-4 border-b border-[var(--border)] text-mute"><span
+                    data-i18n="nav_articles">Articles</span></a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="py-4 text-mute"><span
+                    data-i18n="nav_contact">Contact</span></a>
         </div>
     </header>
 
     <!-- HERO -->
-    <section class="relative pt-36 pb-20 md:pt-48 md:pb-32 px-4 sm:px-8 max-w-6xl mx-auto z-10">
-        <div class="flex flex-wrap items-center gap-3 mb-10 boot boot-1">
-            <span class="tag flex items-center gap-2 !text-[var(--text)] bg-emerald-500/10 border border-emerald-500/30 cursor-hover">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span data-i18n="status" class="font-bold">statut : disponible pour opportunités</span>
+    <section class="relative pt-36 pb-20 md:pt-48 md:pb-28 px-4 sm:px-8 max-w-6xl mx-auto z-10">
+        <div class="flex flex-wrap items-center gap-3 mb-8 boot boot-1">
+            <span class="tag flex items-center gap-2 !text-[var(--text)] !bg-green-500/10 !border-green-500/30">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                <span data-i18n="status" class="font-semibold text-green-600 dark:text-green-400">Disponible pour
+                    opportunités</span>
             </span>
-            <span class="tag cursor-hover" data-i18n="location">🌍 Dakar, sn</span>
+            <span class="tag bg-[var(--surface)] text-[var(--text)]" data-i18n="location"> Dakar, SN</span>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-8">
-                <h1 class="font-display text-5xl sm:text-6xl md:text-[5rem] font-black tracking-tighter leading-[1] mb-8 boot boot-2" data-i18n="hero_title">
-                    Création de <span class="text-gradient-premium inline-block animate-gradient-x">produits numériques</span> & d'identités de marque.
+            <div class="lg:col-span-7">
+                <!-- 💎 DESIGN PREMIUM : Police Velenor (Playfair Display) pour le titre principal -->
+                <h1 class="font-velenor text-5xl sm:text-6xl md:text-[5rem] font-bold tracking-tight leading-[1.05] mb-6 boot boot-2 text-[var(--text)]"
+                    data-i18n="hero_title">
+                    Création de <span class="text-accent italic">produits numériques</span> & d'identités de marque.
                 </h1>
 
-                <p class="text-mute text-base sm:text-lg leading-relaxed max-w-xl mb-10 boot boot-3" data-i18n="hero_desc">
+                <p class="text-mute text-base sm:text-lg leading-relaxed max-w-xl mb-10 boot boot-3"
+                    data-i18n="hero_desc">
                     Fondateur du studio créatif <strong>Raffet'Art</strong>. Quatre ans à allier précision d'ingénierie
                     et esthétique visuelle — création d'identités visuelles, logiciels sur mesure et applications web
                     réactives.
                 </p>
 
                 <div class="flex flex-wrap items-center gap-4 boot boot-4">
-                    <a href="#work" class="cursor-hover magnetic btn-primary px-8 py-4 text-sm inline-flex items-center gap-3 rounded-full">
-                        <span data-i18n="btn_explore">Explorer les Projets</span> <i class="fa-solid fa-arrow-down text-[10px] animate-bounce"></i>
+                    <a href="#work" class="btn-primary px-8 py-3.5 text-sm inline-flex items-center gap-2">
+                        <span data-i18n="btn_explore">Explorer les Projets</span> <i
+                            class="fa-solid fa-arrow-down text-[10px]"></i>
                     </a>
-                    
-                    <!-- 💎 RESTAURATION DU BOUTON TÉLÉCHARGER CV DEMANDÉE -->
-                    <button onclick="openCvModal()" class="cursor-hover magnetic btn-ghost px-8 py-4 text-sm inline-flex items-center gap-2 rounded-full shadow-sm hover:shadow-lg">
-                        <i class="fa-regular fa-file-pdf text-red-500 text-lg"></i> <span data-i18n="btn_cv">Télécharger CV</span>
+
+                    <!-- 💎 RESTAURATION : Bouton Télécharger CV avec design premium -->
+                    <button onclick="openCvModal()"
+                        class="btn-ghost px-8 py-3.5 text-sm inline-flex items-center gap-2">
+                        <i class="fa-regular fa-file-pdf text-red-500"></i> <span data-i18n="btn_cv">Télécharger
+                            CV</span>
                     </button>
-                    
+
                     <a href="https://wa.me/221781492438" target="_blank" rel="noopener noreferrer"
-                        class="cursor-hover magnetic px-8 py-4 text-sm inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all font-display font-semibold shadow-sm">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> <span data-i18n="btn_whatsapp">WhatsApp Direct</span>
+                        class="px-8 py-3.5 text-sm inline-flex items-center gap-2 rounded-lg bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all font-semibold shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> <span data-i18n="btn_whatsapp">WhatsApp
+                            Direct</span>
                     </a>
                 </div>
             </div>
 
-            <div class="lg:col-span-4 boot boot-5">
-                <div class="mango-card-container p-3 max-w-sm mx-auto bg-[rgba(var(--panel-rgb),0.5)] backdrop-blur-xl">
-                    <div class="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-3 bg-[var(--panel-2)] shadow-inner">
-                        <div class="absolute inset-0 shimmer-bg" id="skel-hero"></div>
-                        <!-- Optimisation : fetchpriority high pour la LCP -->
+            <div class="lg:col-span-5 boot boot-4">
+                <div
+                    class="mango-card-container p-4 max-w-[400px] mx-auto bg-[rgba(var(--panel-rgb),0.6)] backdrop-blur-2xl">
+                    <div
+                        class="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-4 bg-[var(--panel-2)] shadow-inner">
+                        <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-hero"></div>
+                        <!-- 🚀 PERFORMANCE 7 : fetchpriority="high" pour le Largest Contentful Paint (LCP) -->
                         <img src="morfaye.jpg" alt="Mor Faye" fetchpriority="high" decoding="async"
-                            onload="document.getElementById('skel-hero').style.display='none'; this.classList.remove('opacity-0', 'grayscale'); this.classList.add('scale-100');"
-                            class="w-full h-full object-cover transition-all duration-1000 ease-out opacity-0 grayscale scale-105 hover:scale-110 hover:grayscale-0 relative z-10 cursor-hover">
-                        <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-mono font-bold text-white border border-white/20 shadow-lg z-20 flex items-center gap-2"
+                            onload="document.getElementById('skel-hero').style.display='none'; this.classList.remove('opacity-0', 'grayscale');"
+                            class="w-full h-full object-cover grayscale opacity-0 hover:grayscale-0 hover:scale-105 transition-all duration-700 ease-out relative z-10">
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-mono text-white border border-white/20 z-20 shadow-lg flex items-center gap-2"
                             data-i18n="badge_founder">
-                            <i class="fa-solid fa-pen-nib text-accent"></i> Fondateur of Raffet'Art
+                            <i class="fa-solid fa-pen-nib text-accent"></i> Fondateur @ Raffet'Art
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 font-mono text-center">
-                        <div class="p-3 bg-[var(--panel-2)] rounded-xl border border-[var(--border)] hover:border-accent transition-colors cursor-hover">
-                            <div class="text-xl font-black text-accent font-display">50+</div>
-                            <div class="text-[10px] text-mute uppercase tracking-widest mt-1" data-i18n="stat_design">Œuvres Design</div>
+                    <div class="grid grid-cols-2 gap-3 font-mono text-center">
+                        <div
+                            class="p-4 bg-[var(--panel-2)] rounded-xl border border-[var(--border)] hover:border-accent transition-colors">
+                            <div class="text-2xl font-bold font-velenor text-accent">50+</div>
+                            <div class="text-[10px] text-mute uppercase tracking-widest mt-1" data-i18n="stat_design">
+                                Œuvres Design</div>
                         </div>
-                        <div class="p-3 bg-[var(--panel-2)] rounded-xl border border-[var(--border)] hover:border-accent transition-colors cursor-hover">
-                            <div class="text-xl font-black text-accent font-display">100%</div>
-                            <div class="text-[10px] text-mute uppercase tracking-widest mt-1" data-i18n="stat_code">Code Sur-Mesure</div>
+                        <div
+                            class="p-4 bg-[var(--panel-2)] rounded-xl border border-[var(--border)] hover:border-accent transition-colors">
+                            <div class="text-2xl font-bold font-velenor text-accent">100%</div>
+                            <div class="text-[10px] text-mute uppercase tracking-widest mt-1" data-i18n="stat_code">Code
+                                Sur-Mesure</div>
                         </div>
                     </div>
                 </div>
@@ -436,137 +491,132 @@
 
     <!-- WORK -->
     <section id="work" class="py-24 px-4 sm:px-8 max-w-6xl mx-auto z-10 relative">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
             <div>
-                <div class="font-mono text-accent text-xs mb-3 uppercase tracking-widest font-bold" data-i18n="selected_works">● Travaux Sélectionnés</div>
-                <h2 class="font-display text-4xl sm:text-5xl font-black tracking-tighter" data-i18n="featured_projects">Projets en Vedette</h2>
+                <!-- 💎 DESIGN PREMIUM : Nettoyage des textes (Plus de '●') -->
+                <div class="font-mono text-accent text-xs mb-3 uppercase tracking-widest font-bold"
+                    data-i18n="selected_works">Travaux Sélectionnés</div>
+                <h2 class="font-velenor text-4xl sm:text-5xl font-bold tracking-tight text-[var(--text)]"
+                    data-i18n="featured_projects">Projets en Vedette</h2>
             </div>
 
-            <div class="flex flex-wrap items-center gap-4">
-                <div class="flex bg-[var(--panel)] p-1.5 rounded-full border border-[var(--border)] text-xs font-mono transition-colors shadow-sm" id="cardStyleToggle">
-                    <button onclick="setCardLayout('container')" id="layoutBtnContainer" class="cursor-hover px-4 py-2 rounded-full bg-accent text-white font-bold transition-all shadow-md" data-i18n="style_container">Style Conteneur</button>
-                    <button onclick="setCardLayout('immersive')" id="layoutBtnImmersive" class="cursor-hover px-4 py-2 rounded-full text-mute hover:text-[var(--text)] transition-all" data-i18n="style_immersive">Style Immersif</button>
-                </div>
-
-                <div class="flex gap-2 font-mono text-xs">
-                    <button onclick="filterProjects('all', event)" class="cursor-hover filter-btn active px-5 py-2 rounded-full border border-accent bg-accent text-white font-bold shadow-lg shadow-blue-500/20" data-i18n="filter_all">Tous</button>
-                    <button onclick="filterProjects('branding', event)" class="cursor-hover filter-btn px-5 py-2 rounded-full border border-[var(--border)] bg-[var(--surface)] text-mute hover:border-[var(--text)] hover:text-[var(--text)] transition-colors" data-i18n="filter_branding">Branding</button>
-                    <button onclick="filterProjects('dev', event)" class="cursor-hover filter-btn px-5 py-2 rounded-full border border-[var(--border)] bg-[var(--surface)] text-mute hover:border-[var(--text)] hover:text-[var(--text)] transition-colors" data-i18n="filter_dev">Python/Web</button>
-                </div>
+            <!-- Filtres simplifiés pour l'esthétique -->
+            <div class="flex gap-2 font-mono text-[12px]">
+                <button onclick="filterProjects('all', event)"
+                    class="filter-btn active px-5 py-2 rounded-full border border-accent bg-accent text-white font-semibold shadow-md shadow-blue-500/20"
+                    data-i18n="filter_all">Tous</button>
+                <button onclick="filterProjects('branding', event)"
+                    class="filter-btn px-5 py-2 rounded-full border border-[var(--border)] bg-[var(--surface)] text-mute hover:text-[var(--text)] transition-colors"
+                    data-i18n="filter_branding">Branding</button>
+                <button onclick="filterProjects('dev', event)"
+                    class="filter-btn px-5 py-2 rounded-full border border-[var(--border)] bg-[var(--surface)] text-mute hover:text-[var(--text)] transition-colors"
+                    data-i18n="filter_dev">Python/Web</button>
             </div>
         </div>
 
-        <!-- PROJECTS GRID -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
-
-            <!-- PROJECT CARD 1 : Raffet'Art -->
-            <div data-category="branding" class="project-card mango-card-container group cursor-pointer reveal transition-all duration-400" onclick="openProjectModal(0)">
-                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-5 bg-[var(--panel-2)] border border-[var(--border)]">
-                    <div class="absolute inset-0 shimmer-bg" id="skel-proj-1"></div>
+            <!-- PROJECT CARD 1 -->
+            <div data-category="branding"
+                class="project-card mango-card-container group cursor-pointer reveal transition-all duration-300"
+                onclick="openProjectModal(0)">
+                <div
+                    class="relative w-full aspect-[4/3] rounded-[18px] overflow-hidden mb-5 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-proj-1"></div>
+                    <!-- 🚀 PERFORMANCE 8 : loading lazy -->
                     <img src="raffetart.png" alt="Raffet'Art Studio" loading="lazy" decoding="async"
                         onload="document.getElementById('skel-proj-1').style.display='none'; this.classList.remove('opacity-0');"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out opacity-0 relative z-10">
-                    <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-xl px-3 py-1 rounded-full text-[10px] font-mono text-white border border-white/10 flex items-center gap-2 z-20">
-                        <span class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_#60A5FA]"></span>
-                        <span class="badge-tag" data-i18n="proj_1_badge">Identité</span>
-                    </div>
-                    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/60 backdrop-blur-xl px-3 py-1.5 rounded-full border border-white/20 z-20">
-                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-0 relative z-10">
+                    <div
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-mono font-bold text-white border border-white/20 flex items-center gap-2 z-20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_5px_#60A5FA]"></span>
+                        <span data-i18n="proj_1_badge">Identité</span>
                     </div>
                 </div>
-
                 <div class="px-2">
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="font-display text-2xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">Raffet'Art Studio</h3>
-                        <span class="bg-[var(--surface)] text-mute font-mono text-[10px] px-3 py-1 rounded-full border border-[var(--border)] font-bold tracking-widest">PRJ-01</span>
+                        <h3
+                            class="font-velenor text-2xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
+                            Raffet'Art Studio</h3>
+                        <span
+                            class="bg-[var(--surface)] text-mute font-mono text-[10px] px-3 py-1 rounded-full border border-[var(--border)] font-bold">PRJ-01</span>
                     </div>
-                    <p class="card-desc text-mute text-sm leading-relaxed mb-5 line-clamp-2" data-i18n="proj_1_desc">
-                        Conception de l'identité de marque globale, charte graphique et univers visuel du studio Raffet'Art.
-                    </p>
-                    <div class="card-pills flex flex-wrap gap-2 mb-6">
-                        <span class="tag" data-i18n="proj_1_tag1">Identité</span>
-                        <span class="tag" data-i18n="proj_1_tag2">Design System</span>
-                    </div>
-                    <button class="w-full py-3.5 px-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] font-display font-semibold text-sm group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                        <span class="btn-inspect-text" data-i18n="inspect">Voir réalisation</span> <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                    <p class="text-mute text-sm leading-relaxed mb-5 line-clamp-2" data-i18n="proj_1_desc">Conception de
+                        l'identité de marque globale, charte graphique et univers visuel du studio Raffet'Art.</p>
+                    <button
+                        class="w-full py-3.5 px-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] font-sans font-semibold text-sm group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                        <span data-i18n="inspect">Voir réalisation</span> <i
+                            class="fa-solid fa-arrow-right text-[10px]"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- PROJECT CARD 2 : Jang Biochimie -->
-            <div data-category="dev" class="project-card mango-card-container group cursor-pointer reveal transition-all duration-400 delay-100" onclick="openProjectModal(1)">
-                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-5 bg-[var(--panel-2)] border border-[var(--border)]">
-                    <div class="absolute inset-0 shimmer-bg" id="skel-proj-2"></div>
+            <!-- PROJECT CARD 2 -->
+            <div data-category="dev"
+                class="project-card mango-card-container group cursor-pointer reveal transition-all duration-300 delay-100"
+                onclick="openProjectModal(1)">
+                <div
+                    class="relative w-full aspect-[4/3] rounded-[18px] overflow-hidden mb-5 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-proj-2"></div>
                     <img src="jangbiochimie.png" alt="Jang Biochimie" loading="lazy" decoding="async"
                         onload="document.getElementById('skel-proj-2').style.display='none'; this.classList.remove('opacity-0');"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out opacity-0 relative z-10">
-                    <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-xl px-3 py-1 rounded-full text-[10px] font-mono text-white border border-white/10 flex items-center gap-2 z-20">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399]"></span>
-                        <span class="badge-tag" data-i18n="proj_2_badge">E-Learning</span>
-                    </div>
-                    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/60 backdrop-blur-xl px-3 py-1.5 rounded-full border border-white/20 z-20">
-                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-0 relative z-10">
+                    <div
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-mono font-bold text-white border border-white/20 flex items-center gap-2 z-20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_5px_#34D399]"></span>
+                        <span data-i18n="proj_2_badge">E-Learning</span>
                     </div>
                 </div>
-
                 <div class="px-2">
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="font-display text-2xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">Jang Biochimie</h3>
-                        <span class="bg-[var(--surface)] text-mute font-mono text-[10px] px-3 py-1 rounded-full border border-[var(--border)] font-bold tracking-widest">PRJ-02</span>
+                        <h3
+                            class="font-velenor text-2xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
+                            Jang Biochimie</h3>
+                        <span
+                            class="bg-[var(--surface)] text-mute font-mono text-[10px] px-3 py-1 rounded-full border border-[var(--border)] font-bold">PRJ-02</span>
                     </div>
-                    <p class="card-desc text-mute text-sm leading-relaxed mb-5 line-clamp-2" data-i18n="proj_2_desc">
-                        Plateforme web interactive conçue pour l'apprentissage de la biochimie, intégrant des QCM.
-                    </p>
-                    <div class="card-pills flex flex-wrap gap-2 mb-6">
-                        <span class="tag" data-i18n="proj_2_tag1">Web App</span>
-                        <span class="tag" data-i18n="proj_2_tag2">UI/UX Design</span>
-                    </div>
-                    <button class="w-full py-3.5 px-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] font-display font-semibold text-sm group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                        <span class="btn-inspect-text" data-i18n="inspect">Voir réalisation</span> <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                    <p class="text-mute text-sm leading-relaxed mb-5 line-clamp-2" data-i18n="proj_2_desc">Plateforme
+                        web interactive conçue pour l'apprentissage de la biochimie, intégrant des QCM.</p>
+                    <button
+                        class="w-full py-3.5 px-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] font-sans font-semibold text-sm group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                        <span data-i18n="inspect">Voir réalisation</span> <i
+                            class="fa-solid fa-arrow-right text-[10px]"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- PROJECT CARD 3 : XassidaCloud -->
-            <div data-category="dev" class="project-card mango-card-container group cursor-pointer reveal transition-all duration-400 delay-200" onclick="openProjectModal(2)">
-                <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-5 bg-[var(--panel-2)] border border-[var(--border)]">
-                    <div class="absolute inset-0 shimmer-bg" id="skel-proj-3"></div>
+            <!-- PROJECT CARD 3 -->
+            <div data-category="dev"
+                class="project-card mango-card-container group cursor-pointer reveal transition-all duration-300 delay-200"
+                onclick="openProjectModal(2)">
+                <div
+                    class="relative w-full aspect-[4/3] rounded-[18px] overflow-hidden mb-5 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-proj-3"></div>
                     <img src="apercu_xc.jpeg" alt="XassidaCloud" loading="lazy" decoding="async"
                         onload="document.getElementById('skel-proj-3').style.display='none'; this.classList.remove('opacity-0');"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out opacity-0 relative z-10">
-                    <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-xl px-3 py-1 rounded-full text-[10px] font-mono text-white border border-white/10 flex items-center gap-2 z-20">
-                        <span class="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_#C084FC]"></span>
-                        <span class="badge-tag" data-i18n="proj_3_badge">Web App</span>
-                    </div>
-                    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/60 backdrop-blur-xl px-3 py-1.5 rounded-full border border-white/20 z-20">
-                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-0 relative z-10">
+                    <div
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-mono font-bold text-white border border-white/20 flex items-center gap-2 z-20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_5px_#C084FC]"></span>
+                        <span data-i18n="proj_3_badge">Web App</span>
                     </div>
                 </div>
-
                 <div class="px-2">
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="font-display text-2xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">XassidaCloud</h3>
-                        <span class="bg-[var(--surface)] text-mute font-mono text-[10px] px-3 py-1 rounded-full border border-[var(--border)] font-bold tracking-widest">PRJ-03</span>
+                        <h3
+                            class="font-velenor text-2xl font-bold text-[var(--text)] group-hover:text-accent transition-colors">
+                            XassidaCloud</h3>
+                        <span
+                            class="bg-[var(--surface)] text-mute font-mono text-[10px] px-3 py-1 rounded-full border border-[var(--border)] font-bold">PRJ-03</span>
                     </div>
-                    <p class="card-desc text-mute text-sm leading-relaxed mb-5 line-clamp-2" data-i18n="proj_3_desc">
-                        Conception et développement complet de Xassidacloud.com. Une plateforme web moderne et intuitive.
-                    </p>
-                    <div class="card-pills flex flex-wrap gap-2 mb-6">
-                        <span class="tag" data-i18n="proj_3_tag1">UI/UX Design</span>
-                        <span class="tag" data-i18n="proj_3_tag2">Développement</span>
-                    </div>
-                    <button class="w-full py-3.5 px-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] font-display font-semibold text-sm group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                        <span class="btn-inspect-text" data-i18n="inspect">Voir réalisation</span> <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                    <p class="text-mute text-sm leading-relaxed mb-5 line-clamp-2" data-i18n="proj_3_desc">Conception et
+                        développement complet de Xassidacloud.com. Une plateforme web moderne et intuitive.</p>
+                    <button
+                        class="w-full py-3.5 px-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] font-sans font-semibold text-sm group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                        <span data-i18n="inspect">Voir réalisation</span> <i
+                            class="fa-solid fa-arrow-right text-[10px]"></i>
                     </button>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -574,30 +624,42 @@
     <section id="about" class="py-24 px-4 sm:px-8 max-w-6xl mx-auto z-10 relative border-t border-[var(--border)]">
         <div class="grid lg:grid-cols-12 gap-16 items-center">
             <div class="lg:col-span-5 reveal">
-                <div class="font-mono text-accent text-xs mb-3 uppercase tracking-widest font-bold" data-i18n="philosophy_tag">02 // Philosophie & Studio</div>
-                <h2 class="font-display text-4xl sm:text-5xl font-black tracking-tighter mb-8 leading-[1.1]" data-i18n="philosophy_title">Raffet'Art : Deux Disciplines, Une Vision</h2>
+                <!-- 💎 TEXTE NETTOYÉ -->
+                <div class="font-mono text-accent text-xs mb-3 uppercase tracking-widest font-bold"
+                    data-i18n="philosophy_tag">Philosophie & Studio</div>
+                <h2 class="font-velenor text-4xl sm:text-5xl font-bold tracking-tight mb-8 leading-[1.1] text-[var(--text)]"
+                    data-i18n="philosophy_title">Raffet'Art : Deux Disciplines, Une Vision</h2>
                 <p class="text-mute text-base leading-relaxed mb-10" data-i18n="philosophy_desc">
                     À travers <strong>Raffet'Art</strong>, nous fusionnons l'ingénierie logicielle et la création
                     graphique. Nous croyons en des systèmes visuels rigoureux, des interfaces réactives et une
                     typographie forte pour propulser l'image des marques et des entreprises.
                 </p>
                 <div class="space-y-4">
-                    <div class="p-5 bg-[var(--panel)] rounded-2xl border border-[var(--border)] flex items-start gap-5 shadow-sm hover:-translate-y-1 transition-transform cursor-hover">
-                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 text-xl flex-shrink-0">
+                    <div
+                        class="p-5 bg-[var(--panel)] rounded-2xl border border-[var(--border)] flex items-start gap-5 shadow-sm hover:border-accent transition-colors">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 text-xl flex-shrink-0">
                             <i class="fa-solid fa-wand-magic-sparkles"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-[var(--text)] font-display text-lg" data-i18n="studio_brand_title">Raffet'Art Studio</h4>
-                            <p class="text-sm text-mute mt-2 leading-relaxed" data-i18n="studio_brand_desc">Branding complet, chartes graphiques, direction artistique, affiches et identités visuelles sur mesure.</p>
+                            <h4 class="font-bold text-[var(--text)] font-sans text-lg" data-i18n="studio_brand_title">
+                                Raffet'Art Studio</h4>
+                            <p class="text-sm text-mute mt-2 leading-relaxed" data-i18n="studio_brand_desc">Branding
+                                complet, chartes graphiques, direction artistique, affiches et identités visuelles sur
+                                mesure.</p>
                         </div>
                     </div>
-                    <div class="p-5 bg-[var(--panel)] rounded-2xl border border-[var(--border)] flex items-start gap-5 shadow-sm hover:-translate-y-1 transition-transform cursor-hover">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 text-xl flex-shrink-0">
+                    <div
+                        class="p-5 bg-[var(--panel)] rounded-2xl border border-[var(--border)] flex items-start gap-5 shadow-sm hover:border-accent transition-colors">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 text-xl flex-shrink-0">
                             <i class="fa-solid fa-code"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-[var(--text)] font-display text-lg" data-i18n="dev_title">Ingénierie & Web</h4>
-                            <p class="text-sm text-mute mt-2 leading-relaxed" data-i18n="dev_desc">Interfaces web modernes HTML5/JS/Tailwind et développement d'applications Python/FastAPI.</p>
+                            <h4 class="font-bold text-[var(--text)] font-sans text-lg" data-i18n="dev_title">Ingénierie
+                                & Web</h4>
+                            <p class="text-sm text-mute mt-2 leading-relaxed" data-i18n="dev_desc">Interfaces web
+                                modernes HTML5/JS/Tailwind et développement d'applications Python/FastAPI.</p>
                         </div>
                     </div>
                 </div>
@@ -606,38 +668,55 @@
             <div class="lg:col-span-7 reveal delay-100">
                 <div class="mango-card-container p-8">
                     <div class="flex items-center justify-between mb-8">
-                        <h3 class="font-mono text-xs text-[var(--text)] font-bold uppercase tracking-widest" data-i18n="toolkit_title">Boîte à Outils & Stack Technique</h3>
-                        <span class="px-3 py-1 rounded-full text-[10px] font-mono border border-[var(--border)] bg-[var(--surface)] text-mute" data-i18n="edition">Édition 2026</span>
+                        <h3 class="font-mono text-xs text-[var(--text)] font-bold uppercase tracking-widest"
+                            data-i18n="toolkit_title">Boîte à Outils & Stack Technique</h3>
+                        <span
+                            class="px-3 py-1 rounded-full text-[10px] font-mono border border-[var(--border)] bg-[var(--surface)] text-mute"
+                            data-i18n="edition">Édition 2026</span>
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        <div class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-accent border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group cursor-hover">
-                            <i class="fa-brands fa-figma text-3xl text-accent mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform"></i>
-                            <div class="font-bold font-display text-[var(--text)]">Figma</div>
+                        <div
+                            class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-accent border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group">
+                            <i
+                                class="fa-brands fa-figma text-3xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
+                            <div class="font-bold font-sans text-[var(--text)]">Figma</div>
                             <div class="text-[10px] font-mono text-mute mt-1" data-i18n="tech_figma">UI/UX Systems</div>
                         </div>
-                        <div class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-yellow-400 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group cursor-hover">
-                            <i class="fa-brands fa-python text-3xl text-yellow-400 mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform"></i>
-                            <div class="font-bold font-display text-[var(--text)]">Python</div>
-                            <div class="text-[10px] font-mono text-mute mt-1" data-i18n="tech_python">FastAPI & Scripting</div>
+                        <div
+                            class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-yellow-400 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group">
+                            <i
+                                class="fa-brands fa-python text-3xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <div class="font-bold font-sans text-[var(--text)]">Python</div>
+                            <div class="text-[10px] font-mono text-mute mt-1" data-i18n="tech_python">FastAPI &
+                                Scripting</div>
                         </div>
-                        <div class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-yellow-300 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group cursor-hover">
-                            <i class="fa-brands fa-js text-3xl text-yellow-300 mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform"></i>
-                            <div class="font-bold font-display text-[var(--text)]">JavaScript</div>
+                        <div
+                            class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-yellow-300 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group">
+                            <i
+                                class="fa-brands fa-js text-3xl text-yellow-300 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <div class="font-bold font-sans text-[var(--text)]">JavaScript</div>
                             <div class="text-[10px] font-mono text-mute mt-1" data-i18n="tech_js">Modern ES6+</div>
                         </div>
-                        <div class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-red-500 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group cursor-hover">
-                            <i class="fa-solid fa-paintbrush text-3xl text-red-500 mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform"></i>
-                            <div class="font-bold font-display text-[var(--text)]">Adobe Suite</div>
+                        <div
+                            class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-red-500 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group">
+                            <i
+                                class="fa-solid fa-paintbrush text-3xl text-red-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <div class="font-bold font-sans text-[var(--text)]">Adobe Suite</div>
                             <div class="text-[10px] font-mono text-mute mt-1" data-i18n="tech_adobe">Ps, Ai, Id</div>
                         </div>
-                        <div class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-cyan-400 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group cursor-hover">
-                            <i class="fa-brands fa-css3-alt text-3xl text-cyan-400 mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform"></i>
-                            <div class="font-bold font-display text-[var(--text)]">Tailwind CSS</div>
-                            <div class="text-[10px] font-mono text-mute mt-1" data-i18n="tech_tailwind">Fluid Layouts</div>
+                        <div
+                            class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-cyan-400 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group">
+                            <i
+                                class="fa-brands fa-css3-alt text-3xl text-cyan-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <div class="font-bold font-sans text-[var(--text)]">Tailwind CSS</div>
+                            <div class="text-[10px] font-mono text-mute mt-1" data-i18n="tech_tailwind">Fluid Layouts
+                            </div>
                         </div>
-                        <div class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-blue-400 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group cursor-hover">
-                            <i class="fa-solid fa-database text-3xl text-blue-400 mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform"></i>
-                            <div class="font-bold font-display text-[var(--text)]">PostgreSQL</div>
+                        <div
+                            class="p-5 bg-[var(--surface)] rounded-[20px] hover:bg-[var(--panel-2)] hover:border-blue-400 border border-[var(--border)] transition-all duration-300 flex flex-col items-center text-center group">
+                            <i
+                                class="fa-solid fa-database text-3xl text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <div class="font-bold font-sans text-[var(--text)]">PostgreSQL</div>
                             <div class="text-[10px] font-mono text-mute mt-1" data-i18n="tech_db">Database Design</div>
                         </div>
                     </div>
@@ -646,439 +725,342 @@
         </div>
     </section>
 
-    <!-- GALLERY / POSTERS SECTION -->
+    <!-- GALLERY SECTION -->
     <section id="gallery" class="py-24 px-4 sm:px-8 max-w-6xl mx-auto z-10 relative border-t border-[var(--border)]">
         <div class="mb-14 reveal text-center sm:text-left">
-            <div class="font-mono text-accent text-xs mb-3 uppercase tracking-widest font-bold" data-i18n="posters_tag">03 // Affiches & Direction Artistique</div>
-            <h2 class="font-display text-4xl sm:text-5xl font-black tracking-tighter" data-i18n="gallery_title">Galerie d'Affiches Raffet'Art</h2>
+            <div class="font-mono text-accent text-xs mb-3 uppercase tracking-widest font-bold" data-i18n="posters_tag">
+                Affiches & Direction Artistique</div>
+            <h2 class="font-velenor text-4xl sm:text-5xl font-bold tracking-tight" data-i18n="gallery_title">Galerie
+                d'Affiches</h2>
         </div>
 
-        <div class="reveal cursor-hover magnetic" onclick="openDesignGridModal()">
-            <div class="group relative overflow-hidden rounded-[32px] bg-[var(--panel)] border border-[var(--border)] shadow-xl hover:border-accent transition-all duration-500 p-12 sm:p-20 text-center flex flex-col items-center justify-center transform hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.3)]">
-                <div class="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                <div class="w-20 h-20 rounded-3xl bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-2xl relative z-10">
+        <div class="reveal" onclick="openDesignGridModal()">
+            <div
+                class="group cursor-pointer relative overflow-hidden rounded-[32px] bg-[var(--panel)] border border-[var(--border)] shadow-xl hover:border-accent transition-all duration-500 p-12 sm:p-20 text-center flex flex-col items-center justify-center transform hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.3)]">
+                <div
+                    class="absolute inset-0 bg-gradient-to-tr from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                </div>
+                <div
+                    class="w-20 h-20 rounded-3xl bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-xl relative z-10">
                     <i class="fa-solid fa-images text-3xl text-accent drop-shadow-lg"></i>
                 </div>
-                <h3 class="text-3xl sm:text-4xl font-display font-black text-[var(--text)] mb-5 relative z-10" data-i18n="open_gallery">Ouvrir la Galerie Design</h3>
-                <p class="text-mute text-base max-w-lg mx-auto mb-10 leading-relaxed relative z-10" data-i18n="open_gallery_desc">
-                    Explorez ma collection complète de créations graphiques : affiches, concepts et identités visuelles.
-                </p>
-                <button class="btn-primary px-10 py-4 text-sm inline-flex items-center gap-3 font-display relative z-10 pointer-events-none rounded-full">
-                    <span data-i18n="btn_view_all">Voir toutes les photos</span> <i class="fa-solid fa-arrow-right text-[10px] transition-transform group-hover:translate-x-1"></i>
+                <h3 class="text-3xl sm:text-4xl font-velenor font-bold text-[var(--text)] mb-5 relative z-10"
+                    data-i18n="open_gallery">Ouvrir la Galerie Design</h3>
+                <p class="text-mute text-base max-w-lg mx-auto mb-10 leading-relaxed relative z-10"
+                    data-i18n="open_gallery_desc">Explorez ma collection complète de créations graphiques : affiches,
+                    concepts et identités visuelles.</p>
+                <button
+                    class="btn-primary px-10 py-4 text-sm inline-flex items-center gap-3 font-sans rounded-full relative z-10 pointer-events-none">
+                    <span data-i18n="btn_view_all">Voir toutes les photos</span> <i
+                        class="fa-solid fa-arrow-right text-[10px] transition-transform group-hover:translate-x-1"></i>
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- ARTICLES SECTION (LIEN DIRECT VERS article-1.html) -->
+    <!-- ARTICLES SECTION (LIEN DIRECT 1-CLIC) -->
     <section id="articles" class="py-24 px-4 sm:px-8 max-w-6xl mx-auto z-10 relative border-t border-[var(--border)]">
         <div class="mb-14 reveal text-center sm:text-left">
-            <div class="font-mono text-accent text-xs mb-3 uppercase tracking-widest font-bold" data-i18n="articles_tag">04 // Articles & Réflexions</div>
-            <h2 class="font-display text-4xl sm:text-5xl font-black tracking-tighter" data-i18n="articles_title">Publications</h2>
+            <div class="font-mono text-accent text-xs mb-3 uppercase tracking-widest font-bold"
+                data-i18n="articles_tag">Articles & Réflexions</div>
+            <h2 class="font-velenor text-4xl sm:text-5xl font-bold tracking-tight" data-i18n="articles_title">
+                Publications</h2>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
-            <!-- 💎 Article 1 -> Lien physique respectant STRICTEMENT la demande de pointer vers article-1.html -->
-            <a href="article-1.html" class="mango-card-container group p-5 reveal block cursor-hover transition-all duration-300">
-                <div class="relative w-full aspect-[16/9] rounded-[20px] overflow-hidden mb-6 bg-[var(--panel-2)] border border-[var(--border)]">
-                    <div class="absolute inset-0 shimmer-bg" id="skel-art-1"></div>
-                    <!-- fetchpriority pour un chargement optimal si au-dessus de la ligne de flottaison -->
+            <!-- 🚀 LIEN PHYSIQUE pour un chargement instantané du fichier externe, pas de javascript modal lourd -->
+            <a href="article-1.html" class="mango-card-container group p-5 reveal block transition-all duration-300">
+                <div
+                    class="relative w-full aspect-[16/9] rounded-[20px] overflow-hidden mb-6 bg-[var(--panel-2)] border border-[var(--border)]">
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-art-1"></div>
                     <img src="article-1.png" alt="Article Preview" loading="lazy" decoding="async"
                         onload="document.getElementById('skel-art-1').style.display='none'; this.classList.remove('opacity-0');"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-0 relative z-10">
                     <div class="absolute top-4 left-4 z-20">
-                        <span class="px-3 py-1.5 rounded-full text-[10px] font-mono font-bold bg-black/60 backdrop-blur-md text-white border border-white/20 shadow-lg" data-i18n="read_time">Lecture : 3 min</span>
+                        <span
+                            class="px-3 py-1.5 rounded-full text-[10px] font-mono font-bold bg-black/70 backdrop-blur-md text-white border border-white/20 shadow-lg"
+                            data-i18n="read_time">Lecture : 3 min</span>
                     </div>
-                    <div class="absolute top-4 right-4 w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent transition-all duration-300 shadow-xl z-20">
-                        <i class="fa-solid fa-arrow-right text-[14px] -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                    <div
+                        class="absolute top-4 right-4 w-12 h-12 rounded-full border border-white/20 bg-black/60 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent transition-all duration-300 shadow-xl z-20">
+                        <i
+                            class="fa-solid fa-arrow-right text-[14px] -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
                     </div>
                 </div>
                 <div class="px-2">
-                    <h3 class="font-display text-2xl font-bold text-[var(--text)] mb-3 group-hover:text-accent transition-colors leading-snug line-clamp-2" data-i18n="article_1_title">L’Intelligence Artificielle : Menace redoutée ou coéquipier d'exception ?</h3>
-                    <p class="text-mute text-base leading-relaxed line-clamp-3" data-i18n="article_1_desc">Et si l'IA était simplement le partenaire de travail le plus performant de notre époque ?</p>
+                    <h3 class="font-velenor text-2xl font-bold text-[var(--text)] mb-3 group-hover:text-accent transition-colors leading-snug line-clamp-2"
+                        data-i18n="article_1_title">L’Intelligence Artificielle : Menace redoutée ou coéquipier
+                        d'exception ?</h3>
+                    <p class="text-mute text-base leading-relaxed line-clamp-3" data-i18n="article_1_desc">Et si l'IA
+                        était simplement le partenaire de travail le plus performant de notre époque ?</p>
                 </div>
             </a>
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-32 px-4 sm:px-8 max-w-6xl mx-auto z-10 relative reveal border-t border-[var(--border)]">
-        <div class="mango-card-container p-12 sm:p-20 text-center max-w-4xl mx-auto relative overflow-hidden bg-[var(--panel)] shadow-2xl">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,var(--accent-dim),transparent_70%)] pointer-events-none opacity-50"></div>
-            
-            <div class="font-mono text-accent text-xs mb-5 uppercase tracking-widest font-bold relative z-10" data-i18n="contact_tag">05 // Me Contacter / Raffet'Art</div>
-            <h2 class="font-display text-4xl sm:text-6xl font-black tracking-tighter mb-8 leading-[1.1] relative z-10" data-i18n="contact_title">Concevons votre projet ensemble.</h2>
+    <section id="contact"
+        class="py-32 px-4 sm:px-8 max-w-6xl mx-auto z-10 relative border-t border-[var(--border)] reveal">
+        <div
+            class="mango-card-container p-12 sm:p-20 text-center max-w-4xl mx-auto relative overflow-hidden bg-[var(--panel)] shadow-2xl">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_top,var(--accent-dim),transparent_70%)] pointer-events-none opacity-50">
+            </div>
+
+            <div class="font-mono text-accent text-xs mb-5 uppercase tracking-widest font-bold relative z-10"
+                data-i18n="contact_tag">Me Contacter / Raffet'Art</div>
+            <h2 class="font-velenor text-4xl sm:text-6xl font-bold tracking-tight mb-8 leading-[1.1] relative z-10"
+                data-i18n="contact_title">Concevons votre projet ensemble.</h2>
             <p class="text-mute text-lg leading-relaxed mb-12 max-w-2xl mx-auto relative z-10" data-i18n="contact_desc">
-                Disponible pour des mandats de direction artistique avec <strong>Raffet'Art</strong>, la création de vos applications web ou des projets en ingénierie logicielle.
+                Disponible pour des mandats de direction artistique avec <strong>Raffet'Art</strong>, la création de vos
+                applications web ou des projets en ingénierie logicielle.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-5 relative z-10">
-                <a href="mailto:morfaye506@gmail.com" class="cursor-hover magnetic btn-primary w-full sm:w-auto px-10 py-4 text-base inline-flex items-center justify-center gap-3 rounded-full">
+                <a href="mailto:morfaye506@gmail.com"
+                    class="btn-primary w-full sm:w-auto px-10 py-4 text-base inline-flex items-center justify-center gap-3 rounded-full">
                     <i class="fa-regular fa-envelope text-lg"></i> <span>E-mail</span>
                 </a>
                 <a href="https://wa.me/221781492438" target="_blank" rel="noopener noreferrer"
-                    class="cursor-hover magnetic w-full sm:w-auto px-10 py-4 text-base inline-flex items-center justify-center gap-3 rounded-full bg-[#25D366] text-black font-bold hover:bg-[#20ba5a] transition-all font-display shadow-[0_10px_20px_-10px_rgba(37,211,102,0.5)]">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> <span data-i18n="contact_wa">Contacter sur WhatsApp</span>
+                    class="w-full sm:w-auto px-10 py-4 text-base inline-flex items-center justify-center gap-3 rounded-full bg-[#25D366] text-white font-bold hover:bg-[#1EBE5D] transition-all font-sans shadow-[0_10px_20px_-10px_rgba(37,211,102,0.5)] hover:shadow-[0_10px_25px_-5px_rgba(37,211,102,0.6)]">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> <span data-i18n="contact_wa">Contacter sur
+                        WhatsApp</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER AVEC COULEURS DE MARQUE -->
-    <footer class="py-12 px-4 sm:px-8 max-w-6xl mx-auto hairline-t flex flex-col md:flex-row items-center justify-between text-[11px] font-mono text-mute z-10 relative mt-10 transition-colors duration-300">
+    <!-- FOOTER (COULEURS DE MARQUE) -->
+    <footer
+        class="py-12 px-4 sm:px-8 max-w-6xl mx-auto hairline-t flex flex-col md:flex-row items-center justify-between text-[12px] font-sans font-medium text-mute z-10 relative mt-10">
         <div data-i18n="footer_rights">&copy; 2026 Mor Faye — Raffet'Art. Tous droits réservés.</div>
-        <div class="flex flex-wrap justify-center gap-6 mt-6 md:mt-0 font-bold text-[12px]">
-            <a href="https://wa.me/221781492438" target="_blank" rel="noopener noreferrer" class="cursor-hover social-link-wa flex items-center gap-1.5 transition-all duration-300"><i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp</a>
-            <a href="https://www.linkedin.com/in/morfaye/" target="_blank" rel="noopener noreferrer" class="cursor-hover social-link-li flex items-center gap-1.5 transition-all duration-300"><i class="fa-brands fa-linkedin text-sm"></i> LinkedIn</a>
-            <a href="https://x.com/mor__faye" target="_blank" rel="noopener noreferrer" class="cursor-hover social-link-tw flex items-center gap-1.5 transition-all duration-300"><i class="fa-brands fa-x-twitter text-sm"></i> Twitter(X)</a>
-            <a href="https://github.com/fayemor" target="_blank" rel="noopener noreferrer" class="cursor-hover social-link-gh flex items-center gap-1.5 transition-all duration-300"><i class="fa-brands fa-github text-sm"></i> GitHub</a>
+        <div class="flex flex-wrap justify-center gap-6 mt-6 md:mt-0 font-bold">
+            <!-- 💎 COULEURS DE MARQUE AU SURVOL -->
+            <a href="https://wa.me/221781492438" target="_blank" rel="noopener noreferrer"
+                class="hover-wa flex items-center gap-1.5 transition-all duration-300"><i
+                    class="fa-brands fa-whatsapp text-sm"></i> WhatsApp</a>
+            <a href="https://www.linkedin.com/in/morfaye/" target="_blank" rel="noopener noreferrer"
+                class="hover-li flex items-center gap-1.5 transition-all duration-300"><i
+                    class="fa-brands fa-linkedin text-sm"></i> LinkedIn</a>
+            <a href="https://x.com/mor__faye" target="_blank" rel="noopener noreferrer"
+                class="hover-x flex items-center gap-1.5 transition-all duration-300"><i
+                    class="fa-brands fa-x-twitter text-sm"></i> Twitter(X)</a>
+            <a href="https://github.com/fayemor" target="_blank" rel="noopener noreferrer"
+                class="hover:text-[var(--text)] flex items-center gap-1.5 transition-all duration-300"><i
+                    class="fa-brands fa-github text-sm"></i> GitHub</a>
         </div>
     </footer>
 
-    <!-- MODALS SECTION -->
-
     <!-- MODAL GRILLE DESIGN -->
-    <div id="designGridModal" class="fixed inset-0 z-[100] flex flex-col p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.95)] backdrop-blur-2xl opacity-0 pointer-events-none transition-all duration-400 ease-out select-none overflow-y-auto">
-        <div class="w-full max-w-6xl mx-auto flex items-center justify-between mb-8 mt-4 sticky top-0 bg-[rgba(var(--bg-rgb),0.90)] backdrop-blur-xl z-20 py-4 border-b border-[var(--border)] rounded-b-2xl px-4 sm:px-0 transition-colors duration-300">
+    <div id="designGridModal"
+        class="fixed inset-0 z-[100] flex flex-col p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.95)] backdrop-blur-2xl opacity-0 pointer-events-none transition-all duration-400 ease-out select-none overflow-y-auto">
+        <div
+            class="w-full max-w-6xl mx-auto flex items-center justify-between mb-8 mt-4 sticky top-0 bg-[rgba(var(--bg-rgb),0.90)] backdrop-blur-xl z-20 py-4 border-b border-[var(--border)] rounded-b-2xl px-4 sm:px-0 transition-colors duration-300">
             <div>
-                <h3 class="font-display text-2xl font-black text-[var(--text)]" data-i18n="gallery_title">Galerie d'Affiches</h3>
-                <p class="text-mute text-xs font-mono mt-1" data-i18n="gallery_subtitle">Toutes les réalisations graphiques</p>
+                <h3 class="font-velenor text-3xl font-bold text-[var(--text)]" data-i18n="gallery_title">Galerie
+                    d'Affiches</h3>
+                <p class="text-mute text-xs font-mono mt-1" data-i18n="gallery_subtitle">Toutes les réalisations
+                    graphiques</p>
             </div>
-            <button onclick="closeDesignGridModal()" aria-label="Fermer la grille" class="cursor-hover magnetic w-12 h-12 rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all shadow-lg">
+            <button onclick="closeDesignGridModal()" aria-label="Fermer la grille"
+                class="w-12 h-12 rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all shadow-lg">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
         </div>
-        <div class="w-full max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pb-20 px-4 sm:px-0" id="designGridContainer">
-            <!-- Injected via JS -->
+        <div class="w-full max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pb-20 px-4 sm:px-0"
+            id="designGridContainer">
+            <!-- Injecté via JS -->
         </div>
     </div>
 
-    <!-- UNIQUE MODAL FOR GALLERY & PROJECTS -->
-    <div id="galleryModal" class="fixed inset-0 z-[110] flex flex-col items-center justify-center p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.98)] backdrop-blur-2xl opacity-0 pointer-events-none transition-all duration-400 ease-out select-none">
-        <button onclick="closeGalleryLightbox()" aria-label="Fermer la galerie" class="cursor-hover magnetic absolute top-6 right-6 w-12 h-12 rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] flex items-center justify-center hover:border-accent hover:text-white hover:bg-accent transition-all z-20">
+    <!-- MODAL GALLERY UNIQUE (POUR LE DIAPORAMA) -->
+    <div id="galleryModal"
+        class="fixed inset-0 z-[110] flex flex-col items-center justify-center p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.98)] backdrop-blur-2xl opacity-0 pointer-events-none transition-all duration-400 ease-out select-none">
+        <button onclick="closeGalleryLightbox()" aria-label="Fermer la galerie"
+            class="absolute top-6 right-6 w-12 h-12 rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] flex items-center justify-center hover:border-accent hover:text-white hover:bg-accent transition-all z-20">
             <i class="fa-solid fa-xmark text-lg"></i>
         </button>
         <div class="relative w-full max-w-5xl h-[75vh] flex items-center justify-center">
-            <button onclick="prevGalleryImage()" aria-label="Image précédente" class="cursor-hover magnetic absolute left-2 sm:-left-8 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all z-20 shadow-2xl">
+            <button onclick="prevGalleryImage()" aria-label="Image précédente"
+                class="absolute left-2 sm:-left-8 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all z-20 shadow-2xl">
                 <i class="fa-solid fa-chevron-left text-xl"></i>
             </button>
             <div id="lightboxContentContainer" class="w-full h-full flex items-center justify-center p-2 relative">
-                <!-- Injected via JS -->
+                <!-- Injecté via JS -->
             </div>
-            <button onclick="nextGalleryImage()" aria-label="Image suivante" class="cursor-hover magnetic absolute right-2 sm:-right-8 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all z-20 shadow-2xl">
+            <button onclick="nextGalleryImage()" aria-label="Image suivante"
+                class="absolute right-2 sm:-right-8 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all z-20 shadow-2xl">
                 <i class="fa-solid fa-chevron-right text-xl"></i>
             </button>
         </div>
         <div class="mt-8 text-center font-mono space-y-2 max-w-xl px-4">
             <div class="flex items-center justify-center gap-3">
-                <span id="lightboxTag" class="text-[10px] px-3 py-1 rounded-full border border-accent/30 bg-accent/10 text-accent font-bold tracking-widest uppercase"></span>
+                <span id="lightboxTag"
+                    class="text-[10px] px-3 py-1 rounded-full border border-accent/30 bg-accent/10 text-accent font-bold tracking-widest uppercase"></span>
                 <span id="lightboxCounter" class="text-xs text-mute font-bold">1 / 6</span>
             </div>
-            <h3 id="lightboxTitle" class="font-display text-2xl font-bold text-[var(--text)] tracking-tight"></h3>
+            <h3 id="lightboxTitle" class="font-velenor text-2xl font-bold text-[var(--text)] tracking-tight"></h3>
             <p id="lightboxDesc" class="text-sm text-mute font-sans leading-relaxed mt-2"></p>
         </div>
     </div>
 
-    <!-- 💎 MODAL CV RESTAURÉ COMME DEMANDÉ -->
-    <div id="cvModal" class="fixed inset-0 z-[130] flex flex-col items-center justify-center p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.95)] backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 select-none">
-        <div class="relative w-full max-w-5xl h-[85vh] bg-[var(--panel)] border border-[var(--border)] rounded-2xl sm:rounded-[32px] overflow-hidden flex flex-col shadow-2xl">
-            <!-- Header Modal CV -->
-            <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--border)] bg-[rgba(var(--bg-rgb),0.9)] z-20 transition-colors duration-300">
+    <!-- MODAL CV -->
+    <div id="cvModal"
+        class="fixed inset-0 z-[130] flex flex-col items-center justify-center p-4 sm:p-8 bg-[rgba(var(--bg-rgb),0.95)] backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 select-none">
+        <div
+            class="relative w-full max-w-5xl h-[85vh] bg-[var(--panel)] border border-[var(--border)] rounded-2xl sm:rounded-[32px] overflow-hidden flex flex-col shadow-2xl">
+            <div
+                class="flex items-center justify-between px-6 py-4 border-b border-[var(--border)] bg-[rgba(var(--bg-rgb),0.9)] z-20 transition-colors duration-300">
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center">
                         <i class="fa-regular fa-file-pdf"></i>
                     </div>
                     <div>
-                        <h3 class="font-display font-bold text-[var(--text)] text-sm" data-i18n="cv_title">Curriculum Vitae</h3>
+                        <h3 class="font-sans font-bold text-[var(--text)] text-sm" data-i18n="cv_title">Curriculum Vitae
+                        </h3>
                         <p class="text-[10px] font-mono text-mute">Mor Faye</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <a href="https://drive.google.com/file/d/1VtnyLRW7BDRr3lAejDap0twMp3KELhja/view?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="Télécharger" class="cursor-hover magnetic w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--panel-2)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all shadow-lg text-sm">
+                    <a href="https://drive.google.com/file/d/1VtnyLRW7BDRr3lAejDap0twMp3KELhja/view?usp=drive_link"
+                        target="_blank" rel="noopener noreferrer" aria-label="Télécharger"
+                        class="w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--panel-2)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all shadow-lg text-sm">
                         <i class="fa-solid fa-download"></i>
                     </a>
-                    <button onclick="closeCvModal()" aria-label="Fermer le CV" class="cursor-hover magnetic w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--panel-2)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all shadow-lg text-sm">
+                    <button onclick="closeCvModal()" aria-label="Fermer le CV"
+                        class="w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--panel-2)] text-[var(--text)] flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all shadow-lg text-sm">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Iframe Container avec Skeleton -->
             <div class="relative flex-1 w-full bg-[var(--panel-2)]">
-                <div class="absolute inset-0 bg-[var(--surface)] shimmer-bg flex items-center justify-center flex-col gap-4" id="cvModalSkel">
+                <div class="absolute inset-0 bg-[var(--surface)] animate-pulse flex items-center justify-center flex-col gap-4"
+                    id="cvModalSkel">
                     <i class="fa-solid fa-circle-notch fa-spin text-4xl text-accent"></i>
-                    <span class="font-mono text-xs text-mute font-bold tracking-widest uppercase" data-i18n="cv_loading">Chargement du document...</span>
+                    <span class="font-mono text-xs text-mute font-bold tracking-widest uppercase"
+                        data-i18n="cv_loading">Chargement du document...</span>
                 </div>
-                <!-- Lien Google Drive avec /preview pour la lecture iframe -->
-                <iframe src="https://drive.google.com/file/d/1VtnyLRW7BDRr3lAejDap0twMp3KELhja/preview" class="absolute inset-0 w-full h-full border-none opacity-0 transition-opacity duration-700 z-10" onload="document.getElementById('cvModalSkel').style.display='none'; this.classList.remove('opacity-0');" allow="autoplay"></iframe>
+                <!-- Lien Google Drive avec /preview pour lecture iframe -->
+                <iframe src="https://drive.google.com/file/d/1VtnyLRW7BDRr3lAejDap0twMp3KELhja/preview"
+                    class="absolute inset-0 w-full h-full border-none opacity-0 transition-opacity duration-700 z-10"
+                    onload="document.getElementById('cvModalSkel').style.display='none'; this.classList.remove('opacity-0');"
+                    allow="autoplay"></iframe>
             </div>
         </div>
     </div>
-    
-    <!-- LECTEUR D'ARTICLE MODAL (Conservé dans le DOM pour respecter la contrainte "ne pas supprimer") -->
-    <div id="articleModal" class="hidden"></div> <!-- Désactivé visuellement puisque le lien se fait vers article-1.html, mais préservé -->
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT ULTRA-RAPIDE -->
     <script>
-        // 💎 Custom Cursor Logic
-        const cursorDot = document.getElementById("cursor-dot");
-        const cursorOutline = document.getElementById("cursor-outline");
-        let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
-        
+        // 🚀 PERFORMANCE 10 : Lueur optimisée via requestAnimationFrame
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let isMoving = false;
+
         window.addEventListener("mousemove", (e) => {
             mouseX = e.clientX; mouseY = e.clientY;
-            if(cursorDot) { cursorDot.style.left = `${mouseX}px`; cursorDot.style.top = `${mouseY}px`; }
-            
-            // Dynamic Glow Background
-            const glow = document.getElementById('bgGlow');
-            const grid = document.getElementById('bgGrid');
-            if (glow) glow.style.setProperty('--gx', `${e.clientX}px`);
-            if (glow) glow.style.setProperty('--gy', `${e.clientY}px`);
-            if (grid) grid.style.setProperty('--gx', `${e.clientX}px`);
-            if (grid) grid.style.setProperty('--gy', `${e.clientY}px`);
-        });
-        
-        function animateCursor() {
-            let distX = mouseX - outlineX; let distY = mouseY - outlineY;
-            outlineX = outlineX + (distX * 0.15); outlineY = outlineY + (distY * 0.15);
-            if(cursorOutline) { cursorOutline.style.left = `${outlineX}px`; cursorOutline.style.top = `${outlineY}px`; }
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Cursor Hover Effects
-        document.querySelectorAll('.cursor-hover, a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                if(cursorOutline) {
-                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                    cursorOutline.style.borderColor = 'var(--accent-2)';
-                    cursorOutline.style.background = 'var(--accent-dim)';
-                }
-            });
-            el.addEventListener('mouseleave', () => {
-                if(cursorOutline) {
-                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-                    cursorOutline.style.borderColor = 'var(--accent)';
-                    cursorOutline.style.background = 'transparent';
-                }
-            });
+            if (!isMoving) {
+                isMoving = true;
+                requestAnimationFrame(() => {
+                    const glow = document.getElementById('bgGlow');
+                    if (glow) {
+                        glow.style.setProperty('--gx', `${mouseX}px`);
+                        glow.style.setProperty('--gy', `${mouseY}px`);
+                    }
+                    isMoving = false;
+                });
+            }
         });
 
-        // Boutons Magnétiques
-        const magnets = document.querySelectorAll('.magnetic');
-        magnets.forEach((magnet) => {
-            magnet.addEventListener('mousemove', function(e) {
-                const position = magnet.getBoundingClientRect();
-                const x = e.clientX - position.left - position.width / 2;
-                const y = e.clientY - position.top - position.height / 2;
-                magnet.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-            });
-            magnet.addEventListener('mouseleave', function() { magnet.style.transform = 'translate(0px, 0px)'; });
-        });
-
-        // Gestion de l'icône de bascule de thème au chargement
         window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             const icon = document.getElementById('themeIcon');
             if (savedTheme === 'light' && icon) {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
+                icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
             }
+            setLang('fr');
         });
 
-        // Fonction pour basculer le thème
         function toggleTheme() {
             const html = document.documentElement;
             const icon = document.getElementById('themeIcon');
-
             if (html.classList.contains('light')) {
-                html.classList.remove('light');
-                localStorage.setItem('theme', 'dark');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+                html.classList.remove('light'); localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
             } else {
-                html.classList.add('light');
-                localStorage.setItem('theme', 'light');
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
+                html.classList.add('light'); localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
             }
         }
 
         const i18n = {
             fr: {
-                role_tag: "Graphic Designer - Fondateur @ Raffet'Art",
-                nav_work: "~/projets",
-                nav_about: "~/a-propos",
-                nav_posters: "~/affiches",
-                nav_articles: "~/articles",
-                nav_contact: "~/contact",
-                chat: "Chat",
-                contact: "Contact",
-                status: "statut : disponible pour opportunités",
-                location: "🌍 Dakar, sn",
-                hero_title: 'Création de <span class="text-gradient-premium inline-block animate-gradient-x">produits numériques</span> & d\'identités de marque.',
+                role_tag: "Fondateur @ Raffet'Art — Dakar", nav_work: "Projets", nav_about: "À propos",
+                nav_posters: "Affiches", nav_articles: "Articles", nav_contact: "Contact", contact: "Me Contacter",
+                status: "Disponible pour opportunités", location: " Dakar, SN",
+                hero_title: 'Création de <span class="text-accent italic">produits numériques</span> & d\'identités de marque.',
                 hero_desc: "Fondateur du studio créatif <strong>Raffet'Art</strong>. Quatre ans à allier précision d'ingénierie et esthétique visuelle — création d'identités visuelles, logiciels sur mesure et applications web réactives.",
-                btn_explore: "Explorer les Projets",
-                btn_cv: "Télécharger CV",
-                btn_whatsapp: "WhatsApp Direct",
-                badge_founder: "Fondateur @ Raffet'Art",
-                stat_design: "Œuvres Design",
-                stat_code: "Code Sur-Mesure",
-                selected_works: "● Travaux Sélectionnés",
-                featured_projects: "Projets en Vedette",
-                style_container: "Style Conteneur",
-                style_immersive: "Style Immersif",
-                filter_all: "Tous",
-                filter_branding: "Branding",
-                filter_dev: "Python/Web",
-                inspect: "Voir réalisation",
-                philosophy_tag: "02 // Philosophie & Studio",
-                philosophy_title: "Raffet'Art : Deux Disciplines, Une Vision",
+                btn_explore: "Explorer les Projets", btn_cv: "Télécharger CV", btn_whatsapp: "WhatsApp Direct",
+                badge_founder: "Fondateur @ Raffet'Art", stat_design: "Œuvres Design", stat_code: "Code Sur-Mesure",
+                selected_works: "Travaux Sélectionnés", featured_projects: "Projets en Vedette",
+                filter_all: "Tous", filter_branding: "Branding", filter_dev: "Python/Web", inspect: "Voir réalisation",
+                philosophy_tag: "Philosophie & Studio", philosophy_title: "Raffet'Art : Deux Disciplines, Une Vision",
                 philosophy_desc: "À travers <strong>Raffet'Art</strong>, nous fusionnons l'ingénierie logicielle et la création graphique. Nous croyons en des systèmes visuels rigoureux, des interfaces réactives et une typographie forte pour propulser l'image des marques et des entreprises.",
-                studio_brand_title: "Raffet'Art Studio",
-                studio_brand_desc: "Branding complet, chartes graphiques, direction artistique, affiches et identités visuelles sur mesure.",
-                dev_title: "Ingénierie & Web",
-                dev_desc: "Interfaces web modernes HTML5/JS/Tailwind et développement d'applications Python/FastAPI.",
-                toolkit_title: "Boîte à Outils & Stack Technique",
-                edition: "Édition 2026",
-                posters_tag: "03 // Affiches & Direction Artistique",
-                gallery_title: "Galerie d'Affiches Raffet'Art",
-                open_gallery: "Ouvrir la Galerie Design",
-                open_gallery_desc: "Explorez ma collection complète de créations graphiques : affiches, concepts et identités visuelles.",
+                studio_brand_title: "Raffet'Art Studio", studio_brand_desc: "Branding complet, chartes graphiques, direction artistique, affiches et identités visuelles sur mesure.",
+                dev_title: "Ingénierie & Web", dev_desc: "Interfaces web modernes HTML5/JS/Tailwind et développement d'applications Python/FastAPI.",
+                toolkit_title: "Boîte à Outils & Stack Technique", edition: "Édition 2026",
+                posters_tag: "Affiches & Direction Artistique", gallery_title: "Galerie d'Affiches",
+                open_gallery: "Ouvrir la Galerie Design", open_gallery_desc: "Explorez ma collection complète de créations graphiques : affiches, concepts et identités visuelles.",
                 btn_view_all: "Voir toutes les photos",
-                poster_1_badge: "Affiche Culturelle",
-                articles_tag: "04 // Articles & Réflexions",
-                articles_title: "Publications",
+                articles_tag: "Articles & Réflexions", articles_title: "Publications",
                 article_1_title: "L’Intelligence Artificielle : Menace redoutée ou coéquipier d'exception ?",
                 article_1_desc: "Et si l'IA était simplement le partenaire de travail le plus performant de notre époque ?",
-                contact_tag: "05 // Me Contacter / Raffet'Art",
-                contact_title: "Concevons votre projet ensemble.",
-                contact_desc: "Disponible pour des mandats de direction artistique avec Raffet'Art, la création de vos applications web ou des projets en ingénierie logicielle.",
-                contact_wa: "Contacter sur WhatsApp",
-                footer_rights: "© 2026 Mor Faye — Raffet'Art. Tous droits réservés.",
-                share_btn: "Partager",
-                share_success: "Lien copié !",
-                proj_1_badge: "Identité",
-                proj_1_desc: "Conception de l'identité de marque globale, charte graphique et univers visuel du studio Raffet'Art.",
-                proj_1_tag1: "Identité",
-                proj_1_tag2: "Design System",
-                proj_2_badge: "E-Learning",
-                proj_2_desc: "Plateforme web interactive conçue pour l'apprentissage de la biochimie, intégrant des QCM.",
-                proj_2_tag1: "Web App",
-                proj_2_tag2: "UI/UX Design",
-                proj_3_badge: "Web App",
-                proj_3_desc: "Conception et développement complet de Xassidacloud.com. Une plateforme web moderne et intuitive.",
-                proj_3_tag1: "UI/UX Design",
-                proj_3_tag2: "Développement",
-                read_time: "Lecture : 3 min",
-                gallery_subtitle: "Toutes les réalisations graphiques",
-                tech_figma: "Systèmes UI/UX",
-                tech_python: "FastAPI & Scripting",
-                tech_js: "ES6+ Moderne",
-                tech_adobe: "Ps, Ai, Id",
-                tech_tailwind: "Layouts Fluides",
-                tech_db: "Design de Base de données",
-                cv_title: "Curriculum Vitae",
-                cv_loading: "Chargement du document..."
+                contact_tag: "Me Contacter / Raffet'Art", contact_title: "Concevons votre projet ensemble.",
+                contact_desc: "Disponible pour des mandats de direction artistique avec <strong>Raffet'Art</strong>, la création de vos applications web ou des projets en ingénierie logicielle.",
+                contact_wa: "Contacter sur WhatsApp", footer_rights: "© 2026 Mor Faye — Raffet'Art. Tous droits réservés.",
+                read_time: "Lecture : 3 min", gallery_subtitle: "Toutes les réalisations graphiques",
+                cv_title: "Curriculum Vitae", cv_loading: "Chargement du document...",
+                tech_figma: "UI/UX Systems", tech_python: "FastAPI & Scripting", tech_js: "Modern ES6+", tech_adobe: "Ps, Ai, Id", tech_tailwind: "Fluid Layouts", tech_db: "Database Design",
+                proj_1_badge: "Identité", proj_1_desc: "Conception de l'identité de marque globale, charte graphique et univers visuel du studio Raffet'Art.",
+                proj_2_badge: "E-Learning", proj_2_desc: "Plateforme web interactive conçue pour l'apprentissage de la biochimie, intégrant des QCM.",
+                proj_3_badge: "Web App", proj_3_desc: "Conception et développement complet de Xassidacloud.com. Une plateforme web moderne et intuitive."
             },
             en: {
-                role_tag: "Founder @ Raffet'Art — Dakar",
-                nav_work: "~/work",
-                nav_about: "~/about",
-                nav_posters: "~/posters",
-                nav_articles: "~/articles",
-                nav_contact: "~/contact",
-                chat: "Chat",
-                contact: "Contact",
-                status: "status: open to opportunities",
-                location: "🌍 Dakar, sn",
-                hero_title: 'Crafting <span class="text-gradient-premium inline-block animate-gradient-x">digital products</span> & brand identities.',
+                role_tag: "Founder @ Raffet'Art — Dakar", nav_work: "Work", nav_about: "About",
+                nav_posters: "Posters", nav_articles: "Articles", nav_contact: "Contact", contact: "Get in Touch",
+                status: "Open to opportunities", location: " Dakar, SN",
+                hero_title: 'Crafting <span class="text-accent italic">digital products</span> & brand identities.',
                 hero_desc: "Founder of <strong>Raffet'Art</strong> creative studio. Four years blending engineering precision with visual aesthetics — brand identities, custom software, and responsive web apps.",
-                btn_explore: "Explore Projects",
-                btn_cv: "Download CV",
-                btn_whatsapp: "WhatsApp Direct",
-                badge_founder: "Founder @ Raffet'Art",
-                stat_design: "Design Works",
-                stat_code: "Custom Code",
-                selected_works: "● Selected Works",
-                featured_projects: "Featured Projects",
-                style_container: "Style Container",
-                style_immersive: "Style Immersive",
-                filter_all: "All",
-                filter_branding: "Branding",
-                filter_dev: "Python/Web",
-                inspect: "View Project",
-                philosophy_tag: "02 // Philosophy & Studio",
-                philosophy_title: "Raffet'Art: Two Disciplines, One Vision",
+                btn_explore: "Explore Projects", btn_cv: "Download CV", btn_whatsapp: "WhatsApp Direct",
+                badge_founder: "Founder @ Raffet'Art", stat_design: "Design Works", stat_code: "Custom Code",
+                selected_works: "Selected Works", featured_projects: "Featured Projects",
+                filter_all: "All", filter_branding: "Branding", filter_dev: "Python/Web", inspect: "View Project",
+                philosophy_tag: "Philosophy & Studio", philosophy_title: "Raffet'Art: Two Disciplines, One Vision",
                 philosophy_desc: "Through <strong>Raffet'Art</strong>, we blend software engineering and graphic creation. We believe in rigorous visual systems, responsive interfaces, and bold typography to elevate brand presence.",
-                studio_brand_title: "Raffet'Art Studio",
-                studio_brand_desc: "Full branding, brand guidelines, art direction, posters, and custom visual identities.",
-                dev_title: "Engineering & Web",
-                dev_desc: "Modern HTML5/JS/Tailwind interfaces and custom Python/FastAPI web application development.",
-                toolkit_title: "Toolkit & Tech Stack",
-                edition: "2026 Edition",
-                posters_tag: "03 // Posters & Art Direction",
-                gallery_title: "Raffet'Art Poster Gallery",
-                open_gallery: "Open Design Gallery",
-                open_gallery_desc: "Explore my complete collection of graphic creations: posters, concepts, and visual identities.",
+                studio_brand_title: "Raffet'Art Studio", studio_brand_desc: "Full branding, brand guidelines, art direction, posters, and custom visual identities.",
+                dev_title: "Engineering & Web", dev_desc: "Modern HTML5/JS/Tailwind interfaces and custom Python/FastAPI web application development.",
+                toolkit_title: "Toolkit & Tech Stack", edition: "2026 Edition",
+                posters_tag: "Posters & Art Direction", gallery_title: "Poster Gallery",
+                open_gallery: "Open Design Gallery", open_gallery_desc: "Explore my complete collection of graphic creations: posters, concepts, and visual identities.",
                 btn_view_all: "View all photos",
-                poster_1_badge: "Cultural Poster",
-                articles_tag: "04 // Articles & Thoughts",
-                articles_title: "Publications",
-                article_1_title: "The Impact of Engineering in Graphic Design",
-                article_1_desc: "How logical thinking and code structuring influence the creation of solid visual systems and brand guidelines within Raffet'Art.",
-                article_2_title: "Building Educational Platforms (Ex: Jang Biochimie)",
-                article_2_desc: "Feedback on using modern web technologies to create interactive and scalable applications dedicated to students.",
-                contact_tag: "05 // Get In Touch / Raffet'Art",
-                contact_title: "Let's build your next project.",
-                contact_desc: "Open for art direction commissions with Raffet'Art, web application development, or freelance software engineering.",
-                contact_wa: "Contact on WhatsApp",
-                footer_rights: "© 2026 Mor Faye — Raffet'Art. All rights reserved.",
-                share_btn: "Share",
-                share_success: "Link copied!",
-                proj_1_badge: "Identity",
-                proj_1_desc: "Complete brand identity, visual guidelines, and design system for Raffet'Art studio.",
-                proj_1_tag1: "Identity",
-                proj_1_tag2: "Design System",
-                proj_2_badge: "E-Learning",
-                proj_2_desc: "Interactive web platform designed for learning biochemistry, featuring MCQs.",
-                proj_2_tag1: "Web App",
-                proj_2_tag2: "UI/UX Design",
-                proj_3_badge: "Web App",
-                proj_3_desc: "Complete design and development of Xassidacloud.com. A modern and intuitive web platform.",
-                proj_3_tag1: "UI/UX Design",
-                proj_3_tag2: "Development",
-                read_time: "Read: 3 min",
-                gallery_subtitle: "All graphic creations",
-                tech_figma: "UI/UX Systems",
-                tech_python: "FastAPI & Scripting",
-                tech_js: "Modern ES6+",
-                tech_adobe: "Ps, Ai, Id",
-                tech_tailwind: "Fluid Layouts",
-                tech_db: "Database Design",
-                cv_title: "Curriculum Vitae",
-                cv_loading: "Loading document..."
+                articles_tag: "Articles & Thoughts", articles_title: "Publications",
+                article_1_title: "Artificial Intelligence: Dreaded Threat or Exceptional Teammate?",
+                article_1_desc: "What if AI were simply the most high-performing working partner of our time?",
+                contact_tag: "Get In Touch / Raffet'Art", contact_title: "Let's build your next project.",
+                contact_desc: "Open for art direction commissions with <strong>Raffet'Art</strong>, web application development, or freelance software engineering.",
+                contact_wa: "Contact on WhatsApp", footer_rights: "© 2026 Mor Faye — Raffet'Art. All rights reserved.",
+                read_time: "Read: 3 min", gallery_subtitle: "All graphic creations",
+                cv_title: "Curriculum Vitae", cv_loading: "Loading document...",
+                tech_figma: "UI/UX Systems", tech_python: "FastAPI & Scripting", tech_js: "Modern ES6+", tech_adobe: "Ps, Ai, Id", tech_tailwind: "Fluid Layouts", tech_db: "Database Design",
+                proj_1_badge: "Identity", proj_1_desc: "Complete brand identity, visual guidelines, and design system for Raffet'Art studio.",
+                proj_2_badge: "E-Learning", proj_2_desc: "Interactive web platform designed for learning biochemistry, featuring MCQs.",
+                proj_3_badge: "Web App", proj_3_desc: "Complete design and development of Xassidacloud.com. A modern and intuitive web platform."
             }
         };
 
         const projectsData = [
-            {
-                title: "Raffet'Art Studio", year: "2025", tag_fr: "Identité Visuelle", tag_en: "Visual Identity",
-                img: "raffetart.png",
-                desc_fr: "Conception de l'identité de marque globale, charte graphique et univers visuel du studio Raffet'Art.",
-                desc_en: "Complete brand identity, visual guidelines, and design system for Raffet'Art studio."
-            },
-            {
-                title: "Jang Biochimie", year: "2026", tag_fr: "Plateforme E-Learning", tag_en: "E-Learning Platform",
-                img: "jangbiochimie.png", isWebSite: true, siteUrl: "https://jangbiochimie.vercel.app",
-                desc_fr: "Plateforme web interactive conçue pour l'apprentissage de la biochimie, intégrant des QCM pour les étudiants en 1ère et 2ème année de médecine.",
-                desc_en: "Interactive web platform designed for learning biochemistry, featuring MCQs for 1st and 2nd-year medical students."
-            },
-            {
-                title: "Xassida Cloud", year: "2026", tag_fr: "Plateforme Web", tag_en: "Web Platform",
-                img: "apercu_xc.jpeg", isWebSite: true, siteUrl: "https://www.xassidacloud.com",
-                desc_fr: "Conception et développement complet de Xassidacloud.com. Une plateforme web moderne et performante offrant une interface utilisateur intuitive.",
-                desc_en: "Complete design and development of Xassidacloud.com. A modern and high-performance web platform offering an intuitive user interface."
-            }
+            { title: "Raffet'Art Studio", year: "2025", tag_fr: "Identité Visuelle", tag_en: "Visual Identity", img: "raffetart.png", desc_fr: "Conception de l'identité de marque globale, charte graphique et univers visuel du studio Raffet'Art.", desc_en: "Complete brand identity, visual guidelines, and design system for Raffet'Art studio." },
+            { title: "Jang Biochimie", year: "2026", tag_fr: "Plateforme E-Learning", tag_en: "E-Learning Platform", img: "jangbiochimie.png", isWebSite: true, siteUrl: "https://jangbiochimie.vercel.app", desc_fr: "Plateforme web interactive conçue pour l'apprentissage de la biochimie, intégrant des QCM pour les étudiants en 1ère et 2ème année de médecine.", desc_en: "Interactive web platform designed for learning biochemistry, featuring MCQs for 1st and 2nd-year medical students." },
+            { title: "Xassida Cloud", year: "2026", tag_fr: "Plateforme Web", tag_en: "Web Platform", img: "apercu_xc.jpeg", isWebSite: true, siteUrl: "https://www.xassidacloud.com", desc_fr: "Conception et développement complet de Xassidacloud.com. Une plateforme web moderne et performante offrant une interface utilisateur intuitive.", desc_en: "Complete design and development of Xassidacloud.com. A modern and high-performance web platform offering an intuitive user interface." }
         ];
 
         const galleryData = [
@@ -1087,14 +1069,14 @@
             { title: "Affiche publicitaire", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg3.jpg" },
             { title: "Mockup Raffet'Art", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg4.png" },
             { title: "Mockup DiarignTech", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg5.jpg" },
-            { title: "Mockup T-Shirt DiarignTech", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg6.jpg" },
-            { title: "Mockup DiarignTech 2", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg7.jpg" },
-            { title: "Mockup DiarignTech 3", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg8.jpg" },
-            { title: "Mockup DiarignTech 4", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg9.jpg" },
-            { title: "Mockup DiarignTech 5", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg10.jpg" },
-            { title: "Mockup DiarignTech 6", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg11.jpg" },
-            { title: "Mockup DiarignTech 7", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg12.jpg" },
-            { title: "Mockup DiarignTech 8", year: "2025", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg13.jpg" },
+            { title: "Mockup T-Shirt DiarignTech", year: "2024", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg6.jpg" },
+            { title: "Mockup DiarignTech 2", year: "2024", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg7.jpg" },
+            { title: "Mockup DiarignTech 3", year: "2024", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg8.jpg" },
+            { title: "Mockup DiarignTech 4", year: "2024", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg9.jpg" },
+            { title: "Mockup DiarignTech 5", year: "2024", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg10.jpg" },
+            { title: "Mockup DiarignTech 6", year: "2024", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg11.jpg" },
+            { title: "Mockup DiarignTech 7", year: "2024", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg12.jpg" },
+            { title: "Mockup DiarignTech 8", year: "2024", tag_fr: "Mockup", tag_en: "Mockup", img: "dsg13.jpg" },
             { title: "Logo AMINA", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg14.jpg" },
             { title: "Logo AMINA Alt", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg15.jpg" },
             { title: "AMINA", year: "2025", tag_fr: "Branding", tag_en: "Branding", img: "dsg16.jpg" },
@@ -1103,49 +1085,32 @@
             { title: "Recto Carte Visite AYRA", year: "2025", tag_fr: "Print", tag_en: "Print", img: "dsg19.jpg" },
             { title: "Fond D'ecran AYRA", year: "2025", tag_fr: "Digital", tag_en: "Digital", img: "dsg20.jpg" },
             { title: "Verso carte viste AMINA", year: "2025", tag_fr: "Print", tag_en: "Print", img: "dsg21.jpg" },
-            { title: "Logo Dahira Touba Medecine", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg23.png" },
-            { title: "Logo UFR 2S v1", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg26.jpg" },
-            { title: "Logo UFR 2S v2", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg27.jpg" },
-            { title: "Couverture Medicale Niari Rakka", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg28.jpg" },
-            { title: "Journee Khassida Touba", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg29.jpg" },
-            { title: "Carte Barkeelou 2", year: "2025", tag_fr: "Print", tag_en: "Print", img: "dsg30.png" },
-            { title: "Chronogramme JK TAM", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg31.jpg" },
-            { title: "Journee Khassida TAM", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg32.jpg" },
-            { title: "Badge JK TAM", year: "2025", tag_fr: "Print", tag_en: "Print", img: "dsg33.jpg" },
-            { title: "Affiche Gamou 2026", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg34.jpg" },
-            { title: "Bache JK TAM", year: "2025", tag_fr: "Print grand format", tag_en: "Large Print", img: "dsg35.jpg" },
-            { title: "Logo Delices de Ndasse", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg37.jpg" },
-            { title: "Affiche Delices de Ndasse", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg38.jpg" },
-            { title: "Logo Mor Faye", year: "2025", tag_fr: "Identité", tag_en: "Identity", img: "dsg39.jpg" },
-            { title: "Affiche DT", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg40.png" },
-            { title: "Diapalema", year: "2025", tag_fr: "Affiche", tag_en: "Poster", img: "dsg41.png" }
-        ];
-
-        const articlesData = [
-            {
-                title_fr: "L'impact de l'ingénierie dans le design graphique", title_en: "The Impact of Engineering in Graphic Design",
-                tag_fr: "Réflexion - Opinion - Design System - Pensée Modulaire", tag_en: "Design System & Thoughts",
-                img: "https://placehold.co/800x450/1B1B1F/3B82F6?text=Image+Article+1",
-                content_fr: `<p>La conception graphique a longtemps été considérée comme une discipline purement artistique...</p>`,
-                content_en: `<p>Graphic design has long been considered a purely artistic discipline...</p>`
-            },
-            {
-                title_fr: "Développer des plateformes éducatives (Ex: Jang Biochimie)", title_en: "Building Educational Platforms (Ex: Jang Biochimie)",
-                tag_fr: "Développement & EdTech", tag_en: "Development & EdTech",
-                img: "https://placehold.co/800x450/1B1B1F/3B82F6?text=Image+Article+2",
-                content_fr: `<p>La création de la plateforme <strong>Jang Biochimie</strong> a été un défi passionnant...</p>`,
-                content_en: `<p>Creating the <strong>Jang Biochimie</strong> platform was an exciting challenge...</p>`
-            }
+            { title: "Logo Dahira Touba Medecine", year: "2026", tag_fr: "Identité", tag_en: "Identity", img: "dsg23.png" },
+            { title: "Logo UFR 2S v1", year: "2026", tag_fr: "Identité", tag_en: "Identity", img: "dsg26.jpg" },
+            { title: "Logo UFR 2S v2", year: "2026", tag_fr: "Identité", tag_en: "Identity", img: "dsg27.jpg" },
+            { title: "Couverture Medicale Niari Rakka", year: "2026", tag_fr: "Affiche", tag_en: "Poster", img: "dsg28.jpg" },
+            { title: "Journee Khassida Touba", year: "2026", tag_fr: "Affiche", tag_en: "Poster", img: "dsg29.jpg" },
+            { title: "Carte Barkeelou 2", year: "2026", tag_fr: "Print", tag_en: "Print", img: "dsg30.png" },
+            { title: "Chronogramme JK TAM", year: "2026", tag_fr: "Affiche", tag_en: "Poster", img: "dsg31.jpg" },
+            { title: "Journee Khassida TAM", year: "2026", tag_fr: "Affiche", tag_en: "Poster", img: "dsg32.jpg" },
+            { title: "Badge JK TAM", year: "2026", tag_fr: "Print", tag_en: "Print", img: "dsg33.jpg" },
+            { title: "Affiche Gamou 2026", year: "2026", tag_fr: "Affiche", tag_en: "Poster", img: "dsg34.jpg" },
+            { title: "Bache JK TAM", year: "2026", tag_fr: "Print grand format", tag_en: "Large Print", img: "dsg35.jpg" },
+            { title: "Logo Delices de Ndasse", year: "2024", tag_fr: "Identité", tag_en: "Identity", img: "dsg37.jpg" },
+            { title: "Affiche Delices de Ndasse", year: "2024", tag_fr: "Affiche", tag_en: "Poster", img: "dsg38.jpg" },
+            { title: "Logo Mor Faye", year: "2024", tag_fr: "Identité", tag_en: "Identity", img: "dsg39.jpg" },
+            { title: "Affiche DT", year: "2024", tag_fr: "Affiche", tag_en: "Poster", img: "dsg40.png" },
+            { title: "Diapalema", year: "2024", tag_fr: "Affiche", tag_en: "Poster", img: "dsg41.jpg" },
+            { title: "96H Consultation ABSAD", year: "2026", tag_fr: "Affiche", tag_en: "Poster", img: "dsg41.png" },
+            { title: "Thomas Sankara - Hommage", year: "2026", tag_fr: "Affiche", tag_en: "Poster", img: "dsg42.png" }
         ];
 
         let currentLang = 'fr';
         let currentModalData = projectsData;
         let currentGalleryIndex = 0;
         let isGalleryOpen = false;
-        let currentArticleIndex = 0;
         let isCvOpen = false;
 
-        // -- LIGHTBOX / MODALS LOGIC --
         function updateGalleryLightbox() {
             const item = currentModalData[currentGalleryIndex];
             if (!item) return;
@@ -1163,20 +1128,21 @@
                             </div>
                         </div>
                         <div class="flex-1 overflow-auto bg-[var(--panel-2)] relative flex justify-center">
-                            <div class="absolute inset-0 shimmer-bg" id="skel-lb-web"></div>
+                            <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-lb-web"></div>
                             <img src="${item.img}" alt="${item.title}" loading="lazy" onload="document.getElementById('skel-lb-web').style.display='none'; this.classList.remove('opacity-0');" class="w-full h-auto object-cover object-top transition-opacity duration-700 opacity-0 relative z-10">
                         </div>
                         ${item.siteUrl ? `
                         <div class="absolute bottom-6 right-6 z-20">
-                            <a href="${item.siteUrl}" target="_blank" rel="noopener noreferrer" class="cursor-hover magnetic px-5 py-2.5 bg-accent text-white font-display text-sm font-semibold rounded-lg flex items-center gap-2 transform hover:scale-105 transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)] border border-blue-400/30">
+                            <a href="${item.siteUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-accent text-white font-sans text-sm font-semibold rounded-lg flex items-center gap-2 transform hover:scale-105 transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                                 <i class="fa-solid fa-external-link-alt"></i> <span>Visiter le site</span>
                             </a>
                         </div>` : ''}
                     </div>`;
             } else {
                 container.innerHTML = `
-                    <div class="absolute inset-0 shimmer-bg rounded-xl" id="skel-lb-img"></div>
-                    <img id="lightboxImg" src="${item.img}" alt="${item.title}" loading="lazy" onload="document.getElementById('skel-lb-img').style.display='none'; this.classList.remove('opacity-0');" class="max-w-full max-h-full object-contain rounded-xl border border-[var(--border)] shadow-2xl transition-all duration-700 opacity-0 relative z-10">`;
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse rounded-xl" id="skel-lb-img"></div>
+                    <img id="lightboxImg" src="${item.img}" alt="${item.title}" loading="lazy" onload="document.getElementById('skel-lb-img').style.display='none'; this.classList.remove('opacity-0');" class="max-w-full max-h-full object-contain rounded-xl border border-[var(--border)] shadow-2xl transition-opacity duration-700 opacity-0 relative z-10">
+                `;
             }
 
             document.getElementById('lightboxTitle').textContent = `${item.title} (${item.year})`;
@@ -1185,112 +1151,53 @@
             document.getElementById('lightboxCounter').textContent = `${currentGalleryIndex + 1} / ${currentModalData.length}`;
         }
 
-        function openProjectModal(projectIndex) {
-            currentModalData = projectsData;
-            currentGalleryIndex = projectIndex;
-            isGalleryOpen = true;
-            updateGalleryLightbox();
-            document.getElementById('galleryModal').classList.remove('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeGalleryLightbox() {
-            isGalleryOpen = false;
-            document.getElementById('galleryModal').classList.add('opacity-0', 'pointer-events-none');
-            if (document.getElementById('designGridModal').classList.contains('opacity-0')) {
-                document.body.style.overflow = '';
-            }
-        }
-
+        function openProjectModal(projectIndex) { currentModalData = projectsData; currentGalleryIndex = projectIndex; isGalleryOpen = true; updateGalleryLightbox(); document.getElementById('galleryModal').classList.remove('opacity-0', 'pointer-events-none'); document.body.style.overflow = 'hidden'; }
+        function closeGalleryLightbox() { isGalleryOpen = false; document.getElementById('galleryModal').classList.add('opacity-0', 'pointer-events-none'); if (document.getElementById('designGridModal').classList.contains('opacity-0')) { document.body.style.overflow = ''; } }
         function prevGalleryImage() { currentGalleryIndex = (currentGalleryIndex - 1 + currentModalData.length) % currentModalData.length; updateGalleryLightbox(); }
         function nextGalleryImage() { currentGalleryIndex = (currentGalleryIndex + 1) % currentModalData.length; updateGalleryLightbox(); }
 
         function renderDesignGrid() {
             const container = document.getElementById('designGridContainer');
             container.innerHTML = galleryData.map((item, index) => `
-                <div class="cursor-hover group relative overflow-hidden rounded-[16px] aspect-[4/5] bg-[var(--panel-2)] border border-[var(--border)] shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1" onclick="openGalleryLightbox(${index})">
-                    <div class="absolute inset-0 shimmer-bg" id="skel-grid-${index}"></div>
+                <div class="group cursor-pointer relative overflow-hidden rounded-[16px] aspect-[4/5] bg-[var(--panel-2)] border border-[var(--border)] shadow-md transition-colors duration-300" onclick="openGalleryLightbox(${index})">
+                    <div class="absolute inset-0 bg-[var(--surface)] animate-pulse" id="skel-grid-${index}"></div>
                     <img src="${item.img}" alt="${item.title}" loading="lazy" onload="document.getElementById('skel-grid-${index}').style.display='none'; this.classList.remove('opacity-0');" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-0 relative z-10">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-end pb-6 text-center z-20 pointer-events-none">
-                        <div class="w-12 h-12 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 backdrop-blur-md"><i class="fa-solid fa-expand text-lg"></i></div>
-                        <span class="text-white font-display font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">${item.title}</span>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center z-20 pointer-events-none">
+                        <div class="w-12 h-12 rounded-full border border-white/20 bg-white/20 flex items-center justify-center text-white mb-3 backdrop-blur-sm transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"><i class="fa-solid fa-expand text-lg"></i></div>
                     </div>
                 </div>
             `).join('');
         }
 
-        function openDesignGridModal() {
-            renderDesignGrid();
-            document.getElementById('designGridModal').classList.remove('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'hidden';
-        }
+        function openDesignGridModal() { renderDesignGrid(); document.getElementById('designGridModal').classList.remove('opacity-0', 'pointer-events-none'); document.body.style.overflow = 'hidden'; }
+        function closeDesignGridModal() { document.getElementById('designGridModal').classList.add('opacity-0', 'pointer-events-none'); document.body.style.overflow = ''; }
+        function openGalleryLightbox(index) { currentModalData = galleryData; currentGalleryIndex = index; isGalleryOpen = true; updateGalleryLightbox(); document.getElementById('galleryModal').classList.remove('opacity-0', 'pointer-events-none'); document.body.style.overflow = 'hidden'; }
+        function openCvModal() { isCvOpen = true; document.getElementById('cvModal').classList.remove('opacity-0', 'pointer-events-none'); document.body.style.overflow = 'hidden'; }
+        function closeCvModal() { isCvOpen = false; document.getElementById('cvModal').classList.add('opacity-0', 'pointer-events-none'); if (!isGalleryOpen && document.getElementById('designGridModal').classList.contains('opacity-0')) { document.body.style.overflow = ''; } }
 
-        function closeDesignGridModal() {
-            document.getElementById('designGridModal').classList.add('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = '';
-        }
-
-        function openGalleryLightbox(index) {
-            currentModalData = galleryData;
-            currentGalleryIndex = index;
-            isGalleryOpen = true;
-            updateGalleryLightbox();
-            document.getElementById('galleryModal').classList.remove('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // -- CV MODAL LOGIC --
-        function openCvModal() {
-            isCvOpen = true;
-            document.getElementById('cvModal').classList.remove('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCvModal() {
-            isCvOpen = false;
-            document.getElementById('cvModal').classList.add('opacity-0', 'pointer-events-none');
-            if (!isGalleryOpen && document.getElementById('designGridModal').classList.contains('opacity-0')) {
-                document.body.style.overflow = '';
-            }
-        }
-
-        // UI HELPERS
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                if (isGalleryOpen) closeGalleryLightbox();
-                else if (isCvOpen) closeCvModal();
-                else if (!document.getElementById('designGridModal').classList.contains('opacity-0')) closeDesignGridModal();
+                if (isGalleryOpen) closeGalleryLightbox(); else if (isCvOpen) closeCvModal(); else if (!document.getElementById('designGridModal').classList.contains('opacity-0')) closeDesignGridModal();
             }
-            if (isGalleryOpen) {
-                if (e.key === 'ArrowLeft') prevGalleryImage();
-                if (e.key === 'ArrowRight') nextGalleryImage();
-            }
+            if (isGalleryOpen) { if (e.key === 'ArrowLeft') prevGalleryImage(); if (e.key === 'ArrowRight') nextGalleryImage(); }
         });
 
         function setLang(lang) {
             currentLang = lang;
-            const btnEn = document.getElementById('langBtnEn');
-            const btnFr = document.getElementById('langBtnFr');
+            const btnEn = document.getElementById('langBtnEn'), btnFr = document.getElementById('langBtnFr');
             if (lang === 'en') {
-                btnEn.className = "cursor-hover px-2.5 py-1.5 transition-colors bg-[var(--accent-dim)] text-accent font-bold border-r border-[var(--border)]";
-                btnFr.className = "cursor-hover px-2.5 py-1.5 transition-colors text-mute hover:bg-[var(--accent-dim)] hover:text-accent";
+                btnEn.className = "px-2.5 py-1.5 transition-colors bg-[var(--accent-dim)] text-accent font-bold border-r border-[var(--border)]"; btnFr.className = "px-2.5 py-1.5 transition-colors text-mute hover:bg-[var(--accent-dim)] hover:text-accent";
             } else {
-                btnFr.className = "cursor-hover px-2.5 py-1.5 transition-colors bg-[var(--accent-dim)] text-accent font-bold";
-                btnEn.className = "cursor-hover px-2.5 py-1.5 transition-colors text-mute border-r border-[var(--border)] hover:bg-[var(--accent-dim)] hover:text-accent";
+                btnFr.className = "px-2.5 py-1.5 transition-colors bg-[var(--accent-dim)] text-accent font-bold"; btnEn.className = "px-2.5 py-1.5 transition-colors text-mute border-r border-[var(--border)] hover:bg-[var(--accent-dim)] hover:text-accent";
             }
             document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18n[lang] && i18n[lang][key]) {
-                    el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' ? el.placeholder = i18n[lang][key] : el.innerHTML = i18n[lang][key];
-                }
+                const key = el.getAttribute('data-i18n'); if (i18n[lang] && i18n[lang][key]) { el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' ? el.placeholder = i18n[lang][key] : el.innerHTML = i18n[lang][key]; }
             });
             if (isGalleryOpen) updateGalleryLightbox();
         }
 
         const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('active'); obs.unobserve(entry.target); }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); obs.unobserve(entry.target); } });
         }, { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
@@ -1302,33 +1209,16 @@
 
         function filterProjects(category, event) {
             document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-accent', 'text-white', 'border-accent', 'shadow-lg', 'shadow-blue-500/20');
+                btn.classList.remove('active', 'bg-accent', 'text-white', 'border-accent', 'shadow-md', 'shadow-blue-500/20');
                 btn.classList.add('border-[var(--border)]', 'bg-[var(--surface)]', 'text-mute');
             });
             const clickedBtn = event.currentTarget;
             clickedBtn.classList.remove('border-[var(--border)]', 'bg-[var(--surface)]', 'text-mute');
-            clickedBtn.classList.add('active', 'bg-accent', 'text-white', 'border-accent', 'shadow-lg', 'shadow-blue-500/20');
+            clickedBtn.classList.add('active', 'bg-accent', 'text-white', 'border-accent', 'shadow-md', 'shadow-blue-500/20');
             document.querySelectorAll('.project-card').forEach(item => {
                 item.style.display = (category === 'all' || item.getAttribute('data-category') === category) ? 'block' : 'none';
             });
         }
-
-        function setCardLayout(layout) {
-            const btnC = document.getElementById('layoutBtnContainer'), btnI = document.getElementById('layoutBtnImmersive');
-            if (layout === 'container') {
-                btnC.className = "cursor-hover px-4 py-2 rounded-full bg-accent text-white font-bold transition-all shadow-md";
-                btnI.className = "cursor-hover px-4 py-2 rounded-full text-mute hover:text-[var(--text)] transition-all";
-                document.querySelectorAll('.project-card').forEach(c => c.className = "project-card mango-card-container group cursor-pointer reveal active transition-colors duration-300");
-            } else {
-                btnI.className = "cursor-hover px-4 py-2 rounded-full bg-accent text-white font-bold transition-all shadow-md";
-                btnC.className = "cursor-hover px-4 py-2 rounded-full text-mute hover:text-[var(--text)] transition-all";
-                document.querySelectorAll('.project-card').forEach(c => c.className = "project-card mango-card-immersive group cursor-pointer reveal active bg-[var(--panel)] p-4 transition-colors duration-300");
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            setLang('fr');
-        });
     </script>
 </body>
 
