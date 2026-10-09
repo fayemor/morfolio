@@ -1,26 +1,238 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
 
+/* Styles d'origine du portfolio.
+   Placés avant les utilitaires Tailwind, comme dans la version HTML (où le CDN
+   injectait ses classes après la balise <style>) : les classes utilitaires
+   gardent la priorité sur ces règles. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+    --photo-filter: none;
+    /* Thème clair (par défaut) */
+    --bg: #FFFFFF;
+    --bg-rgb: 255, 255, 255;
+    --panel: #FFFFFF;
+    --panel-rgb: 255, 255, 255;
+    --panel-2: #FFF6EE;
+    --panel-2-rgb: 255, 246, 238;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+    --border: rgba(17, 17, 17, 0.09);
+    --border-strong: rgba(17, 17, 17, 0.2);
+    --surface: rgba(17, 17, 17, 0.04);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    --text: #111111;
+    --text-mute: #5C5C66;
+    --text-faint: #9A9AA3;
+
+    /* Accent orange */
+    --accent: #F26B1D;
+    --accent-2: #D95A0F;
+    --accent-dim: rgba(242, 107, 29, 0.10);
+
+    /* Portrait aquarelle (change avec le thème) */
+    }
+
+html.dark {
+    --photo-filter: invert(1) brightness(0.96) drop-shadow(0 0 18px rgba(255, 122, 47, 0.18));
+    /* Thème sombre */
+    --bg: #0E0E10;
+    --bg-rgb: 14, 14, 16;
+    --panel: #17171A;
+    --panel-rgb: 23, 23, 26;
+    --panel-2: #1F1B18;
+    --panel-2-rgb: 31, 27, 24;
+
+    --border: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --surface: rgba(255, 255, 255, 0.05);
+
+    --text: #F4F2EE;
+    --text-mute: #A3A3AD;
+    --text-faint: #60606A;
+
+    --accent: #FF7A2F;
+    --accent-2: #FF9355;
+    --accent-dim: rgba(255, 122, 47, 0.14);
+    }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.font-mono {
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-display {
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Standard Panels */
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.panel-2 {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+.text-mute {
+    color: var(--text-mute);
+}
+
+.bg-accent {
+    background-color: var(--accent);
+}
+
+.border-accent,
+.hover\:border-accent:hover,
+.group:hover .group-hover\:border-accent {
+    border-color: var(--accent);
+}
+
+.tag {
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid var(--border-strong);
+    border-radius: 9999px;
+    color: var(--text-mute);
+    background: var(--surface);
+}
+
+/* Reveal animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .5s ease, transform .5s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.boot {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: bootIn .6s cubic-bezier(.16, 1, .3, 1) forwards;
+}
+
+.boot-1 {
+    animation-delay: .05s;
+}
+
+.boot-2 {
+    animation-delay: .15s;
+}
+
+.boot-3 {
+    animation-delay: .25s;
+}
+
+.boot-4 {
+    animation-delay: .35s;
+}
+
+.boot-5 {
+    animation-delay: .45s;
+}
+
+@keyframes bootIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Article Modal Content */
+#articleModalContent p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+#articleModalContent ul,
+#articleModalContent ol {
+    margin-bottom: 1.5rem;
+    margin-left: 1.5rem;
+    list-style-type: disc;
+    line-height: 1.8;
+}
+
+#articleModalContent li {
+    margin-bottom: 0.5rem;
+}
+
+#articleModalContent strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+#articleModalContent h3 {
+    color: var(--text);
+    font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#articleModalContent em {
+    color: var(--text);
+    font-style: italic;
+}
+
+section[id],
+footer[id] {
+    scroll-margin-top: 5.5rem;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+@tailwind utilities;
+
+/* Accessibilité : respecte la préférence « réduire les animations » */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .boot,
+    .reveal {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        transition: none;
+    }
+
+    .animate-ping {
+        animation: none;
+    }
 }
